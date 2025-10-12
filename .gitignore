@@ -43,3 +43,5 @@ venv/
 简历/个人作品.txt
 简历/反问环节
 
+# 参考项目
+notes/vllm/code/vllm_source/vllm

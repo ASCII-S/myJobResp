@@ -122,13 +122,23 @@
       markdown: {
         smartypants: true,
         renderer: {
-          // 自定义链接渲染，处理.md后缀
+          // 自定义链接渲染，处理.md后缀和相对路径
           link: function(href, title, text) {
             // 如果是相对路径的.md文件链接，自动处理
             if (href && !href.startsWith('http') && !href.startsWith('#')) {
-              // 保持原有的相对路径结构
-              return '<a href="#/' + href.replace(/\.md$/, '') + '" title="' + (title || text) + '">' + text + '</a>';
+              // 移除 .md 后缀
+              let cleanHref = href.replace(/\.md$/, '');
+              // 处理 ../ 相对路径，转换为从根目录开始的路径
+              if (cleanHref.startsWith('../')) {
+                cleanHref = cleanHref.replace(/^\.\.\//, '');
+              }
+              // 移除开头的 ./ 
+              if (cleanHref.startsWith('./')) {
+                cleanHref = cleanHref.replace(/^\.\//, '');
+              }
+              return '<a href="#/' + cleanHref + '" title="' + (title || text) + '">' + text + '</a>';
             }
+            // 外部链接在新窗口打开
             return '<a href="' + href + '" title="' + (title || text) + '"' + 
                    (href.startsWith('http') ? ' target="_blank"' : '') + '>' + text + '</a>';
           }
