@@ -147,15 +147,28 @@
       
       // 插件
       plugins: [
-        // 编辑功能
+        // 处理相对路径链接
         function(hook, vm) {
-          hook.beforeEach(function(html) {
-            // 可以在这里添加一些自定义的处理
-            return html;
+          hook.beforeEach(function(content) {
+            // 处理Markdown中的相对路径链接
+            // 将 ../notes/ 开头的链接转换为 notes/
+            content = content.replace(/\[([^\]]+)\]\(\.\.\/notes\//g, '[$1](notes/');
+            // 移除其他 ../ 
+            content = content.replace(/\[([^\]]+)\]\(\.\.\//g, '[$1](');
+            // 处理 ./ 开头的链接
+            content = content.replace(/\[([^\]]+)\]\(\.\//g, '[$1](');
+            return content;
           });
           
           hook.doneEach(function() {
-            // 页面渲染完成后的回调
+            // 页面渲染完成后，处理已生成的HTML中的链接
+            var links = document.querySelectorAll('a[href^="#/../"]');
+            links.forEach(function(link) {
+              var href = link.getAttribute('href');
+              // 移除 #/../ 中的 ../
+              var newHref = href.replace('#/../', '#/');
+              link.setAttribute('href', newHref);
+            });
           });
         }
       ]
