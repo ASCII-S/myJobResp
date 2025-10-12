@@ -1,0 +1,45 @@
+# 操作系统相关
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器相关
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Obsidian 相关
+.obsidian/
+
+# 临时文件
+*.tmp
+*.bak
+*.cache
+
+# 日志文件
+*.log
+
+# Node modules (如果使用了node工具)
+node_modules/
+
+# Python 相关 (如果有Python脚本)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+
+# 个人隐私文件
+简历/*.pdf
+简历/*.ppt
+简历/*.pptx
+简历/*.zip
+简历/证件/
+简历/证件照.jpg
+简历/成绩单/
+简历/个人作品.txt
+简历/反问环节
+
