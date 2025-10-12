@@ -149,26 +149,29 @@
       plugins: [
         // 处理相对路径链接
         function(hook, vm) {
-          hook.beforeEach(function(content) {
-            // 处理Markdown中的相对路径链接
-            // 将 ../notes/ 开头的链接转换为 notes/
-            content = content.replace(/\[([^\]]+)\]\(\.\.\/notes\//g, '[$1](notes/');
-            // 移除其他 ../ 
-            content = content.replace(/\[([^\]]+)\]\(\.\.\//g, '[$1](');
-            // 处理 ./ 开头的链接
-            content = content.replace(/\[([^\]]+)\]\(\.\//g, '[$1](');
-            return content;
+          // 在Markdown转换为HTML后处理
+          hook.afterEach(function(html, next) {
+            // 处理HTML中的相对路径链接
+            // 将 href="../notes/ 替换为 href="notes/
+            html = html.replace(/href="\.\.\/notes\//g, 'href="notes/');
+            // 移除其他 href="../
+            html = html.replace(/href="\.\.\//g, 'href="');
+            // 处理 href="./ 
+            html = html.replace(/href="\.\//g, 'href="');
+            next(html);
           });
           
+          // DOM渲染完成后再次检查和修复
           hook.doneEach(function() {
-            // 页面渲染完成后，处理已生成的HTML中的链接
-            var links = document.querySelectorAll('a[href^="#/../"]');
-            links.forEach(function(link) {
-              var href = link.getAttribute('href');
-              // 移除 #/../ 中的 ../
-              var newHref = href.replace('#/../', '#/');
-              link.setAttribute('href', newHref);
-            });
+            setTimeout(function() {
+              // 修复可能残留的错误链接
+              var links = document.querySelectorAll('a[href^="#/../"]');
+              links.forEach(function(link) {
+                var href = link.getAttribute('href');
+                var newHref = href.replace(/#\/\.\.\//g, '#/');
+                link.setAttribute('href', newHref);
+              });
+            }, 100);
           });
         }
       ]
