@@ -30,7 +30,7 @@
       loadSidebar: true,
       subMaxLevel: 2,
       homepage: 'README.md',
-      relativePath: true,
+      relativePath: false,
       search: {
         maxAge: 86400000,
         paths: 'auto',
@@ -47,7 +47,17 @@
         buttonText: '复制',
         errorText: '错误',
         successText: '已复制'
-      }
+      },
+      // 自定义插件：修正相对路径解析
+      plugins: [
+        function(hook, vm) {
+          // 在 markdown 渲染之前修正相对路径
+          hook.beforeEach(function(content) {
+            // 将所有 ../notes/ 替换为 /notes/
+            return content.replace(/\(\.\.\/(notes\/[^\)]+)\)/g, '(/$1)');
+          });
+        }
+      ]
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
