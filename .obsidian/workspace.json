@@ -1,0 +1,203 @@
+{
+  "main": {
+    "id": "81731e1d3a263481",
+    "type": "split",
+    "children": [
+      {
+        "id": "c31e48445b87eabf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7a09cbe24bf37eb6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "面试大纲/精通大模型压缩技术.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "精通大模型压缩技术"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "269276f379965aa6",
+    "type": "split",
+    "children": [
+      {
+        "id": "971f4f9b0fba8f42",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2bd9462fd9acbf75",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "3b67fab49d88880d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#include的工作原理",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "c8b53beb53d5a69d",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "d86dc2f5988f378f",
+    "type": "split",
+    "children": [
+      {
+        "id": "b38999a0216619f0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ad13c034113d3065",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "面试大纲/深度学习.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 深度学习"
+            }
+          },
+          {
+            "id": "0367137169dfdd93",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "面试大纲/精通大模型压缩技术.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 精通大模型压缩技术"
+            }
+          },
+          {
+            "id": "c0d8a2697f7eeae7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "6608a93f36f2483e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "面试大纲/精通大模型压缩技术.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 精通大模型压缩技术"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 420.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "2bd9462fd9acbf75",
+  "lastOpenFiles": [
+    "初始化Git仓库.sh",
+    "PROJECT_STRUCTURE.md",
+    "QUICKSTART.md",
+    "preview.sh",
+    "DEPLOY.md",
+    "notes/分布式通信/README.md",
+    "notes/gemm-opt/README.md",
+    "notes/vllm/README.md",
+    "notes/Transformer/README.md",
+    "notes/pytorch/README.md",
+    "notes/cuda/README.md",
+    "notes/C++/README.md",
+    "_sidebar.md",
+    "README.md",
+    "index.html",
+    "notes/精通大模型压缩技术/请阐述大型语言模型在实际部署中面临的主要挑战.md",
+    "面试大纲/精通大模型压缩技术.md",
+    "面试大纲/机器学习.md",
+    "面试大纲/精通C++.md",
+    "notes/C++/C++程序从源代码到可执行文件的完整过程.md",
+    "notes/C++/静态链接和动态链接.md",
+    "面试大纲/深度学习.md",
+    "简历/简历介绍/技能清单.md",
+    "面试大纲/熟悉主流推理框架vllm与sglang.md",
+    "面试大纲/精通推理框架的开发与优化.md",
+    "面试大纲/熟悉GPU架构.md",
+    "面试大纲/熟悉模型的性能优化.md",
+    "面试大纲/熟悉大模型部署.md"
+  ]
+}

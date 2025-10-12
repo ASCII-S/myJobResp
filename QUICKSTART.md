@@ -1,89 +1,118 @@
 # 快速开始指南
 
-## 🎯 目标
+## 🚀 快速部署到GitHub Pages
 
-将你的面试知识库部署到GitHub Pages，实现随时随地通过网页（包括手机）访问。
-
-## ⚡ 快速部署（3步完成）
-
-### 1️⃣ 初始化并提交到本地Git
+### 步骤1: 初始化Git仓库
 
 ```bash
 cd /mnt/d/Document/Obsidian/MIS/2025summer/Jobs
 git init
 git add .
-git commit -m "Initial commit: 面试准备知识库"
+git commit -m "Initial commit: 面试大纲文档"
 ```
 
-### 2️⃣ 在GitHub创建仓库并推送
+### 步骤2: 创建GitHub仓库
+
+1. 访问 [GitHub](https://github.com) 并登录
+2. 点击右上角 `+` → `New repository`
+3. 填写仓库名称，例如：`interview-docs`
+4. 选择 `Public` 或 `Private`
+5. **不要**勾选任何初始化选项
+6. 点击 `Create repository`
+
+### 步骤3: 推送代码
 
 ```bash
-# 1. 访问 https://github.com/new 创建新仓库
-#    - 仓库名：interview-knowledge-base（或你喜欢的名字）
-#    - 可见性：Public（公开）
-#    - 不要勾选任何初始化选项
-
-# 2. 关联并推送（替换成你的用户名和仓库名）
-git remote add origin https://github.com/你的用户名/interview-knowledge-base.git
+# 替换下面的 YOUR_USERNAME 和 REPO_NAME
+git remote add origin https://github.com/YOUR_USERNAME/REPO_NAME.git
 git branch -M main
 git push -u origin main
 ```
 
-### 3️⃣ 启用GitHub Pages
+### 步骤4: 启用GitHub Pages
+
+1. 进入你的GitHub仓库页面
+2. 点击 `Settings` → `Pages`
+3. Source 选择 `main` 分支
+4. 目录选择 `/ (root)`
+5. 点击 `Save`
+
+### 步骤5: 访问你的网站
+
+等待1-3分钟后，访问：
+```
+https://YOUR_USERNAME.github.io/REPO_NAME/
+```
+
+## 📱 本地预览
+
+在部署之前，你可以在本地预览效果：
 
 ```bash
-# 在GitHub仓库页面：
-# Settings → Pages → Source → 选择 "main" 分支 → Save
+# 方法1: 使用提供的脚本
+./preview.sh
+
+# 方法2: 使用Python
+python3 -m http.server 3000
+
+# 方法3: 使用Node.js
+npx http-server -p 3000
 ```
 
-## ✅ 完成！
+然后访问：`http://localhost:3000`
 
-等待3-5分钟后，访问：
-```
-https://你的用户名.github.io/仓库名/
-```
+## 📝 更新文档
 
-## 📱 在手机上使用
+当你修改文档后：
 
-1. **用手机浏览器打开上面的网址**
-2. **添加到主屏幕**（可以像APP一样使用）
-   - iOS: 分享按钮 → 添加到主屏幕
-   - Android: 菜单 → 添加到主屏幕
-
-## 🔄 如何更新内容
-
-修改文档后：
 ```bash
 git add .
 git commit -m "更新内容"
 git push
 ```
 
-GitHub会自动重新部署（约3-5分钟生效）。
+## 📂 项目文件说明
 
-## 📚 更多详细说明
+- `index.html` - Docsify配置，网站入口
+- `_sidebar.md` - 侧边栏导航配置
+- `README.md` - 首页内容
+- `.nojekyll` - 禁用Jekyll处理
+- `.gitignore` - Git忽略文件（排除简历等敏感信息）
+- `面试大纲/` - 所有面试大纲文档
+- `notes/` - 详细笔记（被面试大纲引用）
 
-查看完整的部署指南：[DEPLOY.md](DEPLOY.md)
+## ⚠️ 注意事项
 
-## 🎨 已配置的功能
+1. **隐私保护**：`.gitignore`已配置忽略`简历/`目录，避免个人信息泄露
+2. **公开/私密**：如果仓库是Private，GitHub Pages需要GitHub Pro账号
+3. **链接测试**：部署后测试所有文档链接是否正常工作
+4. **移动端**：在手机上测试显示效果
 
-✅ 响应式设计（自动适配手机、平板、电脑）  
-✅ 全文搜索  
-✅ 侧边栏导航  
-✅ 代码高亮和一键复制  
-✅ 图片点击放大  
-✅ 字数统计和阅读时间  
-✅ 上下篇导航  
-✅ Markdown链接自动跳转  
+## 🔧 自定义配置
 
-## 💡 提示
+### 修改主题颜色
 
-- 所有Markdown文档的相对链接都能正常工作
-- 搜索功能支持中英文
-- 移动端已优化，滑动和点击都很流畅
-- 可以离线添加到主屏幕使用（PWA特性）
+编辑 `index.html`，找到：
+
+```css
+:root {
+  --theme-color: #42b983;  /* 修改这里的颜色 */
+}
+```
+
+### 修改侧边栏
+
+编辑 `_sidebar.md`，添加或删除导航链接
+
+### 修改首页
+
+编辑 `README.md`，自定义首页内容
+
+## 📚 更多信息
+
+详细部署指南请参考：[DEPLOY.md](DEPLOY.md)
 
 ---
 
-**遇到问题？** 查看 [DEPLOY.md](DEPLOY.md) 的常见问题部分
+祝你面试顺利！💪
 

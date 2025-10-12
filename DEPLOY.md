@@ -1,234 +1,181 @@
 # GitHub Pages 部署指南
 
-本文档介绍如何将面试知识库部署到GitHub Pages，使其可以通过网页访问。
+本文档说明如何将此文档库部署到GitHub Pages。
 
-## 📋 前置要求
+## 前置准备
 
 1. 拥有GitHub账号
-2. 已安装Git
-3. 已在本地完成知识库的配置
+2. 本地安装Git
+3. 已完成的文档内容（面试大纲和notes文件夹）
 
-## 🚀 部署步骤
+## 部署步骤
 
-### 步骤1：初始化Git仓库
-
-如果还没有初始化Git仓库，在项目根目录执行：
+### 1. 初始化Git仓库（如果还未初始化）
 
 ```bash
-# 进入项目目录
 cd /mnt/d/Document/Obsidian/MIS/2025summer/Jobs
-
-# 初始化Git仓库
 git init
-
-# 添加所有文件
-git add .
-
-# 提交
-git commit -m "Initial commit: 面试准备知识库"
 ```
 
-### 步骤2：在GitHub上创建仓库
+### 2. 创建.gitignore文件（可选）
 
-1. 登录GitHub
-2. 点击右上角的 `+` 号，选择 `New repository`
-3. 填写仓库信息：
-   - **Repository name**: 例如 `interview-knowledge-base`
-   - **Description**: 面试准备知识库
-   - **Visibility**: 
-     - **Public**: 公开（任何人都可以访问）
-     - **Private**: 私有（只有你和授权的人可以访问，GitHub Pro账号可以为私有仓库启用Pages）
-   - ❌ 不要勾选 "Initialize this repository with a README"
-4. 点击 `Create repository`
-
-### 步骤3：关联远程仓库并推送
+创建`.gitignore`文件，排除不需要上传的文件：
 
 ```bash
-# 关联远程仓库（将下面的URL替换为你自己的仓库地址）
-git remote add origin https://github.com/你的用户名/interview-knowledge-base.git
+# 在项目根目录创建.gitignore
+cat > .gitignore << EOF
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 简历相关（如果不想公开）
+简历/
+
+# 临时文件
+*.tmp
+*.log
+EOF
+```
+
+### 3. 添加文件到Git
+
+```bash
+# 添加所有必要的文件
+git add .nojekyll
+git add index.html
+git add _sidebar.md
+git add README.md
+git add 面试大纲/
+git add notes/
+
+# 提交
+git commit -m "Initial commit: 添加面试大纲文档"
+```
+
+### 4. 在GitHub上创建仓库
+
+1. 登录GitHub
+2. 点击右上角 `+` 号，选择 `New repository`
+3. 仓库名称建议：`interview-preparation` 或 `job-interview-docs`
+4. 选择 `Public`（如果想公开）或 `Private`（如果想保密）
+5. **不要**勾选 `Add a README file`（因为我们已经有了）
+6. 点击 `Create repository`
+
+### 5. 连接远程仓库并推送
+
+```bash
+# 添加远程仓库（替换YOUR_USERNAME和REPO_NAME为你的实际值）
+git remote add origin https://github.com/YOUR_USERNAME/REPO_NAME.git
 
 # 推送到GitHub
 git branch -M main
 git push -u origin main
 ```
 
-### 步骤4：启用GitHub Pages
+### 6. 启用GitHub Pages
 
-1. 在GitHub仓库页面，点击 `Settings`（设置）
-2. 在左侧菜单中找到 `Pages`
-3. 在 `Source` 部分：
-   - **Branch**: 选择 `main`
-   - **Folder**: 选择 `/ (root)`
-4. 点击 `Save`
-5. 等待几分钟，GitHub Pages会自动构建并部署
+1. 进入GitHub仓库页面
+2. 点击 `Settings`（设置）
+3. 在左侧菜单找到 `Pages`
+4. 在 `Source` 下拉菜单中选择 `main` 分支
+5. 目录选择 `/ (root)`
+6. 点击 `Save`
 
-### 步骤5：访问你的知识库
+### 7. 等待部署完成
 
-部署完成后，你的知识库将可以通过以下地址访问：
+- GitHub会自动部署，通常需要1-3分钟
+- 部署完成后，会显示网站地址：`https://YOUR_USERNAME.github.io/REPO_NAME/`
+- 点击链接访问你的文档网站！
 
-```
-https://你的用户名.github.io/仓库名/
-```
+## 更新文档
 
-例如：
-```
-https://username.github.io/interview-knowledge-base/
-```
-
-GitHub会显示实际的访问地址，在Settings > Pages页面可以看到。
-
-## 📱 移动端访问
-
-部署成功后，你可以：
-
-1. **直接在手机浏览器访问上述URL**
-2. **添加到主屏幕**（推荐）：
-   - iOS Safari: 点击分享按钮 → "添加到主屏幕"
-   - Android Chrome: 菜单 → "添加到主屏幕"
-
-## 🔄 更新内容
-
-当你修改了文档内容后，只需要：
+当你修改了文档内容后，执行以下命令更新：
 
 ```bash
-# 查看修改
-git status
-
 # 添加修改的文件
 git add .
 
-# 提交
-git commit -m "更新：描述你的修改"
+# 提交修改
+git commit -m "更新文档内容"
 
 # 推送到GitHub
 git push
 ```
 
-GitHub Pages会自动检测到更改并重新部署（通常需要几分钟）。
+GitHub Pages会自动重新部署，1-3分钟后就能看到更新。
 
-## ⚙️ 高级配置
-
-### 自定义域名（可选）
+## 自定义域名（可选）
 
 如果你有自己的域名：
 
-1. 在Settings > Pages中，找到 `Custom domain`
-2. 输入你的域名（如 `interview.yourdomain.com`）
-3. 在域名服务商处添加CNAME记录，指向 `你的用户名.github.io`
+1. 在仓库根目录创建 `CNAME` 文件
+2. 文件内容写入你的域名，如：`docs.yourdomain.com`
+3. 在你的域名DNS设置中添加CNAME记录指向 `YOUR_USERNAME.github.io`
 
-### 启用HTTPS
+## 故障排除
 
-GitHub Pages默认支持HTTPS，建议勾选 `Enforce HTTPS` 选项。
+### 网站显示404
+- 检查GitHub Pages是否已启用
+- 确认分支和目录选择正确
+- 等待3-5分钟让部署完成
 
-### 修改主题颜色
+### 样式或链接不正常
+- 检查`.nojekyll`文件是否存在
+- 确认所有文件路径使用相对路径
+- 检查文件名是否正确（区分大小写）
 
-编辑 `index.html`，修改这一行：
-
-```javascript
-themeColor: '#42b983',  // 改为你喜欢的颜色
-```
-
-### 添加Google Analytics（可选）
-
-如果想统计访问量，可以在 `index.html` 中添加：
-
-```javascript
-window.$docsify = {
-  // ... 其他配置
-  ga: 'UA-XXXXXXXXX-X',  // 你的GA跟踪ID
-}
-```
-
-然后在plugins部分添加：
-```html
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
-```
-
-## 🔒 隐私保护
-
-`.gitignore` 文件已经配置为忽略简历等个人隐私文件。推送前请确认：
-
-```bash
-# 查看将要推送的文件
-git status
-
-# 如果看到隐私文件，立即添加到.gitignore
-echo "隐私文件路径" >> .gitignore
-git add .gitignore
-git commit -m "更新.gitignore"
-```
-
-## ❓ 常见问题
-
-### Q1: 404 Not Found
-
-**原因**: GitHub Pages还在构建中，或者分支/文件夹选择错误
-
-**解决**: 
-- 等待3-5分钟
-- 检查Settings > Pages中的Source配置
-- 确保仓库根目录有 `index.html` 文件
-
-### Q2: 链接跳转失败
-
-**原因**: Markdown链接路径问题
-
-**解决**: 
-- 确保 `.nojekyll` 文件存在
-- 使用相对路径
-- Docsify会自动处理 `.md` 后缀
-
-### Q3: 样式显示异常
-
-**原因**: CDN加载失败或浏览器缓存
-
-**解决**: 
+### 文档内容不更新
 - 清除浏览器缓存
-- 尝试使用不同的CDN源
-- 检查浏览器控制台的错误信息
+- 等待几分钟让GitHub Pages重新部署
+- 检查git push是否成功
 
-### Q4: 私有仓库能用GitHub Pages吗？
+## 本地预览
 
-**解答**: 
-- 免费账号：只能为公开仓库启用Pages
-- GitHub Pro账号：可以为私有仓库启用Pages
-
-### Q5: 如何禁止搜索引擎收录？
-
-在仓库根目录创建 `robots.txt`：
-
-```
-User-agent: *
-Disallow: /
-```
-
-## 📊 本地预览
-
-推送到GitHub之前，可以在本地预览：
+如果想在本地预览效果：
 
 ```bash
-# 方法1：Python
+# 安装简单的HTTP服务器（如果还没有）
+# Python 3
 python3 -m http.server 3000
 
-# 方法2：Node.js
-npx http-server -p 3000
-
-# 方法3：VS Code Live Server扩展
-# 右键index.html → Open with Live Server
+# 或者使用Node.js的http-server
+# npm install -g http-server
+# http-server -p 3000
 ```
 
-然后访问 `http://localhost:3000`
+然后在浏览器访问：`http://localhost:3000`
 
-## 🎉 完成
+## 项目结构
 
-恭喜！你的面试知识库现在已经可以在任何设备上通过网页访问了！
+```
+Jobs/
+├── .nojekyll              # 告诉GitHub Pages不使用Jekyll
+├── index.html             # Docsify配置和入口
+├── README.md              # 首页内容
+├── _sidebar.md            # 侧边栏导航
+├── DEPLOY.md              # 本部署说明
+├── 面试大纲/               # 面试大纲文档
+│   ├── C++.md
+│   ├── cuda.md
+│   └── ...
+└── notes/                 # 详细笔记（链接目标）
+    ├── C++/
+    ├── cuda/
+    └── ...
+```
 
-记得把访问链接保存到手机浏览器的书签或添加到主屏幕，方便随时查看。
+## 注意事项
+
+1. **不要上传敏感信息**：简历、证件等个人信息建议不要上传到公开仓库
+2. **文件名规范**：避免使用中文文件名在URL中可能出现编码问题
+3. **链接相对路径**：确保文档间的链接使用相对路径
+4. **移动端测试**：部署后在手机上测试显示效果
+
+## 许可证
+
+如果是公开仓库，建议添加LICENSE文件说明使用许可。
 
 ---
 
-**需要帮助？** 
-
-- Docsify文档: https://docsify.js.org
-- GitHub Pages文档: https://docs.github.com/pages
+祝部署顺利！🎉
 
