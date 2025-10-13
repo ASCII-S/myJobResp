@@ -90,6 +90,7 @@
    - 构造函数初始化列表的作用和必要性
    - 析构函数的调用时机和虚析构函数的重要性
    - [explicit关键字](../notes/C++/explicit关键字.md)
+   - [析构函数可以抛出异常么](../notes/C++/析构函数可以抛出异常么.md)
 
 2. **拷贝控制**
    - 什么是"三五法则"？为什么重要？
@@ -100,6 +101,7 @@
    - `public`、`private`、`protected`的访问规则
    - `friend`关键字的使用场景和设计考量
    - 类的封装性如何体现？
+   - [.和->的区别](../notes/C++/._和->的区别.md)
 
 ### 2.2 继承和多态
 **考核要点：**
@@ -142,6 +144,7 @@
 1. **内存区域**
    - [栈、堆、全局区、常量区的特点和用途](../notes/C++/栈、堆、全局区、常量区的特点和用途.md)
    - [栈溢出和堆溢出的原因和预防](../notes/C++/栈溢出和堆溢出的原因和预防.md)
+   - [指针和引用的区别](../notes/C++/指针和引用的区别.md)
    - 内存对齐的原理和影响
 
 2. **动态内存管理**
@@ -164,12 +167,16 @@
 **核心问题：**
 1. **RAII原则**
    - RAII的核心思想和优势
-   - 如何用RAII管理各种资源（内存、文件、锁等）
+   - [如何用RAII管理各种资源（内存、文件、锁等）](../notes/C++/如何用RAII管理各种资源（内存、文件、锁等）.md)
    - 异常安全性的三个级别
 
 2. **智能指针详解**
    - [`unique_ptr`、`shared_ptr`、`weak_ptr`的使用场景](../notes/C++/unique_ptr、shared_ptr、weak_ptr的使用场景.md)
+   - [`unique_ptr`](../notes/C++/unique_ptr.md)
+   - [`shared_ptr`和`weak_ptr`](../notes/C++/shared_ptr和weak_ptr.md)
+   - [设计一个简单的shared_ptr](../notes/C++/设计一个简单的shared_ptr.md)
    - [循环引用问题及解决方案](../notes/C++/循环引用问题及解决方案.md)
+   - [删除器是什么](../notes/C++/删除器是什么.md)
    - 自定义删除器的使用
 
 ---
@@ -189,7 +196,7 @@
    - [容器的内存管理和扩容策略](../notes/C++/容器的内存管理和扩容策略.md)
 
 2. **迭代器系统**
-   - 五种迭代器类型的特点和使用
+   - [五种迭代器类型的特点和使用](../notes/C++/五种迭代器类型的特点和使用.md)
    - [迭代器失效的原因和预防](../notes/C++/迭代器失效的原因和预防.md)
    - 自定义迭代器的实现要点
 
@@ -257,7 +264,8 @@
    - [`std::condition_variable`的使用模式](../notes/C++/condition_variable的使用模式.md)
    - 为什么条件变量需要配合互斥锁使用？
    - 虚假唤醒问题及其解决方案
-   - 生产者-消费者模式的实现
+   - [生产者-消费者模式的实现](../notes/C++/生产者-消费者模式的实现.md)
+   - [实现两个线程交替打印0-1000](../notes/C++/实现两个线程交替打印0-1000.md)
 
 2. **原子操作**
    - [`std::atomic`的基本使用](../notes/C++/atomic的基本使用.md)
@@ -341,9 +349,9 @@
    - 如何处理Socket编程中的错误？
 
 2. **TCP vs UDP**
-   - TCP和UDP的区别和适用场景
+   - [TCP和UDP的区别和适用场景](../notes/C++/TCP和UDP的区别和适用场景.md)
    - TCP的三次握手和四次挥手过程
-   - TCP的流控制和拥塞控制机制
+   - [TCP的流控制和拥塞控制机制](../notes/C++/TCP的流控制和拥塞控制机制.md)
    - UDP如何实现可靠传输？
    - 半关闭连接的概念和应用
 
@@ -361,16 +369,16 @@
 
 **核心问题：**
 1. **I/O模型对比**
-   - 阻塞I/O、非阻塞I/O、I/O多路复用、异步I/O的区别
+   - [阻塞I/O、非阻塞I/O、I/O多路复用、异步I/O的区别](../notes/C++/阻塞I/O、非阻塞I/O、I/O多路复用、异步I/O的区别.md)
    - 各种I/O模型的性能特点和适用场景
    - 同步I/O与异步I/O的本质区别
    - 为什么需要非阻塞I/O？
 
 2. **I/O多路复用**
-   - `select()`、`poll()`、`epoll()`的工作原理和区别
+   - [`select()`、`poll()`、`epoll()`的工作原理和区别](../notes/C++/select()、poll()、epoll()的工作原理和区别.md)
    - `epoll`的ET（边缘触发）和LT（水平触发）模式
    - 如何处理`epoll`中的事件？
-   - `epoll`为什么比`select`和`poll`性能更好？
+   - [`epoll`为什么比`select`和`poll`性能更好？](../notes/C++/epoll为什么比select和poll性能更好？.md)
    - 跨平台I/O多路复用的解决方案
 
 3. **异步I/O编程**
@@ -378,87 +386,6 @@
    - `io_uring`的基本概念和优势
    - 异步I/O的回调处理模式
    - 如何设计异步网络库的架构？
-
-### 6.3 网络编程实践
-**考核要点：**
-- 客户端-服务器模型
-- 网络协议设计
-- 性能优化技巧
-
-**核心问题：**
-1. **服务器架构模式**
-   - 多进程、多线程、事件驱动的服务器模型对比
-   - Reactor和Proactor模式的区别
-   - 连接池和线程池在网络编程中的应用
-   - 如何设计一个高并发的服务器？
-   - 如何处理C10K问题？
-
-2. **协议设计**
-   - 应用层协议的设计原则
-   - 如何解决TCP粘包问题？
-   - 消息边界的确定方法（定长、分隔符、长度前缀）
-   - 心跳机制的设计和实现
-   - 如何设计一个简单的RPC协议？
-
-3. **错误处理和异常情况**
-   - 网络异常的常见类型和处理方法
-   - 如何检测连接断开？
-   - 超时处理的实现策略
-   - 重连机制的设计考虑
-   - 如何处理网络拥塞和丢包？
-
-### 6.4 现代C++网络编程
-**考核要点：**
-- ASIO库的使用
-- 协程在网络编程中的应用
-- 现代网络库设计
-
-**核心问题：**
-1. **ASIO库使用**
-   - `boost::asio`或`standalone asio`的基本使用
-   - 异步操作的回调和错误处理
-   - `io_context`的作用和线程模型
-   - 如何使用ASIO实现TCP客户端和服务器？
-   - ASIO的定时器和信号处理
-
-2. **协程网络编程**
-   - C++20协程在网络编程中的优势
-   - 如何用协程简化异步网络代码？
-   - 协程与传统回调模式的对比
-   - 协程中的异常处理和取消机制
-
-3. **网络库设计**
-   - 现代网络库的设计原则
-   - 线程安全的网络库设计考虑
-   - 内存管理和对象池在网络编程中的应用
-   - 如何设计可扩展的网络框架？
-
-### 6.5 网络编程调试和优化
-**考核要点：**
-- 网络调试工具
-- 性能分析和优化
-- 安全考虑
-
-**核心问题：**
-1. **调试工具和方法**
-   - `tcpdump`、`wireshark`等网络抓包工具的使用
-   - `netstat`、`ss`、`lsof`等系统工具的使用
-   - 如何调试网络连接问题？
-   - 网络编程中的日志记录策略
-
-2. **性能优化**
-   - 网络编程中的性能瓶颈分析
-   - 零拷贝技术（`sendfile`、`splice`）的应用
-   - 缓冲区大小的调优
-   - 如何减少系统调用的开销？
-   - 网络编程中的内存池使用
-
-3. **安全考虑**
-   - 缓冲区溢出在网络编程中的防护
-   - 如何防止DoS攻击？
-   - SSL/TLS编程基础
-   - 输入验证和数据净化
-   - 网络编程中的常见安全漏洞
 
 ---
 
@@ -473,10 +400,11 @@
 **核心问题：**
 1. **移动语义**
    - [左值和右值的区别](../notes/C++/左值和右值的区别.md)
+   - [右值引用](../notes/C++/右值引用.md)
    - [右值引用与移动语义](../notes/C++/右值引用与移动语义.md)
    - 移动构造函数的实现和使用
-   - [移动语义和std::move的区别](../notes/C++/移动语义和std::move的区别.md)
-   - 完美转发的原理和应用
+   - [移动语义和std::move](../notes/C++/移动语义和std::move.md)
+   - [完美转发的原理和应用](../notes/C++/完美转发的原理和应用.md)
 
 2. **类型推导**
    - [`auto`关键字的使用场景和限制](../notes/C++/auto关键字的使用场景和限制.md)
@@ -533,200 +461,6 @@
    - 单例模式的线程安全实现
    - [工厂模式和抽象工厂模式](../notes/C++/工厂模式和抽象工厂模式.md)
    - 观察者模式的C++实现
-
----
-
-## 第九部分：实际编程考核（10-15分钟）
-
-### 9.1 代码实现题
-**选择其中2-3题进行考核：**
-
-1. **智能指针实现**
-   ```cpp
-   // 实现一个简单的unique_ptr
-   template<typename T>
-   class my_unique_ptr {
-       // 要求实现构造、析构、移动语义、reset、release等
-   };
-   ```
-
-2. **线程安全的单例模式**
-   ```cpp
-   // 实现一个线程安全的单例类
-   class Singleton {
-       // 要求考虑双检锁、内存序等问题
-   };
-   ```
-
-3. **简单的String类**
-   ```cpp
-   // 实现一个基本的字符串类
-   class MyString {
-       // 要求实现构造、拷贝、移动、赋值等操作
-   };
-   ```
-
-4. **线程安全的计数器**
-   ```cpp
-   // 实现一个线程安全的计数器
-   class SafeCounter {
-   public:
-       void increment();
-       void decrement();
-       int get() const;
-       // 要求考虑原子操作、内存序等问题
-   };
-   ```
-
-5. **生产者-消费者队列**
-   ```cpp
-   // 实现一个线程安全的有界队列
-   template<typename T>
-   class BoundedQueue {
-   public:
-       BoundedQueue(size_t capacity);
-       void push(const T& item);
-       T pop();
-       // 要求使用条件变量实现阻塞式操作
-   };
-   ```
-
-6. **简单的TCP服务器**
-   ```cpp
-   // 实现一个基于epoll的简单TCP Echo服务器
-   class TcpServer {
-   public:
-       TcpServer(int port);
-       void start();
-       void stop();
-   private:
-       void handleNewConnection();
-       void handleClientData(int client_fd);
-       // 要求使用epoll实现非阻塞I/O
-   };
-   ```
-
-7. **网络缓冲区类**
-   ```cpp
-   // 实现一个网络I/O缓冲区
-   class Buffer {
-   public:
-       Buffer(size_t initial_size = 1024);
-       void append(const char* data, size_t len);
-       void append(const std::string& str);
-       void retrieve(size_t len);
-       const char* peek() const;
-       size_t readableBytes() const;
-       size_t writableBytes() const;
-       // 要求考虑扩容、数据移动等性能问题
-   };
-   ```
-
-### 9.2 代码分析题
-**分析以下代码的问题并给出改进方案：**
-
-1. **内存管理问题**
-   ```cpp
-   class ResourceManager {
-   public:
-       ResourceManager() : ptr(new int[100]) {}
-       ~ResourceManager() { delete ptr; }  // 问题在哪里？
-   private:
-       int* ptr;
-   };
-   ```
-
-2. **多态使用问题**
-   ```cpp
-   class Base {
-   public:
-       void process() { /* ... */ }  // 缺少什么？
-   };
-   
-   void func(Base base) {  // 参数传递有什么问题？
-       base.process();
-   }
-   ```
-
-3. **并发编程问题**
-   ```cpp
-   class DataProcessor {
-   private:
-       std::vector<int> data;
-       std::mutex mtx;
-   public:
-       void addData(int value) {
-           std::lock_guard<std::mutex> lock(mtx);
-           data.push_back(value);
-       }
-       
-       std::vector<int> getData() {  // 这里有什么问题？
-           return data;
-       }
-   };
-   ```
-
-4. **死锁风险代码**
-   ```cpp
-   class Account {
-   private:
-       std::mutex mtx;
-       int balance;
-   public:
-       void transfer(Account& to, int amount) {
-           std::lock_guard<std::mutex> lock1(mtx);
-           std::lock_guard<std::mutex> lock2(to.mtx);  // 潜在死锁
-           balance -= amount;
-           to.balance += amount;
-       }
-   };
-   ```
-
-5. **网络编程错误处理**
-   ```cpp
-   void handleClient(int client_fd) {
-       char buffer[1024];
-       while (true) {
-           int n = recv(client_fd, buffer, sizeof(buffer), 0);
-           if (n > 0) {
-               send(client_fd, buffer, n, 0);  // 这里有什么问题？
-           } else if (n == 0) {
-               break;  // 客户端关闭连接
-           }
-           // 缺少什么处理？
-       }
-       close(client_fd);
-   }
-   ```
-
-6. **epoll使用问题**
-   ```cpp
-   void epollServer() {
-       int epfd = epoll_create1(0);
-       int listen_fd = socket(AF_INET, SOCK_STREAM, 0);
-       // ... 绑定和监听代码 ...
-       
-       struct epoll_event ev, events[MAX_EVENTS];
-       ev.events = EPOLLIN;
-       ev.data.fd = listen_fd;
-       epoll_ctl(epfd, EPOLL_CTL_ADD, listen_fd, &ev);
-       
-       while (true) {
-           int nfds = epoll_wait(epfd, events, MAX_EVENTS, -1);
-           for (int i = 0; i < nfds; i++) {
-               if (events[i].data.fd == listen_fd) {
-                   int client_fd = accept(listen_fd, NULL, NULL);
-                   ev.events = EPOLLIN;  // 这里有什么潜在问题？
-                   ev.data.fd = client_fd;
-                   epoll_ctl(epfd, EPOLL_CTL_ADD, client_fd, &ev);
-               } else {
-                   // 处理客户端数据...
-                   close(events[i].data.fd);  // 直接关闭有什么问题？
-               }
-           }
-       }
-   }
-   ```
 
 ---
 
