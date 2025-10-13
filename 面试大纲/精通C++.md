@@ -227,7 +227,7 @@
 
 **核心问题：**
 1. **线程生命周期**
-   - [`std::thread`的创建和销毁](../notes/C++/std::thread的创建和销毁.md)
+   - [std::thread的创建和销毁](../notes/C++/std::thread的创建和销毁.md)
    - [`join()`和`detach()`的区别和使用场景](../notes/C++/join()和detach()的区别和使用场景.md)
    - [多线程中的子线程抛异常会发生什么？](../notes/C++/多线程中的子线程抛异常会发生什么？.md)
    - 线程的可连接状态和资源管理
@@ -236,11 +236,11 @@
 2. **线程同步基础**
    - [什么是竞态条件？如何避免？](../notes/C++/什么是竞态条件？如何避免？.md)
    - [死锁的四个必要条件和预防策略](../notes/C++/死锁的四个必要条件和预防策略.md)
-   - [`std::mutex`的基本使用和RAII封装](../notes/C++/std::mutex的基本使用和RAII封装.md)
+   - [`std::mutex`的基本使用和RAII封装](../notes/C++/mutex的基本使用和RAII封装.md)
    - 递归锁`std::recursive_mutex`的使用场景
 
 3. **锁的管理**
-   - [`std::lock_guard`和`std::unique_lock`的区别](../notes/C++/std::lock_guard和std::unique_lock的区别.md)
+   - [`std::lock_guard`和`std::unique_lock`的区别](../notes/C++/lock_guard和std::unique_lock的区别.md)
    - [延迟加锁是什么](../notes/C++/延迟加锁是什么.md)
    - `std::shared_lock`的作用和读写锁实现
    - 如何避免锁的性能开销？
@@ -254,13 +254,13 @@
 
 **核心问题：**
 1. **条件变量**
-   - [`std::condition_variable`的使用模式](../notes/C++/std::condition_variable的使用模式.md)
+   - [`std::condition_variable`的使用模式](../notes/C++/condition_variable的使用模式.md)
    - 为什么条件变量需要配合互斥锁使用？
    - 虚假唤醒问题及其解决方案
    - 生产者-消费者模式的实现
 
 2. **原子操作**
-   - [`std::atomic`的基本使用](../notes/C++/std::atomic的基本使用.md)
+   - [`std::atomic`的基本使用](../notes/C++/atomic的基本使用.md)
    - [内存序（memory ordering）的六种类型](../notes/C++/内存序（memory_ordering）的六种类型.md)
    - `memory_order_relaxed`、`memory_order_acquire`、`memory_order_release`的区别
    - 无锁编程的优势和挑战

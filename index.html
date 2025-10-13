@@ -66,12 +66,12 @@
         function(hook, vm) {
           // 在 markdown 渲染之前修正相对路径
           hook.beforeEach(function(content) {
-            // 将所有 ../notes/ 和 ../面试大纲/ 替换为绝对路径
-            content = content.replace(/\(\.\.\/(notes\/[^\)]+)\)/g, '(#/$1)');
-            content = content.replace(/\(\.\.\/(面试大纲\/[^\)]+)\)/g, '(#/$1)');
-            // 处理其他可能的相对路径
-            content = content.replace(/\(\.\.\/([^\)]+\.md)\)/g, '(#/$1)');
-            return content;
+            // 将所有 ../notes/ 替换为 /#/notes/，并对路径中的特殊字符进行编码
+            return content.replace(/\(\.\.\/(notes\/[^\)]+)\)/g, function(match, path) {
+              // 对路径中的特殊字符进行编码（: 编码为 %3A）
+              var encodedPath = path.replace(/::/g, '%3A%3A');
+              return '(/' + encodedPath + ')';
+            });
           });
         }
       ]
