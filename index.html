@@ -7,8 +7,6 @@
   <meta name="description" content="面试大纲文档">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <!-- KaTeX 数学公式支持 -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
   <!-- 页面TOC插件样式 -->
   <link rel="stylesheet" href="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/light.css">
   <style>
@@ -23,10 +21,94 @@
     .sidebar-nav ul { padding-left: 0; }
     .sidebar-nav ul li { margin: 3px 0; }
     pre { overflow-x: auto; }
+    
+    /* 数学公式样式优化 */
+    .markdown-section mjx-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+    }
+    .markdown-section mjx-container[display="true"] {
+      display: block !important;
+      margin: 1em 0;
+      padding: 0.5em 0;
+    }
+    mjx-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    /* 矩阵公式的容器优化 */
+    .markdown-section mjx-math {
+      display: inline-block;
+    }
+    /* 确保大型公式可以水平滚动 */
+    .markdown-section [class*="MJX"] {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+    /* 块级公式居中显示 */
+    .markdown-section mjx-container[display="true"] {
+      text-align: center;
+    }
+    /* pmatrix 矩阵样式 */
+    mjx-mrow {
+      display: inline-flex;
+      align-items: center;
+    }
   </style>
 </head>
 <body>
   <div id="app">加载中...</div>
+  
+  <!-- MathJax 配置 - 必须在 MathJax 库加载前配置 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        // 加载所有必要的包，支持矩阵、符号、三角函数等
+        packages: {
+          '[+]': ['base', 'ams', 'newcommand', 'configmacros', 'action', 'mathtools']
+        },
+        tags: 'ams',
+        // 定义额外的宏
+        macros: {
+          RR: '{\\mathbb{R}}',
+          bold: ['{\\mathbf{#1}}', 1]
+        }
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      },
+      svg: {
+        fontCache: 'global',
+        scale: 1.0,
+        minScale: 0.5,
+        mtextInheritFont: false,
+        merrorInheritFont: true,
+        mathmlSpacing: false,
+        skipAttributes: {},
+        exFactor: 0.5,
+        displayAlign: 'center',
+        displayIndent: '0'
+      },
+      startup: {
+        pageReady: () => {
+          return MathJax.startup.defaultPageReady().then(() => {
+            console.log('MathJax 已加载完成！支持矩阵、三角函数等高级特性。');
+          });
+        }
+      },
+      loader: {
+        load: ['[tex]/ams', '[tex]/mathtools']
+      }
+    };
+  </script>
+  
   <script>
     window.$docsify = {
       name: '面试大纲',
@@ -61,22 +143,81 @@
         target: 'h1, h2, h3, h4, h5, h6',
         ignoreHeaders: ['<!-- {docsify-ignore} -->', '<!-- {docsify-ignore-all} -->']
       },
-      // 自定义插件：修正相对路径解析
+      // 自定义插件
       plugins: [
         function(hook, vm) {
-          // 在 markdown 渲染之前修正相对路径
+          var mathStore = {};
+          var mathId = 0;
+          
+          // 在 markdown 渲染之前，先保护数学公式
           hook.beforeEach(function(content) {
-            // 将所有 ../notes/ 替换为 /#/notes/，并对路径中的特殊字符进行编码
-            return content.replace(/\(\.\.\/(notes\/[^\)]+)\)/g, function(match, path) {
-              // 对路径中的特殊字符进行编码（: 编码为 %3A）
+            // 重置
+            mathStore = {};
+            mathId = 0;
+            
+            // 修正相对路径
+            content = content.replace(/\(\.\.\/(notes\/[^\)]+)\)/g, function(match, path) {
               var encodedPath = path.replace(/::/g, '%3A%3A');
               return '(/' + encodedPath + ')';
             });
+            
+            // 1. 先保护块级公式 $$...$$ (必须在 $ 之前处理)
+            content = content.replace(/\$\$([\s\S]*?)\$\$/g, function(match) {
+              var id = 'MATH_BLOCK_' + (mathId++);
+              mathStore[id] = match;
+              return '<!--' + id + '-->';
+            });
+            
+            // 2. 保护块级公式 \[...\]
+            content = content.replace(/\\\[([\s\S]*?)\\\]/g, function(match) {
+              var id = 'MATH_BLOCK_' + (mathId++);
+              mathStore[id] = match;
+              return '<!--' + id + '-->';
+            });
+            
+            // 3. 保护行内公式 $...$
+            content = content.replace(/\$([^\$\n]+?)\$/g, function(match) {
+              var id = 'MATH_INLINE_' + (mathId++);
+              mathStore[id] = match;
+              return '<!--' + id + '-->';
+            });
+            
+            // 4. 保护行内公式 \(...\)
+            content = content.replace(/\\\(([^\)]*?)\\\)/g, function(match) {
+              var id = 'MATH_INLINE_' + (mathId++);
+              mathStore[id] = match;
+              return '<!--' + id + '-->';
+            });
+            
+            return content;
+          });
+          
+          // 在 HTML 生成后，恢复数学公式
+          hook.afterEach(function(html, next) {
+            // 恢复所有数学公式
+            html = html.replace(/<!--(MATH_(?:BLOCK|INLINE)_\d+)-->/g, function(match, id) {
+              return mathStore[id] || match;
+            });
+            
+            next(html);
+          });
+          
+          // 在每次页面渲染完成后，触发 MathJax 渲染
+          hook.doneEach(function() {
+            if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+              MathJax.typesetClear();
+              MathJax.typesetPromise().then(function() {
+                console.log('✅ MathJax 渲染完成');
+              }).catch(function(err) {
+                console.error('❌ MathJax 渲染错误:', err);
+              });
+            }
           });
         }
       ]
     }
   </script>
+  
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
@@ -87,9 +228,9 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
-  <!-- KaTeX 数学公式渲染插件 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
   <!-- 页面右侧TOC插件 -->
   <script src="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script>
+  <!-- MathJax 数学公式渲染 -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </body>
 </html>
