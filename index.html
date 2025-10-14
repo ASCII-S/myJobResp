@@ -55,10 +55,57 @@
       display: inline-flex;
       align-items: center;
     }
+    
+    /* 回到顶部按钮样式 */
+    #back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--theme-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    #back-to-top:hover {
+      background-color: #369c6d;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    #back-to-top:active {
+      transform: translateY(-1px);
+    }
+    @media screen and (max-width: 768px) {
+      #back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 <body>
   <div id="app">加载中...</div>
+  
+  <!-- 回到顶部按钮 -->
+  <button id="back-to-top" title="回到顶部">↑</button>
   
   <!-- MathJax 配置 - 必须在 MathJax 库加载前配置 -->
   <script>
@@ -151,6 +198,9 @@
           
           // 在 markdown 渲染之前，先保护数学公式
           hook.beforeEach(function(content) {
+            // 滚动到页面顶部
+            window.scrollTo(0, 0);
+            
             // 重置
             mathStore = {};
             mathId = 0;
@@ -216,6 +266,30 @@
         }
       ]
     }
+  </script>
+  
+  <!-- 回到顶部按钮功能 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var backToTopBtn = document.getElementById('back-to-top');
+      
+      // 监听滚动事件，控制按钮显示/隐藏
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.add('show');
+        } else {
+          backToTopBtn.classList.remove('show');
+        }
+      });
+      
+      // 点击按钮，平滑滚动到顶部
+      backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
   </script>
   
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
