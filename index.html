@@ -245,8 +245,8 @@
           
           // 在 markdown 渲染之前，先保护数学公式
           hook.beforeEach(function(content) {
-            // 滚动到页面顶部
-            window.scrollTo(0, 0);
+            // 注释掉自动滚动到顶部，改用滚动位置管理系统
+            // window.scrollTo(0, 0);
             
             // 重置
             mathStore = {};
@@ -337,6 +337,60 @@
         });
       });
     });
+  </script>
+  
+  <!-- 滚动位置管理 -->
+  <script>
+    (function() {
+      var scrollPositions = {};
+      var lastPath = window.location.hash;
+      
+      // 保存当前页面的滚动位置
+      function saveScrollPosition() {
+        var currentPath = window.location.hash || '#/';
+        scrollPositions[currentPath] = window.pageYOffset || document.documentElement.scrollTop;
+        console.log('保存滚动位置:', currentPath, scrollPositions[currentPath]);
+      }
+      
+      // 恢复页面的滚动位置
+      function restoreScrollPosition() {
+        var currentPath = window.location.hash || '#/';
+        var savedPosition = scrollPositions[currentPath];
+        
+        if (savedPosition !== undefined) {
+          console.log('恢复滚动位置:', currentPath, savedPosition);
+          // 使用 setTimeout 确保内容已渲染
+          setTimeout(function() {
+            window.scrollTo(0, savedPosition);
+          }, 100);
+        }
+      }
+      
+      // 监听路由变化前保存滚动位置
+      window.addEventListener('hashchange', function(e) {
+        // 保存上一个页面的滚动位置
+        if (lastPath) {
+          scrollPositions[lastPath] = window.pageYOffset || document.documentElement.scrollTop;
+          console.log('路由切换，保存滚动位置:', lastPath, scrollPositions[lastPath]);
+        }
+        
+        // 更新当前路径
+        lastPath = window.location.hash || '#/';
+        
+        // 短暂延迟后恢复滚动位置（等待 docsify 渲染完成）
+        setTimeout(restoreScrollPosition, 150);
+      });
+      
+      // 页面卸载前保存滚动位置
+      window.addEventListener('beforeunload', saveScrollPosition);
+      
+      // 定期保存滚动位置（防止意外情况）
+      var saveScrollTimer;
+      window.addEventListener('scroll', function() {
+        clearTimeout(saveScrollTimer);
+        saveScrollTimer = setTimeout(saveScrollPosition, 200);
+      });
+    })();
   </script>
   
   <!-- 返回上一页按钮功能 -->
