@@ -344,6 +344,8 @@
     (function() {
       var scrollPositions = {};
       var lastPath = window.location.hash;
+      var isNavigatingBack = false; // 标记是否为返回操作
+      var historyLength = window.history.length;
       
       // 保存当前页面的滚动位置
       function saveScrollPosition() {
@@ -352,21 +354,7 @@
         console.log('保存滚动位置:', currentPath, scrollPositions[currentPath]);
       }
       
-      // 恢复页面的滚动位置
-      function restoreScrollPosition() {
-        var currentPath = window.location.hash || '#/';
-        var savedPosition = scrollPositions[currentPath];
-        
-        if (savedPosition !== undefined) {
-          console.log('恢复滚动位置:', currentPath, savedPosition);
-          // 使用 setTimeout 确保内容已渲染
-          setTimeout(function() {
-            window.scrollTo(0, savedPosition);
-          }, 100);
-        }
-      }
-      
-      // 监听路由变化前保存滚动位置
+      // 监听路由变化
       window.addEventListener('hashchange', function(e) {
         // 保存上一个页面的滚动位置
         if (lastPath) {
@@ -374,11 +362,36 @@
           console.log('路由切换，保存滚动位置:', lastPath, scrollPositions[lastPath]);
         }
         
-        // 更新当前路径
-        lastPath = window.location.hash || '#/';
+        var currentPath = window.location.hash || '#/';
         
-        // 短暂延迟后恢复滚动位置（等待 docsify 渲染完成）
-        setTimeout(restoreScrollPosition, 150);
+        // 检测是前进还是后退
+        var newHistoryLength = window.history.length;
+        var isBack = newHistoryLength < historyLength || isNavigatingBack;
+        historyLength = newHistoryLength;
+        
+        // 短暂延迟后处理滚动（等待 docsify 渲染完成）
+        setTimeout(function() {
+          if (isBack && scrollPositions[currentPath] !== undefined) {
+            // 后退且有保存的位置：恢复位置
+            console.log('返回操作，恢复滚动位置:', currentPath, scrollPositions[currentPath]);
+            window.scrollTo(0, scrollPositions[currentPath]);
+          } else {
+            // 前进或没有保存的位置：滚动到顶部
+            console.log('前进操作，滚动到顶部:', currentPath);
+            window.scrollTo(0, 0);
+          }
+          
+          // 重置返回标记
+          isNavigatingBack = false;
+        }, 150);
+        
+        // 更新当前路径
+        lastPath = currentPath;
+      });
+      
+      // 监听 popstate 事件（浏览器前进/后退按钮）
+      window.addEventListener('popstate', function() {
+        isNavigatingBack = true;
       });
       
       // 页面卸载前保存滚动位置
@@ -390,6 +403,11 @@
         clearTimeout(saveScrollTimer);
         saveScrollTimer = setTimeout(saveScrollPosition, 200);
       });
+      
+      // 暴露设置返回标记的方法给返回按钮使用
+      window.setNavigatingBack = function() {
+        isNavigatingBack = true;
+      };
     })();
   </script>
   
@@ -420,6 +438,10 @@
       // 点击按钮，返回上一页
       backButton.addEventListener('click', function() {
         if (window.history.length > 1) {
+          // 设置返回标记，以便恢复滚动位置
+          if (window.setNavigatingBack) {
+            window.setNavigatingBack();
+          }
           window.history.back();
         }
       });
