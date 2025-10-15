@@ -99,10 +99,57 @@
         font-size: 18px;
       }
     }
+    
+    /* 返回上一页按钮样式 */
+    #back-button {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--theme-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #back-button.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    #back-button:hover {
+      background-color: #369c6d;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    #back-button:active {
+      transform: translateY(-1px);
+    }
+    @media screen and (max-width: 768px) {
+      #back-button {
+        bottom: 20px;
+        left: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 <body>
   <div id="app">加载中...</div>
+  
+  <!-- 返回上一页按钮 -->
+  <button id="back-button" title="返回上一页">←</button>
   
   <!-- 回到顶部按钮 -->
   <button id="back-to-top" title="回到顶部">↑</button>
@@ -288,6 +335,38 @@
           top: 0,
           behavior: 'smooth'
         });
+      });
+    });
+  </script>
+  
+  <!-- 返回上一页按钮功能 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var backButton = document.getElementById('back-button');
+      var historyLength = window.history.length;
+      
+      // 检测路由变化，显示/隐藏返回按钮
+      function updateBackButtonVisibility() {
+        // 如果不是首页且有历史记录，显示返回按钮
+        var currentPath = window.location.hash;
+        if (currentPath && currentPath !== '#/' && currentPath !== '#/README' && window.history.length > 1) {
+          backButton.classList.add('show');
+        } else {
+          backButton.classList.remove('show');
+        }
+      }
+      
+      // 初始检查
+      updateBackButtonVisibility();
+      
+      // 监听路由变化
+      window.addEventListener('hashchange', updateBackButtonVisibility);
+      
+      // 点击按钮，返回上一页
+      backButton.addEventListener('click', function() {
+        if (window.history.length > 1) {
+          window.history.back();
+        }
       });
     });
   </script>
