@@ -103,8 +103,8 @@
     /* 返回上一页按钮样式 */
     #back-button {
       position: fixed;
-      bottom: 30px;
-      left: 30px;
+      top: 20px;
+      left: 320px; /* 侧边栏宽度约300px，留20px间距 */
       width: 50px;
       height: 50px;
       background-color: var(--theme-color);
@@ -128,16 +128,16 @@
     }
     #back-button:hover {
       background-color: #369c6d;
-      transform: translateY(-3px);
+      transform: translateX(-3px);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
     #back-button:active {
-      transform: translateY(-1px);
+      transform: translateX(-1px);
     }
     @media screen and (max-width: 768px) {
       #back-button {
-        bottom: 20px;
-        left: 20px;
+        top: 10px;
+        left: 10px; /* 移动端没有侧边栏，放在左上角 */
         width: 45px;
         height: 45px;
         font-size: 18px;
@@ -343,13 +343,14 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var backButton = document.getElementById('back-button');
-      var historyLength = window.history.length;
       
       // 检测路由变化，显示/隐藏返回按钮
       function updateBackButtonVisibility() {
-        // 如果不是首页且有历史记录，显示返回按钮
         var currentPath = window.location.hash;
-        if (currentPath && currentPath !== '#/' && currentPath !== '#/README' && window.history.length > 1) {
+        
+        // 只在访问具体问题文档时显示（路径包含 /notes/）
+        // 例如: #/notes/熟悉大语言模型推理优化-技术层次/xxx.md
+        if (currentPath && currentPath.includes('/notes/') && window.history.length > 1) {
           backButton.classList.add('show');
         } else {
           backButton.classList.remove('show');
