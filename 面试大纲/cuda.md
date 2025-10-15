@@ -399,6 +399,22 @@
   - 如何优化卷积的内存访问？
   - 可分离卷积如何实现和优化？
 
+#### **矩阵矩阵乘优化**
+  - [朴素GEMM实现的主要性能瓶颈在哪里？](../notes/cuda/朴素GEMM实现的主要性能瓶颈在哪里？.md)
+  - [如何使用分块（Tiling）优化矩阵乘法？](../notes/cuda/如何使用分块（Tiling）优化矩阵乘法？.md)
+  - [共享内存在GEMM优化中起什么作用？](../notes/cuda/共享内存在GEMM优化中起什么作用？.md)
+  - [如何避免shared memory的bank conflict？](../notes/cuda/如何避免shared_memory的bank_conflict？.md)
+  - [向量化访存（vectorized load/store）如何提升GEMM性能？](../notes/cuda/向量化访存（vectorized_load_store）如何提升GEMM性能？.md)
+  - [寄存器分块（Register Tiling）的原理是什么？](../notes/cuda/寄存器分块（Register_Tiling）的原理是什么？.md)
+  - [双缓冲（Double Buffering）技术如何隐藏访存延迟？](../notes/cuda/双缓冲（Double_Buffering）技术如何隐藏访存延迟？.md)
+  - [如何使用Tensor Core加速GEMM？](../notes/cuda/如何使用Tensor_Core加速GEMM？.md)
+  - [WMMA API的使用方法和注意事项？](../notes/cuda/WMMA_API的使用方法和注意事项？.md)
+  - [CUTLASS库的核心优化思想是什么？](../notes/cuda/CUTLASS库的核心优化思想是什么？.md)
+  - [转置矩阵乘法如何优化？](../notes/cuda/转置矩阵乘法如何优化？.md)
+  - [批量矩阵乘法（Batched GEMM）的优化策略？](../notes/cuda/批量矩阵乘法（Batched_GEMM）的优化策略？.md)
+  - [如何选择合适的线程块大小和分块大小？](../notes/cuda/如何选择合适的线程块大小和分块大小？.md)
+  - [GEMM性能如何接近理论峰值（cuBLAS水平）？](../notes/cuda/GEMM性能如何接近理论峰值（cuBLAS水平）？.md)
+
 ### 5.2 实际性能问题解决
 
 #### **内存受限问题**
