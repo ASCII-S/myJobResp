@@ -5,6 +5,7 @@
 * **基础技能**
   * [精通C++](/面试大纲/精通C++.md)
   * [精通数据结构](/面试大纲/精通数据结构.md)
+  * [LeetcodeHot100](/面试大纲/LeetcodeHot100.md)
   * [精通Transformer](/面试大纲/精通Transformer.md)
 
 * **CUDA与GPU编程**

@@ -11,6 +11,7 @@
 ### 基础技能
 - **[C++编程](面试大纲/精通C++.md)**: 从基础语法到高级特性的全面掌握
 - **[数据结构](面试大纲/精通数据结构.md)**: 核心算法与数据结构
+- **[LeetcodeHot100](面试大纲/LeetcodeHot100.md)**: Leetcode热题100
 - **[Transformer](面试大纲/精通Transformer.md)**: 深度学习核心架构
 
 ### CUDA与GPU编程
