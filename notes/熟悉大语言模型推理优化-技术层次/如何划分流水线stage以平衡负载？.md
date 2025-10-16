@@ -159,44 +159,87 @@ print(f"负载不平衡度: {max(costs)/min(costs):.2f}x")
 ```python
 def dp_partition(layer_times, num_stages):
     """
-    动态规划求解最优划分
-    目标: 最小化max(stage_cost)
+    动态规划求解最优流水线stage划分方案
+    
+    核心思想: 这是一个最小化最大值(min-max)问题
+    - 目标: 将n层分成num_stages个连续的stage，使得最慢的stage耗时最小
+    - 等价于: 最小化 max(stage_1_time, stage_2_time, ..., stage_k_time)
+    
+    参数:
+        layer_times: 每层的计算时间列表，例如 [2, 3, 4, 1, 5, ...]
+        num_stages: 要划分的stage数量（通常等于GPU/设备数量）
+    
+    返回:
+        partition: 划分方案，例如 [(0,2), (2,5), (5,8)] 表示层0-2为stage1，层2-5为stage2等
+        stage_costs: 每个stage的总耗时
     """
     n = len(layer_times)
     
-    # 计算前缀和
+    # ============ 步骤1: 计算前缀和，用于快速计算区间和 ============
+    # prefix_sum[i] = 前i层的总耗时
+    # 这样 layers[k:i] 的总耗时 = prefix_sum[i] - prefix_sum[k]
     prefix_sum = [0]
     for t in layer_times:
         prefix_sum.append(prefix_sum[-1] + t)
+    # 例如: layer_times=[2,3,4,1] → prefix_sum=[0,2,5,9,10]
     
-    # dp[i][j] = 前i层分成j个stage的最小最大成本
+    # ============ 步骤2: 初始化DP表 ============
+    # dp[i][j] 的含义: 将前i层分成j个stage时，所有可能方案中"最慢stage"的最小耗时
+    # 这是一个二维优化问题的状态定义
     INF = float('inf')
     dp = [[INF] * (num_stages + 1) for _ in range(n + 1)]
+    
+    # split[i][j] 记录达到dp[i][j]的最优划分方案
+    # 存储格式: [(start1, end1), (start2, end2), ...] 表示每个stage包含的层范围
     split = [[[] for _ in range(num_stages + 1)] for _ in range(n + 1)]
     
+    # 边界条件: 0层分成0个stage，耗时为0
     dp[0][0] = 0
     
-    for i in range(1, n + 1):
-        for j in range(1, min(i, num_stages) + 1):
-            # 尝试不同的分割点
-            for k in range(j - 1, i):
-                # [k, i) 作为第j个stage
+    # ============ 步骤3: 动态规划主循环 ============
+    for i in range(1, n + 1):  # 枚举前i层
+        for j in range(1, min(i, num_stages) + 1):  # 枚举分成j个stage
+            # min(i, num_stages): 前i层最多只能分成i个stage
+            
+            # ========= 核心: 枚举第j个stage的起始位置 =========
+            for k in range(j - 1, i):  # k是第j个stage的起始层
+                # k的范围: [j-1, i)
+                # - 最小值j-1: 前面j-1个stage至少需要j-1层
+                # - 最大值i-1: 第j个stage至少包含1层
+                
+                # 计算第j个stage的耗时: layers[k:i]
                 stage_cost = prefix_sum[i] - prefix_sum[k]
+                
+                # 关键: min-max问题的状态转移
+                # new_cost = 前j个stage中最慢stage的耗时
+                #          = max(前j-1个stage的最慢耗时, 第j个stage的耗时)
                 new_cost = max(dp[k][j-1], stage_cost)
                 
+                # 如果这个划分方案更优（最慢stage更快），则更新
                 if new_cost < dp[i][j]:
                     dp[i][j] = new_cost
+                    # 记录划分方案: 前k层的最优划分 + 当前stage [k, i)
                     split[i][j] = split[k][j-1] + [(k, i)]
     
-    # 恢复划分方案
+    # ============ 步骤4: 提取最优解 ============
+    # 前n层分成num_stages个stage的最优划分方案
     partition = split[n][num_stages]
+    
+    # 计算每个stage的实际耗时（用于验证和分析）
     stage_costs = [prefix_sum[end] - prefix_sum[start] 
                    for start, end in partition]
     
     return partition, stage_costs
 
-# 使用
+# ============ 使用示例 ============
+# 假设有32层，每层耗时存储在layer_times中
+# 要将其分配到8个GPU上（即8个stage）
 partition, costs = dp_partition(layer_times, num_stages=8)
+
+# 结果示例:
+# partition = [(0,4), (4,8), (8,12), (12,16), (16,20), (20,24), (24,28), (28,32)]
+# costs = [120, 125, 118, 122, 124, 119, 121, 123]  # 每个stage的耗时
+# max(costs) = 125  # 瓶颈stage的耗时，这就是整个流水线的吞吐率
 ```
 
 #### 3.3 近似均分算法
