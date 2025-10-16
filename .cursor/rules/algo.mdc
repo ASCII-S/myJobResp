@@ -1,4 +1,5 @@
 ---
+globs: notes/LeetcodeHot100/*
 alwaysApply: false
 ---
 在这个文档中，你需要对算法题编写面向面试手撕和讲解的博客。
