@@ -298,7 +298,7 @@ def generate_review_markdown(review_list: Dict[str, List[Dict]], config: Dict) -
             tags_count = len(note.get('tags', []))
             
             # 显示序号
-            md += f"**{i}.** "
+            # md += f"**{i}.** "
             md += f"- [ ] [{note['title']}]({note['relative_path']})\n"
             # md += f"  - 应于: {next_review} | 已复习: {review_count}次 | 难度: {difficulty} | 掌握度: {mastery:.0%} | 标签: {tags_count}个\n"
             md += f"  - 已复习: {review_count}次 | 难度: {difficulty} \n"
@@ -315,7 +315,7 @@ def generate_review_markdown(review_list: Dict[str, List[Dict]], config: Dict) -
             mastery = note.get('mastery_level', 0.0)
             tags_count = len(note.get('tags', []))
             
-            md += f"**{i}.** "
+            # md += f"**{i}.** "
             md += f"- [ ] [{note['title']}]({note['relative_path']})\n"
             # md += f"  - 已复习: {review_count}次 | 难度: {difficulty} | 掌握度: {mastery:.0%} | 标签: {tags_count}个\n"
             md += f"  - 已复习: {review_count}次 | 难度: {difficulty} \n"

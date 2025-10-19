@@ -85,8 +85,9 @@ git_auto_commit:
   
   # 自动提交时包含的目录和文件（只提交笔记相关内容）
   include_paths:
-    - {notes_dir}              # 笔记目录
-    - {outlines_dir}           # 大纲目录
+    - "notes/"              # 笔记目录
+    - "面试大纲/"            # 大纲目录
+    - "outlines/"           # 大纲目录（英文名）
     - "今日复习.md"         # 今日复习清单
 
 # 备份配置
