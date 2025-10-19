@@ -20,7 +20,7 @@ warning() { echo -e "${YELLOW}⚠️  $1${NC}"; }
 error() { echo -e "${RED}❌ $1${NC}"; }
 
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${GREEN}🌙 每日结束 - 同步、初始化、提交${NC}"
+echo -e "${GREEN}🌙 每日结束 - 同步、修复、初始化、提交${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo
 
@@ -32,7 +32,14 @@ python system/scripts/review_manager.py sync || {
 }
 echo
 
-# 2. 初始化新笔记元数据
+# 2. 修复元数据不一致（手动修改的笔记）
+info "🔧 检查并修复元数据不一致（基于复习次数更新时间戳）..."
+python system/scripts/review_manager.py fix --auto || {
+    warning "元数据修复失败，继续执行后续步骤"
+}
+echo
+
+# 3. 初始化新笔记元数据
 info "✨ 初始化/更新新建笔记的元数据..."
 python system/scripts/add_metadata.py || {
     error "初始化元数据失败"
@@ -40,7 +47,7 @@ python system/scripts/add_metadata.py || {
 }
 echo
 
-# 3. Git操作
+# 4. Git操作
 info "🐙 添加笔记相关文件到Git..."
 
 # 从配置文件读取要提交的路径

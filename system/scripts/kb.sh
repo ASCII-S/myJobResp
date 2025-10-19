@@ -44,6 +44,7 @@ show_help() {
   today                    生成今日复习清单
   sync                     同步复习清单中已勾选的笔记（推荐！）
   done <file>              标记单个笔记为已复习
+  fix [--auto] [--dry-run] 检查并修复元数据不一致
   stats                    查看统计信息
   
   graph                    生成知识图谱（所有格式）
@@ -70,6 +71,9 @@ show_help() {
   ./scripts/kb.sh today
   ./scripts/kb.sh sync             # 推荐工作流！
   ./scripts/kb.sh done notes/cuda/Bank冲突.md
+  ./scripts/kb.sh fix              # 检查并修复元数据
+  ./scripts/kb.sh fix --auto       # 自动修复所有不一致
+  ./scripts/kb.sh fix --dry-run    # 仅检查不修复
   ./scripts/kb.sh new notes/新主题/新笔记.md
   ./scripts/kb.sh update-all
 
@@ -77,6 +81,9 @@ show_help() {
   1. 运行 today 生成复习清单
   2. 在 今日复习.md 中打勾标记已复习的笔记 (- [x])
   3. 运行 sync 批量更新所有打勾的笔记
+  
+💡 手动复习后同步元数据:
+  如果你手动修改了笔记的 review_count，运行 fix 来自动更新时间戳
 
 EOF
 }
@@ -106,6 +113,26 @@ case "${1:-}" in
     
     stats)
         python scripts/review_manager.py stats
+        ;;
+    
+    fix)
+        # 处理可选参数 --auto 和 --dry-run
+        args=""
+        shift  # 移除 'fix' 参数
+        while [ $# -gt 0 ]; do
+            case "$1" in
+                --auto|--dry-run)
+                    args="$args $1"
+                    ;;
+                *)
+                    warning "未知参数: $1"
+                    ;;
+            esac
+            shift
+        done
+        
+        info "检查元数据不一致..."
+        python scripts/review_manager.py fix $args
         ;;
     
     graph)

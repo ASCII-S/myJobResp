@@ -80,18 +80,54 @@ def calculate_next_review(review_count: int, difficulty: str, config: Dict) -> s
     return next_date.strftime('%Y-%m-%d')
 
 
-def calculate_mastery_level(review_count: int, days_since_created: int) -> float:
-    """计算掌握程度（0-1）"""
-    # 简单算法：基于复习次数和时间跨度
-    if days_since_created == 0:
+def calculate_mastery_level(review_count: int, days_since_created: int, difficulty: str = 'medium') -> float:
+    """
+    计算掌握程度（0-1）
+    
+    改进算法：
+    1. 基于复习次数的对数增长（边际效应递减）
+    2. 考虑难度系数（困难的内容需要更多复习）
+    3. 不过分依赖创建时间，避免老笔记掌握度过低
+    
+    Args:
+        review_count: 复习次数
+        days_since_created: 创建后的天数
+        difficulty: 难度等级 (easy/medium/hard)
+    
+    Returns:
+        掌握程度 (0.0 - 1.0)
+    """
+    import math
+    
+    if review_count == 0:
         return 0.0
     
-    # 复习密度
-    density = review_count / max(days_since_created, 1)
-    # 复习次数因子
-    count_factor = min(review_count / 10, 1.0)
+    # 1. 基础分：基于复习次数的对数增长
+    # 使用对数函数，避免线性增长（符合遗忘曲线）
+    # 1次->0.3, 3次->0.5, 5次->0.65, 10次->0.85, 20次->1.0
+    base_score = min(math.log(review_count + 1) / math.log(21), 1.0)
     
-    mastery = min((density * 30 + count_factor) / 2, 1.0)
+    # 2. 难度系数：困难的内容需要更多复习
+    difficulty_multiplier = {
+        'easy': 1.2,    # 容易的内容，同样复习次数掌握度更高
+        'medium': 1.0,  # 中等难度，正常计算
+        'hard': 0.8     # 困难的内容，同样复习次数掌握度较低
+    }
+    multiplier = difficulty_multiplier.get(difficulty, 1.0)
+    
+    # 3. 时间因子（可选）：考虑复习的时间跨度
+    # 如果在很短时间内复习很多次，可能只是短期记忆
+    # 如果时间跨度长且复习次数多，说明真正掌握
+    if days_since_created > 0:
+        # 理想的复习密度：每7-14天复习一次
+        ideal_density = review_count / max(days_since_created / 10, 1)
+        time_factor = min(ideal_density, 1.2)  # 最多加成20%
+    else:
+        time_factor = 0.5  # 刚创建的笔记，掌握度打折
+    
+    # 4. 综合计算
+    mastery = min(base_score * multiplier * time_factor, 1.0)
+    
     return round(mastery, 2)
 
 
@@ -406,7 +442,7 @@ def mark_as_reviewed(filepath: Path, config: Dict) -> None:
     else:
         days_since_created = 30  # 默认值
     
-    mastery_level = calculate_mastery_level(new_review_count, days_since_created)
+    mastery_level = calculate_mastery_level(new_review_count, days_since_created, difficulty)
     
     # 更新元数据
     updates = {
@@ -433,6 +469,215 @@ def set_difficulty(filepath: Path, difficulty: str) -> None:
     
     update_frontmatter(filepath, {'difficulty': difficulty})
     print(f"✅ 已设置难度为: {difficulty}")
+
+
+def validate_metadata(note: Dict, config: Dict) -> Tuple[bool, List[str]]:
+    """
+    检查笔记元数据是否一致
+    
+    Returns:
+        (is_valid, issues): 是否有效，以及问题列表
+    """
+    issues = []
+    
+    review_count = note.get('review_count', 0)
+    last_reviewed = note.get('last_reviewed')
+    next_review = note.get('next_review')
+    difficulty = note.get('difficulty', config['default_difficulty'])
+    
+    # 如果没有复习过，检查是否有 last_reviewed
+    if review_count == 0:
+        if last_reviewed:
+            issues.append(f"复习次数为0，但存在上次复习时间: {last_reviewed}")
+        return len(issues) == 0, issues
+    
+    # 复习次数 > 0，必须有 last_reviewed
+    if not last_reviewed:
+        issues.append(f"复习次数为 {review_count}，但缺少上次复习时间")
+        return False, issues
+    
+    # 复习次数 > 0，必须有 next_review
+    if not next_review:
+        issues.append(f"复习次数为 {review_count}，但缺少下次复习时间")
+        return False, issues
+    
+    # 检查 next_review 是否基于 review_count 正确计算
+    try:
+        if isinstance(last_reviewed, str):
+            last_reviewed_date = datetime.strptime(last_reviewed, '%Y-%m-%d')
+        elif isinstance(last_reviewed, datetime):
+            last_reviewed_date = last_reviewed
+        else:
+            last_reviewed_date = datetime.combine(last_reviewed, datetime.min.time())
+        
+        # 计算期望的 next_review
+        expected_next_review = calculate_next_review(review_count, difficulty, config)
+        
+        # 允许一定的容差（比如前后1天）
+        if isinstance(next_review, str):
+            next_review_date = datetime.strptime(next_review, '%Y-%m-%d').date()
+        elif isinstance(next_review, datetime):
+            next_review_date = next_review.date()
+        else:
+            next_review_date = next_review
+        
+        expected_date = datetime.strptime(expected_next_review, '%Y-%m-%d').date()
+        
+        # 计算差异天数（基于 last_reviewed 的日期）
+        days_diff = abs((next_review_date - last_reviewed_date.date()).days)
+        expected_days_diff = abs((expected_date - datetime.now().date()).days)
+        
+        # 如果差异超过2天，认为不一致
+        if abs(days_diff - expected_days_diff) > 2:
+            issues.append(f"下次复习时间可能不正确 (当前: {next_review}, 基于复习次数{review_count}次应为: {expected_next_review})")
+    
+    except Exception as e:
+        issues.append(f"无法验证日期: {e}")
+    
+    return len(issues) == 0, issues
+
+
+def fix_metadata(filepath: Path, config: Dict, dry_run: bool = False) -> bool:
+    """
+    修复笔记的元数据（基于当前的 review_count）
+    
+    Args:
+        filepath: 笔记文件路径
+        config: 配置
+        dry_run: 是否仅模拟（不实际修改）
+    
+    Returns:
+        是否成功修复
+    """
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    frontmatter, _ = parse_frontmatter(content)
+    
+    review_count = frontmatter.get('review_count', 0)
+    difficulty = frontmatter.get('difficulty', config['default_difficulty'])
+    created = frontmatter.get('created')
+    
+    # 如果复习次数为0，清空相关字段
+    if review_count == 0:
+        updates = {}
+        if frontmatter.get('last_reviewed'):
+            updates['last_reviewed'] = None
+        if frontmatter.get('mastery_level'):
+            updates['mastery_level'] = 0.0
+        
+        if updates and not dry_run:
+            update_frontmatter(filepath, updates)
+        return True
+    
+    # 复习次数 > 0，更新 last_reviewed 为今天，重新计算 next_review
+    today = datetime.now().strftime('%Y-%m-%d')
+    next_review = calculate_next_review(review_count, difficulty, config)
+    
+    # 计算掌握程度
+    if created:
+        if isinstance(created, str):
+            created_date = datetime.strptime(created, '%Y-%m-%d').date()
+        elif isinstance(created, datetime):
+            created_date = created.date()
+        else:
+            created_date = created
+        
+        today_date = datetime.now().date()
+        days_since_created = (today_date - created_date).days
+    else:
+        days_since_created = 30  # 默认值
+    
+    mastery_level = calculate_mastery_level(review_count, days_since_created, difficulty)
+    
+    updates = {
+        'last_reviewed': today,
+        'next_review': next_review,
+        'mastery_level': mastery_level
+    }
+    
+    if not dry_run:
+        update_frontmatter(filepath, updates)
+    
+    return True
+
+
+def scan_and_fix_metadata(config: Dict, auto_fix: bool = False, dry_run: bool = False) -> None:
+    """
+    扫描所有笔记，检查并修复元数据不一致
+    
+    Args:
+        config: 配置
+        auto_fix: 是否自动修复（不询问）
+        dry_run: 是否仅模拟（不实际修改）
+    """
+    print("🔍 扫描笔记文件...")
+    notes = scan_notes(NOTES_DIR)
+    print(f"📚 找到 {len(notes)} 篇笔记\n")
+    
+    inconsistent_notes = []
+    
+    for note in notes:
+        is_valid, issues = validate_metadata(note, config)
+        if not is_valid:
+            inconsistent_notes.append((note, issues))
+    
+    if not inconsistent_notes:
+        print("✅ 所有笔记的元数据都是一致的！")
+        return
+    
+    print(f"⚠️  发现 {len(inconsistent_notes)} 篇笔记的元数据不一致\n")
+    
+    fixed = 0
+    skipped = 0
+    
+    for note, issues in inconsistent_notes:
+        print(f"📄 {note['title']}")
+        print(f"   路径: {note['relative_path']}")
+        for issue in issues:
+            print(f"   ⚠️  {issue}")
+        
+        # 显示当前元数据
+        print(f"   当前: review_count={note.get('review_count', 0)}, "
+              f"last_reviewed={note.get('last_reviewed', 'N/A')}, "
+              f"next_review={note.get('next_review', 'N/A')}")
+        
+        should_fix = auto_fix
+        
+        if not auto_fix and not dry_run:
+            try:
+                response = input("   是否修复？(y/N/q退出) ")
+                if response.lower() == 'q':
+                    print("\n🛑 已取消")
+                    break
+                should_fix = response.lower() == 'y'
+            except (EOFError, KeyboardInterrupt):
+                print("\n🛑 已取消")
+                break
+        
+        if should_fix or dry_run:
+            try:
+                fix_metadata(note['filepath'], config, dry_run=dry_run)
+                if dry_run:
+                    print(f"   🔄 [模拟] 将修复此笔记")
+                else:
+                    print(f"   ✅ 已修复")
+                fixed += 1
+            except Exception as e:
+                print(f"   ❌ 修复失败: {e}")
+        else:
+            print(f"   ⏭️  已跳过")
+            skipped += 1
+        
+        print()
+    
+    print(f"\n📊 总结:")
+    if dry_run:
+        print(f"  🔄 可修复: {fixed} 篇")
+    else:
+        print(f"  ✅ 已修复: {fixed} 篇")
+    if skipped > 0:
+        print(f"  ⏭️  已跳过: {skipped} 篇")
 
 
 def sync_from_review_list(config: Dict) -> None:
@@ -516,6 +761,11 @@ def main():
     
     # stats 命令
     parser_stats = subparsers.add_parser('stats', help='显示统计信息')
+    
+    # fix 命令（新增）
+    parser_fix = subparsers.add_parser('fix', help='检查并修复元数据不一致的笔记')
+    parser_fix.add_argument('--auto', action='store_true', help='自动修复所有不一致（不询问）')
+    parser_fix.add_argument('--dry-run', action='store_true', help='仅检查不修复（模拟运行）')
     
     args = parser.parse_args()
     
@@ -605,6 +855,9 @@ def main():
         print(f"\n  难度分布:")
         for diff, count in sorted(by_difficulty.items()):
             print(f"    {diff}: {count}")
+    
+    elif args.command == 'fix':
+        scan_and_fix_metadata(config, auto_fix=args.auto, dry_run=args.dry_run)
     
     else:
         parser.print_help()
