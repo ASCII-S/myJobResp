@@ -1,8 +1,8 @@
 ---
 created: '2025-10-19'
 last_reviewed: '2025-10-19'
-next_review: '2025-10-19'
-review_count: 0
+next_review: '2025-10-24'
+review_count: 2
 difficulty: medium
 mastery_level: 0.0
 tags:
@@ -10,7 +10,6 @@ tags:
 - 熟悉大语言模型推理优化-技术层次/MoE模型的基本组成部分有哪些？路由器（Router）的作用是什么？.md
 related_outlines: []
 ---
-
 # MoE模型的基本组成部分有哪些？路由器（Router）的作用是什么？
 
 ## 面试标准答案
