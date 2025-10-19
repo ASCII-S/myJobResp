@@ -1,26 +1,41 @@
-# 系统文件
-.DS_Store
-Thumbs.db
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# 编辑器
+.vscode/
+.idea/
 *.swp
 *.swo
 *~
-
-# 个人敏感信息
-简历/
+.DS_Store
 
 # 临时文件
 *.tmp
-*.log
 *.bak
+*.backup
+.cache/
 
-# IDE配置
-.vscode/
-.idea/
-*.iml
+# 自动生成的复习清单（每日更新）
+📅今日复习.md
 
-# 编译输出
-*.o
-*.exe
-*.out
-a.out
+# 复习清单归档（自动生成）
+今日复习归档/
 
+# 日志
+*.log
+
+# 系统文件
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# 其他
+简历/

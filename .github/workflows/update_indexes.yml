@@ -1,0 +1,71 @@
+name: 更新知识库索引
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'notes/**/*.md'
+      - '面试大纲/**/*.md'
+  workflow_dispatch:  # 允许手动触发
+  schedule:
+    - cron: '0 0 * * *'  # 每天UTC 0点运行（北京时间8点）
+
+jobs:
+  update-indexes:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # 获取完整历史
+    
+    - name: 设置Python环境
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: 安装依赖
+      run: |
+        pip install pyyaml jieba
+    
+    - name: 生成复习清单
+      run: |
+        python scripts/review_manager.py today
+        echo "✅ 复习清单已更新"
+    
+    - name: 生成知识图谱
+      run: |
+        python scripts/knowledge_graph.py --all
+        echo "✅ 知识图谱已更新"
+    
+    - name: 生成跨主题索引
+      run: |
+        python scripts/auto_link.py index
+        echo "✅ 跨主题索引已更新"
+    
+    - name: 生成统计报表
+      run: |
+        python scripts/stats_generator.py
+        echo "✅ 统计报表已更新"
+    
+    - name: 检查是否有变更
+      id: check_changes
+      run: |
+        if [[ -n $(git status -s) ]]; then
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+        else
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: 提交变更
+      if: steps.check_changes.outputs.has_changes == 'true'
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add 面试大纲/*.md docs/*.html
+        git commit -m "chore: 自动更新索引和报表 [skip ci]"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
