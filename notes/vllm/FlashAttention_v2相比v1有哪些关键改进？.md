@@ -80,3 +80,12 @@ FlashAttention v2主要有三个关键改进：**算法优化** - 减少非矩�
 - 减少了寄存器使用，允许更高的occupancy
 
 这些改进使得FlashAttention v2成为了当前最高效的注意力机制实现之一，特别是在长序列处理和大模型训练场景中表现突出。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [FlashAttention_v2相比v1有哪些关键改进？请重点解释工作分区和并行化优化。](notes/vllm/FlashAttention_v2相比v1有哪些关键改进？请重点解释工作分区和并行化优化。.md) - 相似度: 33% | 标签: vllm, vllm/FlashAttention_v2相比v1有哪些关键改进？请重点解释工作分区和并行化优化。.md
+- [什么是I_O感知算法？FlashAttention_v1如何通过减少HBM访问来提升性能？](notes/vllm/什么是I_O感知算法？FlashAttention_v1如何通过减少HBM访问来提升性能？.md) - 相似度: 31% | 标签: vllm, vllm/什么是I_O感知算法？FlashAttention_v1如何通过减少HBM访问来提升性能？.md
+

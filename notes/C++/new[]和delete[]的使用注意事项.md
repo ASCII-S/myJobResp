@@ -46,3 +46,11 @@ delete[] arr;             // 调用 10 次 Foo::~Foo()
 * **基本类型**（如 `int* p = new int[10];`）：因为没有构造/析构，所以 `delete p;` 和 `delete[] p;` 在表面上看似没区别，但这是**未定义行为**，必须严格用 `delete[]`。
 * **自定义类型**：区别就很明显了，因为必须依次调用析构函数。
 * **混用 malloc/free 和 new/delete**：不允许！`malloc/free` 只分配释放原始内存，不调用构造析构；`new/delete` 必须配套。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [new和malloc的区别](notes/C++/new和malloc的区别.md) - 相似度: 31% | 标签: C++, C++/new和malloc的区别.md
+

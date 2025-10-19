@@ -1094,3 +1094,11 @@ public:
 
 正确选择智能指针，既能保证内存安全，又能获得最佳性能。过度使用 `shared_ptr` 和滥用裸指针都是应该避免的。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [shared_ptr和weak_ptr](notes/C++/shared_ptr和weak_ptr.md) - 相似度: 39% | 标签: C++, C++/shared_ptr和weak_ptr.md
+

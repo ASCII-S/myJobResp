@@ -613,3 +613,11 @@ __global__ void fill_test_data(float* data, size_t count, int rank) {
     }
 }
 ```
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

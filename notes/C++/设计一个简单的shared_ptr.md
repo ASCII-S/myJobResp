@@ -893,3 +893,11 @@ if (this != &other) {
 
 这样循序渐进地展示，能够充分体现你对 shared_ptr 内部机制的深入理解。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [shared_ptr和weak_ptr](notes/C++/shared_ptr和weak_ptr.md) - 相似度: 31% | 标签: C++, C++/shared_ptr和weak_ptr.md
+

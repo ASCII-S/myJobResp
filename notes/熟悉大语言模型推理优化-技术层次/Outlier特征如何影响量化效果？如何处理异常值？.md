@@ -752,3 +752,11 @@ loss = task_loss + outlier_suppression_loss(activations)
 
 记住：**Outliers不是bug，是LLM的feature。正确处理它们是量化成功的关键！**
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

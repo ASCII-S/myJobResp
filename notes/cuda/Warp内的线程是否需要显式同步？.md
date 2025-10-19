@@ -372,3 +372,11 @@ int val = __shfl_sync(0xFFFFFFFF, data, 0);
 
 **"Volta之后要同步，shuffle投票带sync；独立调度是趋势，显式同步保正确；性能优化用Warp，寄存器比shared快"**
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

@@ -240,3 +240,11 @@ RoPE 是一种优雅而高效的位置编码方法：
 - LLaMA 源码中的 RoPE 实现
 - [The Illustrated RoPE](https://blog.eleuther.ai/rotary-embeddings/) - EleutherAI 的可视化讲解
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

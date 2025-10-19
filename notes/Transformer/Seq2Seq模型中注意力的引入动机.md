@@ -171,3 +171,12 @@ c_t = Σ α_ti × h_i      # 加权上下文向量
 3. **对比分析**：与传统方法对比突出优势
 4. **承认局限**：提及计算开销等trade-off
 5. **展望未来**：可以延伸到Self-Attention和Transformer
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [注意力解决的对齐问题和信息瓶颈](notes/Transformer/注意力解决的对齐问题和信息瓶颈.md) - 相似度: 39% | 标签: Transformer, Transformer/注意力解决的对齐问题和信息瓶颈.md
+- [传统注意力机制回顾](notes/Transformer/传统注意力机制回顾.md) - 相似度: 36% | 标签: Transformer, Transformer/传统注意力机制回顾.md
+

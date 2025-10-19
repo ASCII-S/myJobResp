@@ -490,3 +490,11 @@ Per-channel > Per-group (128) > Per-group (512) > Per-tensor
 
 现代LLM量化工具（GPTQ、AWQ、TensorRT-LLM）都默认对权重使用Per-channel量化，这已成为行业标准。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [逐层量化、逐通道量化、分组量化（Group_Quantization）的优缺点是什么？](notes/熟悉大语言模型推理优化-技术层次/逐层量化、逐通道量化、分组量化（Group_Quantization）的优缺点是什么？.md) - 相似度: 39% | 标签: 熟悉大语言模型推理优化-技术层次, 熟悉大语言模型推理优化-技术层次/逐层量化、逐通道量化、分组量化（Group_Quantization）的优缺点是什么？.md
+

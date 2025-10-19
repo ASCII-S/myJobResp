@@ -619,3 +619,11 @@ quantized_model = torch.quantization.convert(model)
 
 通过合理处理这些特殊层，可以在QAT中实现高精度和高效率的平衡。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

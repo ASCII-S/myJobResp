@@ -406,3 +406,12 @@ __global__ void gemm_optimized_shared(
 
 没有共享内存的 GEMM 实现无法达到实用性能，共享内存是高性能 GEMM 的基础。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [gemm在cuda中的数据流](notes/cuda/gemm在cuda中的数据流.md) - 相似度: 36% | 标签: cuda, cuda/gemm在cuda中的数据流.md
+- [如何使用分块（Tiling）优化矩阵乘法？](notes/cuda/如何使用分块（Tiling）优化矩阵乘法？.md) - 相似度: 33% | 标签: cuda, cuda/如何使用分块（Tiling）优化矩阵乘法？.md
+

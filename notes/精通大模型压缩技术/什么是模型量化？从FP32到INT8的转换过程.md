@@ -550,3 +550,11 @@ def evaluate_quantization(model_fp32, model_int8, test_loader):
 - 融合BN层减少量化误差
 - 敏感层保持高精度
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

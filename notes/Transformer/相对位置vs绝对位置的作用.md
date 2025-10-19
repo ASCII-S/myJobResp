@@ -375,3 +375,12 @@ def apply_rotary_pos_emb(q, k, cos, sin, position_ids):
 现代Transformer模型的发展趋势是采用更sophisticated的位置编码策略，如RoPE、ALiBi等，这些方法结合了两种编码方式的优势，在保持简单性的同时提供了强大的位置建模能力。
 
 在实际应用中，应该根据具体任务需求、计算资源和性能要求来选择合适的位置编码策略，并考虑使用混合方法来获得最佳效果。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [位置信息对语言理解的重要性](notes/Transformer/位置信息对语言理解的重要性.md) - 相似度: 31% | 标签: Transformer, Transformer/位置信息对语言理解的重要性.md
+- [不同任务对位置信息的依赖程度](notes/Transformer/不同任务对位置信息的依赖程度.md) - 相似度: 31% | 标签: Transformer, Transformer/不同任务对位置信息的依赖程度.md
+

@@ -294,3 +294,11 @@ __global__ void optimized_matrix_multiply(
 这种分层优化策略可以使矩阵乘法的性能从朴素实现的几十GFLOPS提升到接近硬件理论峰值的数TFLOPS。
 
 [相关资料：GEMM在CUDA中的数据流](./gemm在cuda中的数据流.md)
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [gemm在cuda中的数据流](notes/cuda/gemm在cuda中的数据流.md) - 相似度: 31% | 标签: cuda, cuda/gemm在cuda中的数据流.md
+

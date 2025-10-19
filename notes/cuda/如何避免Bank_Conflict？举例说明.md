@@ -649,3 +649,12 @@ float4 [32][9]   ✓  // 9×16=144字节
 - 使用Profiler确认Bank冲突消除
 - 对比实际性能提升
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [如何避免shared_memory的bank_conflict？](notes/cuda/如何避免shared_memory的bank_conflict？.md) - 相似度: 33% | 标签: cuda, cuda/如何避免shared_memory的bank_conflict？.md
+- [什么是Bank_Conflict？它如何影响性能？](notes/cuda/什么是Bank_Conflict？它如何影响性能？.md) - 相似度: 33% | 标签: cuda, cuda/什么是Bank_Conflict？它如何影响性能？.md
+

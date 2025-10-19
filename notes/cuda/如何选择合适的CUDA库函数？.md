@@ -510,3 +510,11 @@ size_t cudnn_version = cudnnGetVersion();
 
 **"库优先手写后，性能功能两权衡；深度学习必cuDNN，矩阵运算选cuBLAS；稀疏矩阵用cuSPARSE，快速原型靠Thrust；实在没有再手写，Samples先看参考例"**
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

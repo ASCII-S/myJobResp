@@ -388,3 +388,12 @@ private:
 - 可以先写出反转整个链表的代码，再扩展到 k 个一组
 - 优先使用迭代法，空间复杂度更优
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [反转链表](notes/LeetcodeHot100/反转链表.md) - 相似度: 31% | 标签: LeetcodeHot100, LeetcodeHot100/反转链表.md
+- [两两交换链表中的节点](notes/LeetcodeHot100/两两交换链表中的节点.md) - 相似度: 31% | 标签: LeetcodeHot100, LeetcodeHot100/两两交换链表中的节点.md
+

@@ -191,3 +191,11 @@ GPU: 可能降至理论峰值的10-30%
 - **专用计算单元**：Tensor Core、RT Core等领域特定加速器
 
 这种差异使得CUDA与传统CPU计算形成了互补而非替代的关系，在现代计算系统中发挥着各自不可替代的作用。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [SM（Streaming_Multiprocessor）的概念和作用](notes/cuda/SM（Streaming_Multiprocessor）的概念和作用.md) - 相似度: 31% | 标签: cuda, cuda/SM（Streaming_Multiprocessor）的概念和作用.md
+

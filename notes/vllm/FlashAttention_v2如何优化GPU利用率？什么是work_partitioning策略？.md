@@ -345,3 +345,11 @@ class MultiGPUWorkPartitioning:
 ### 总结
 
 FlashAttention v2通过精心设计的Work Partitioning策略，实现了多维度的并行化和GPU资源的高效利用。关键技术包括2D工作分区、异步计算流水线、动态负载均衡等，最终将GPU利用率从传统的25-35%提升至80-90%，为大规模Transformer模型的高效计算奠定了基础。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [请重点解释v2如何做的并行化优化](notes/vllm/请重点解释v2如何做的并行化优化.md) - 相似度: 36% | 标签: vllm, vllm/请重点解释v2如何做的并行化优化.md
+

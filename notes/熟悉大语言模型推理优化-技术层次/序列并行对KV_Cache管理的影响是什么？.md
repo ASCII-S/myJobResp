@@ -67,3 +67,11 @@ attn = compute_attention(Q, kv_full)
 
 推理通常不用序列并行，KV Cache问题是原因之一。训练时序列并行有价值。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [Ring_Attention中的序列并行如何实现？](notes/熟悉大语言模型推理优化-技术层次/Ring_Attention中的序列并行如何实现？.md) - 相似度: 31% | 标签: 熟悉大语言模型推理优化-技术层次, 熟悉大语言模型推理优化-技术层次/Ring_Attention中的序列并行如何实现？.md
+

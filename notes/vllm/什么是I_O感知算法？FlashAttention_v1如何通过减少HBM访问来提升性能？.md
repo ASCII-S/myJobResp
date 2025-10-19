@@ -556,3 +556,13 @@ FlashAttention v1通过I/O感知的算法设计，成功解决了标准Attention
 
 **实际意义：**
 FlashAttention v1的I/O感知设计为后续的优化版本奠定了基础，并在实际生产中显著降低了大模型的训练和推理成本，是现代Transformer优化的重要里程碑。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [FlashAttention_v2相比v1有哪些关键改进？请重点解释工作分区和并行化优化。](notes/vllm/FlashAttention_v2相比v1有哪些关键改进？请重点解释工作分区和并行化优化。.md) - 相似度: 33% | 标签: vllm, vllm/FlashAttention_v2相比v1有哪些关键改进？请重点解释工作分区和并行化优化。.md
+- [FlashAttentionv1是如何解决标准Attention机制的内存瓶颈问题的](notes/vllm/FlashAttentionv1是如何解决标准Attention机制的内存瓶颈问题的.md) - 相似度: 33% | 标签: vllm, vllm/FlashAttentionv1是如何解决标准Attention机制的内存瓶颈问题的.md
+- [FlashAttention_v2相比v1有哪些关键改进？](notes/vllm/FlashAttention_v2相比v1有哪些关键改进？.md) - 相似度: 31% | 标签: vllm, vllm/FlashAttention_v2相比v1有哪些关键改进？.md
+

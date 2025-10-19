@@ -567,3 +567,11 @@ for step in range(num_steps):
 
 **"All-Reduce梯度聚合王，Broadcast广播全一样；Reduce归约到一处，All-Gather收集全收光；Scatter分散各自留，Send-Recv点对点帮忙；操作选对效率高，NCCL通信保驾航"**
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

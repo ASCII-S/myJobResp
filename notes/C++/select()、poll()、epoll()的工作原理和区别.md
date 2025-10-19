@@ -694,3 +694,11 @@ epoll本身是线程安全的，但需要注意：
 - 但同时操作同一个fd要小心（EPOLLONESHOT可以帮助）
 ```
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [epoll为什么比select和poll性能更好？](notes/C++/epoll为什么比select和poll性能更好？.md) - 相似度: 33% | 标签: C++, C++/epoll为什么比select和poll性能更好？.md
+

@@ -502,3 +502,11 @@ nvcc -O3 -use_fast_math -arch=sm_80 -o optimized_version main.cu
 - 充分利用现有的高性能库
 - 保持Toolkit版本的及时更新
 - 根据目标架构选择合适的编译选项
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

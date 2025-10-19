@@ -292,3 +292,11 @@ python -m vllm.entrypoints.openai.api_server \
 ### 总结
 
 vLLM相比Hugging Face Transformers的核心优势在于**专业化的推理优化**。Transformers是一个优秀的研究和原型开发工具，而vLLM是专门为生产环境设计的推理引擎。选择哪个框架主要取决于具体的使用场景：如果是研究和小规模应用，Transformers更合适；如果是生产环境和大规模推理，vLLM是明显更好的选择。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [vLLM在什么场景下会比其他推理框架更有优势？](notes/vllm/vLLM在什么场景下会比其他推理框架更有优势？.md) - 相似度: 39% | 标签: vllm, vllm/vLLM在什么场景下会比其他推理框架更有优势？.md
+

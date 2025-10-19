@@ -250,3 +250,11 @@ cudaEventElapsedTime(&milliseconds, start, stop);
 - 始终测量实际性能，不要只看理论值
 - 考虑不同GPU架构的差异
 - 平衡占用率和其他性能因素（如内存带宽利用率）
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [SM（Streaming_Multiprocessor）的概念和作用](notes/cuda/SM（Streaming_Multiprocessor）的概念和作用.md) - 相似度: 33% | 标签: cuda, cuda/SM（Streaming_Multiprocessor）的概念和作用.md
+

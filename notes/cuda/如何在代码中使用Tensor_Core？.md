@@ -356,3 +356,11 @@ for data, target in train_loader:
 
 **"AMP自动最简单，autocast包一圈；GradScaler防下溢，训练稳定不翻船；维度对齐八倍数，Tensor Core才能用；BF16稳定TF32快，混合精度是首选"**
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

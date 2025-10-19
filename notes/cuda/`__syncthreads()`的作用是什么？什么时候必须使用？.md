@@ -166,3 +166,11 @@ __global__ void correct_kernel(float* input, float* output) {
 
 **"共享内存有交叉，同步屏障不可少；自己写自己读，同步大可不必要"**
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

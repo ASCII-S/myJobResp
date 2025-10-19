@@ -961,3 +961,13 @@ Non-Matmul操作优化效果：
 ### 总结
 
 FlashAttention v2通过更细粒度的2D工作分区和多层次并行化策略，在保持v1内存效率优势的基础上，进一步提升了计算效率和GPU利用率。特别是在non-matmul操作方面，v2通过延迟归一化、warp级别优化、向量化操作等技术，显著减少了非矩阵乘法运算的开销，使得整体性能得到大幅提升。这些改进使得大规模Transformer模型的训练和推理变得更加高效和可行。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [请重点解释v2如何做的并行化优化](notes/vllm/请重点解释v2如何做的并行化优化.md) - 相似度: 36% | 标签: vllm, vllm/请重点解释v2如何做的并行化优化.md
+- [FlashAttention_v2相比v1有哪些关键改进？](notes/vllm/FlashAttention_v2相比v1有哪些关键改进？.md) - 相似度: 33% | 标签: vllm, vllm/FlashAttention_v2相比v1有哪些关键改进？.md
+- [什么是I_O感知算法？FlashAttention_v1如何通过减少HBM访问来提升性能？](notes/vllm/什么是I_O感知算法？FlashAttention_v1如何通过减少HBM访问来提升性能？.md) - 相似度: 33% | 标签: vllm, vllm/什么是I_O感知算法？FlashAttention_v1如何通过减少HBM访问来提升性能？.md
+

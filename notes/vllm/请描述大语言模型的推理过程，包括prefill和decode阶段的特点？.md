@@ -117,3 +117,12 @@ class KVCache:
 - KV Cache压缩和量化
 - 推测解码 (Speculative Decoding)
 - 连续批处理 (Continuous Batching)
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [在LLM推理中，主要的性能瓶颈有哪些？（计算、内存、IO等）](notes/vllm/在LLM推理中，主要的性能瓶颈有哪些？（计算、内存、IO等）.md) - 相似度: 31% | 标签: vllm, vllm/在LLM推理中，主要的性能瓶颈有哪些？（计算、内存、IO等）.md
+- [一条prompt进入后，整个vllm是如何运作的呢？](notes/vllm/一条prompt进入后，整个vllm是如何运作的呢？.md) - 相似度: 31% | 标签: vllm, vllm/一条prompt进入后，整个vllm是如何运作的呢？.md
+

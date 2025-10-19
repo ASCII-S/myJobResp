@@ -638,3 +638,11 @@ output = model.generate(input_ids, max_length=100)
 
 两种方法各有千秋，根据具体需求选择。实践中也可以组合使用，取长补短。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [仅量化权重（Weight-Only Quantization）和同时量化激活有什么区别？](notes/熟悉大语言模型推理优化-技术层次/仅量化权重（Weight-Only Quantization）和同时量化激活有什么区别？.md) - 相似度: 33% | 标签: 熟悉大语言模型推理优化-技术层次, 熟悉大语言模型推理优化-技术层次/仅量化权重（Weight-Only Quantization）和同时量化激活有什么区别？.md
+

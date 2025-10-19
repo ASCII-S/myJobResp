@@ -132,3 +132,11 @@ MultiHead = Concat([Head1, Head2, Head3, ...]) @ W_O
 3. **可微优化**：整个过程可梯度下降
 
 Query、Key、Value三元组的设计，本质上是将**注意力机制**建模为一个**可学习的联想存储器**，实现了从离散符号查询到连续向量检索的优雅转换。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [QKV是什么](notes/Transformer/QKV是什么.md) - 相似度: 31% | 标签: Transformer, Transformer/QKV是什么.md
+

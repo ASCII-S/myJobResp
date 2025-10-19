@@ -664,3 +664,11 @@ void smartMemoryManagement() {
 4. **Q: malloc和cudaMalloc可以混用吗？**
    - A: 可以，但不能跨域访问。主机指针只能在CPU使用，设备指针只能在GPU使用，需要`cudaMemcpy`传输数据。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

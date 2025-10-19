@@ -602,3 +602,12 @@ __global__ void specializedWarps(float* data, int N) {
 ❌ **误区4**：同一Warp内线程总是锁步执行  
 ✔️ **正确**：Volta+架构支持独立线程调度，需显式同步
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [SM（Streaming_Multiprocessor）的概念和作用](notes/cuda/SM（Streaming_Multiprocessor）的概念和作用.md) - 相似度: 33% | 标签: cuda, cuda/SM（Streaming_Multiprocessor）的概念和作用.md
+- [线程层次结构](notes/cuda/线程层次结构.md) - 相似度: 31% | 标签: cuda, cuda/线程层次结构.md
+

@@ -432,3 +432,12 @@ __global__ void gemm_optimized(
 
 在 GEMM 优化中，添加 padding 是**零成本高收益**的优化，应该成为标准做法。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [什么是Bank_Conflict？它如何影响性能？](notes/cuda/什么是Bank_Conflict？它如何影响性能？.md) - 相似度: 39% | 标签: cuda, cuda/什么是Bank_Conflict？它如何影响性能？.md
+- [如何避免Bank_Conflict？举例说明](notes/cuda/如何避免Bank_Conflict？举例说明.md) - 相似度: 33% | 标签: cuda, cuda/如何避免Bank_Conflict？举例说明.md
+

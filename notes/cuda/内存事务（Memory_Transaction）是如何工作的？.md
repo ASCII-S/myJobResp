@@ -543,3 +543,12 @@ ncu --metrics l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum,\
 **Q4: Unified Memory会改变事务行为吗？**
 - A: 底层事务机制相同，但Unified Memory会引入页面迁移（4KB页），可能增加初次访问的延迟。访问模式优化仍然重要。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [Global_Memory](notes/cuda/Global_Memory.md) - 相似度: 36% | 标签: cuda, cuda/Global_Memory.md
+- [内存带宽优化](notes/cuda/内存带宽优化.md) - 相似度: 31% | 标签: cuda, cuda/内存带宽优化.md
+

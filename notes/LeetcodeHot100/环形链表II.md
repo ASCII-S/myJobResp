@@ -286,3 +286,12 @@ public:
 - 重点强调两个阶段：判断有环 + 找入口
 - 可以画图辅助说明
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [环形链表](notes/LeetcodeHot100/环形链表.md) - 相似度: 42% | 标签: LeetcodeHot100, LeetcodeHot100/环形链表.md
+- [回文链表](notes/LeetcodeHot100/回文链表.md) - 相似度: 33% | 标签: LeetcodeHot100, LeetcodeHot100/回文链表.md
+

@@ -219,3 +219,11 @@ Hopper (2022)
 
 **"Tensor Core矩阵加速器，FP16 BF16是主力；TF32 A100自动开，FP8 H100新利器；维度对齐要记牢，八倍或十六倍好；混合精度必须用，深度学习离不了"**
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [如何使用Tensor_Core加速GEMM？](notes/cuda/如何使用Tensor_Core加速GEMM？.md) - 相似度: 36% | 标签: cuda, cuda/如何使用Tensor_Core加速GEMM？.md
+

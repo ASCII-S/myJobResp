@@ -313,3 +313,11 @@ Hopper: NVLink 4.0 - 200 GB/s
 - **框架集成**：PyTorch、TensorFlow自动利用Tensor Core
 
 这种架构演进展现了NVIDIA在不同时代对计算需求的敏锐洞察，从通用并行计算到AI专用加速，每一代都针对当时的主流应用进行了深度优化。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [CUDA_Core,Tensor_Core的区别](notes/cuda/CUDA_Core,Tensor_Core的区别.md) - 相似度: 31% | 标签: cuda, cuda/CUDA_Core,Tensor_Core的区别.md
+

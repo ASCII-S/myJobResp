@@ -636,3 +636,13 @@ stride=32: 32-way ✗✗✗
 **Q5: 如何在double访问时避免Bank Conflict？**
 - A: 使用8字节Bank模式（`cudaDeviceSetSharedMemConfig(cudaSharedMemBankSizeEightByte)`），或使用padding技巧。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [如何避免shared_memory的bank_conflict？](notes/cuda/如何避免shared_memory的bank_conflict？.md) - 相似度: 39% | 标签: cuda, cuda/如何避免shared_memory的bank_conflict？.md
+- [如何避免Bank_Conflict？举例说明](notes/cuda/如何避免Bank_Conflict？举例说明.md) - 相似度: 33% | 标签: cuda, cuda/如何避免Bank_Conflict？举例说明.md
+- [Bank冲突的概念和避免方法](notes/cuda/Bank冲突的概念和避免方法.md) - 相似度: 31% | 标签: cuda, cuda/Bank冲突的概念和避免方法.md
+

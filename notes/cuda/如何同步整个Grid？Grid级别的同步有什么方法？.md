@@ -350,3 +350,11 @@ __global__ void coop_kernel(...) {
 
 **"分离kernel最保险，cooperative要支持，graphs固定模式强；kernel边界天然同步，性能不够再优化"**
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

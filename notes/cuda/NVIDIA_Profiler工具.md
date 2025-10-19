@@ -406,3 +406,11 @@ nsys profile --trace=cuda ./program
 - 注意profiler本身的性能开销
 - 保存基线性能数据用于对比
 - 使用脚本自动化重复分析任务
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [GPU利用率分析](notes/cuda/GPU利用率分析.md) - 相似度: 33% | 标签: cuda, cuda/GPU利用率分析.md
+

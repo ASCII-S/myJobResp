@@ -56,3 +56,11 @@ related_outlines: []
 * **带宽利用率**：事务越少，带宽利用率越高。一次事务可以把整块数据搬上来，多个线程共享。
 * **延迟隐藏**：更多事务 = 更多等待，warp 执行会拖慢。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [内存事务（Memory_Transaction）是如何工作的？](notes/cuda/内存事务（Memory_Transaction）是如何工作的？.md) - 相似度: 36% | 标签: cuda, cuda/内存事务（Memory_Transaction）是如何工作的？.md
+

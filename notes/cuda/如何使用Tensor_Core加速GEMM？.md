@@ -543,3 +543,11 @@ Tensor Core FP16:  312 TFLOPS  (16x)
 
 Tensor Core 是现代GPU **最重要的性能特性之一**，是深度学习性能突破的关键硬件基础。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [Tensor_Core是什么？支持哪些数据类型？](notes/cuda/Tensor_Core是什么？支持哪些数据类型？.md) - 相似度: 36% | 标签: cuda, cuda/Tensor_Core是什么？支持哪些数据类型？.md
+

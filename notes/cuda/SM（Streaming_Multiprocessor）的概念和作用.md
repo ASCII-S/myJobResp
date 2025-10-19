@@ -391,3 +391,14 @@ struct SMPerformanceMetrics {
 - **计算强度**：提升算术运算与内存访问的比率
 
 SM作为GPU的核心计算单元，其设计和优化直接影响整个CUDA程序的性能。理解SM的工作原理和资源限制，是编写高效CUDA代码的基础。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [占用率（Occupancy）优化](notes/cuda/占用率（Occupancy）优化.md) - 相似度: 33% | 标签: cuda, cuda/占用率（Occupancy）优化.md
+- [Warp的大小和执行机制](notes/cuda/Warp的大小和执行机制.md) - 相似度: 33% | 标签: cuda, cuda/Warp的大小和执行机制.md
+- [计算瓶颈识别](notes/cuda/计算瓶颈识别.md) - 相似度: 31% | 标签: cuda, cuda/计算瓶颈识别.md
+- [CUDA与传统CPU计算的区别](notes/cuda/CUDA与传统CPU计算的区别.md) - 相似度: 31% | 标签: cuda, cuda/CUDA与传统CPU计算的区别.md
+

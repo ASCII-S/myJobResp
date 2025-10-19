@@ -79,3 +79,13 @@ GEMM充分利用了CUDA的内存层次结构：
 - **Shared Memory**：缓存计算块，实现数据复用
 - **Register**：存储计算中间结果和循环变量
 - **Constant Memory**：可用于存储GEMM参数（矩阵尺寸等）
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [共享内存在GEMM优化中起什么作用？](notes/cuda/共享内存在GEMM优化中起什么作用？.md) - 相似度: 36% | 标签: cuda, cuda/共享内存在GEMM优化中起什么作用？.md
+- [内存带宽优化](notes/cuda/内存带宽优化.md) - 相似度: 31% | 标签: cuda, cuda/内存带宽优化.md
+- [内存层次结构（Global、Shared、Constant、Texture、Register）](notes/cuda/内存层次结构（Global、Shared、Constant、Texture、Register）.md) - 相似度: 31% | 标签: cuda, cuda/内存层次结构（Global、Shared、Constant、Texture、Register）.md
+

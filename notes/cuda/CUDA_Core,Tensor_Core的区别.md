@@ -519,3 +519,11 @@ __global__ void hybrid_computation_kernel(
 ```
 
 总结：CUDA Core提供了GPU计算的通用性和灵活性，而Tensor Core则为特定的AI和矩阵运算workload提供了革命性的性能提升。现代GPU应用通常需要充分利用两者的优势，通过合理的算法设计和workload分配来实现最佳性能。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [GPU架构演进（从Fermi到最新架构）](notes/cuda/GPU架构演进（从Fermi到最新架构）.md) - 相似度: 31% | 标签: cuda, cuda/GPU架构演进（从Fermi到最新架构）.md
+

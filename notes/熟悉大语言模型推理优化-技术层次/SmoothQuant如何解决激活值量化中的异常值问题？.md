@@ -666,3 +666,11 @@ evaluate(model_int8, test_data)
 
 SmoothQuant是目前最有效的激活值量化方法之一，已被广泛应用于LLM推理优化中。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

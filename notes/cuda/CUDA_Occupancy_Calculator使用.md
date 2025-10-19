@@ -731,3 +731,11 @@ void demonstrate_occupancy_monitoring() {
    - 定期性能回归测试
    - 适配新硬件架构
 ```
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

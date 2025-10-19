@@ -195,3 +195,11 @@ public:
 3. 累加的是 `preSumCount[preSum - k]` 的值，不是简单的 +1
 4. 理解前缀和的含义：`preSum[i]` 是前 i 个元素的和
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [无重复字符的最长子串](notes/LeetcodeHot100/无重复字符的最长子串.md) - 相似度: 31% | 标签: LeetcodeHot100, LeetcodeHot100/无重复字符的最长子串.md
+

@@ -313,3 +313,11 @@ def forward(self, x):
 ```
 
 这个解释涵盖了Transformer的核心概念，既提供了面试所需的标准答案，也深入解析了技术细节，帮助你全面理解这个重要的深度学习架构。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [Transformer核心概念详解](notes/Transformer/code/TransformerDemo/Transformer核心概念详解.md) - 相似度: 73% | 标签: Transformer, Transformer/code
+

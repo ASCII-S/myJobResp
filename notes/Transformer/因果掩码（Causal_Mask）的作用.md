@@ -543,3 +543,12 @@ class DynamicCausalMask:
 4. **灵活扩展**：支持各种变体以适应不同需求
 
 理解因果掩码的工作原理对于掌握自回归语言模型的核心机制至关重要，它是GPT等生成模型能够进行连贯文本生成的基础保障。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [掩码自注意力的实现](notes/Transformer/掩码自注意力的实现.md) - 相似度: 39% | 标签: Transformer, Transformer/掩码自注意力的实现.md
+- [解码过程的自回归性质](notes/Transformer/解码过程的自回归性质.md) - 相似度: 36% | 标签: Transformer, Transformer/解码过程的自回归性质.md
+

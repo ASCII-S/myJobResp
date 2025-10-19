@@ -98,3 +98,11 @@ void baz(const Foo* const this) { /* ... */ }
 ### 4. 面试标准表述
 
 “在 const 成员函数中，`this` 的类型会从 `Foo* const this` 变成 `const Foo* const this`。这意味着函数内部不能修改对象的非 mutable 成员。这样常对象也能调用这些函数，保证了对象的逻辑只读性。”
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

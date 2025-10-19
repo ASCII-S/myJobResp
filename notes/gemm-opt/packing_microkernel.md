@@ -155,3 +155,11 @@ L1缓存: MR x NR 的微内核块
 3. **多精度支持**：float, int8 等数据类型
 4. **NUMA优化**：多插槽系统的内存亲和性
 5. **GPU移植**：CUDA/OpenCL版本实现
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [cache-blocking](notes/gemm-opt/cache-blocking.md) - 相似度: 31% | 标签: gemm-opt, gemm-opt/cache-blocking.md
+

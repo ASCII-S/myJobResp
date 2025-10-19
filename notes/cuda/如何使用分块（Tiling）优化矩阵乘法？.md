@@ -351,3 +351,12 @@ Tiling 优化是 GEMM 优化的**基础和核心**：
 
 Tiling 是从朴素实现走向高性能 GEMM 的第一步，也是最重要的一步。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [寄存器分块（Register_Tiling）的原理是什么？](notes/cuda/寄存器分块（Register_Tiling）的原理是什么？.md) - 相似度: 36% | 标签: cuda, cuda/寄存器分块（Register_Tiling）的原理是什么？.md
+- [共享内存在GEMM优化中起什么作用？](notes/cuda/共享内存在GEMM优化中起什么作用？.md) - 相似度: 33% | 标签: cuda, cuda/共享内存在GEMM优化中起什么作用？.md
+

@@ -300,3 +300,11 @@ def speculative_decoding(draft_model, target_model, input_ids, k=4):
 4. **批处理优化**：提高并发处理能力
 
 这个过程看似简单，但在实际实现中涉及众多优化技术，直接影响模型的生成质量和推理效率。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [KV缓存机制的实现](notes/Transformer/KV缓存机制的实现.md) - 相似度: 31% | 标签: Transformer, Transformer/KV缓存机制的实现.md
+

@@ -858,3 +858,12 @@ PagedAttention算法成功地将操作系统几十年来在虚拟内存管理方
 4. **硬件加速**：专用的地址转换和内存管理硬件
 
 PagedAttention的成功证明了跨领域技术借鉴的巨大价值，为AI系统的性能优化开辟了新的思路。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [KV缓存在Transformer模型推理中有什么作用？PagedAttention如何优化KV缓存的管理？](notes/vllm/KV缓存在Transformer模型推理中有什么作用？PagedAttention如何优化KV缓存的管理？.md) - 相似度: 31% | 标签: vllm, vllm/KV缓存在Transformer模型推理中有什么作用？PagedAttention如何优化KV缓存的管理？.md
+- [能否画图或用伪代码描述PagedAttention的核心流程？](notes/vllm/能否画图或用伪代码描述PagedAttention的核心流程？.md) - 相似度: 31% | 标签: vllm, vllm/能否画图或用伪代码描述PagedAttention的核心流程？.md
+

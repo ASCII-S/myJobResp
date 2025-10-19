@@ -540,3 +540,11 @@ ncu --metrics smsp__cycles_active.avg.pct_of_peak_sustained_elapsed \
 
 双缓冲是**高性能GEMM的标配优化**，在现代GPU库（cuBLAS、CUTLASS）中广泛应用，是接近硬件峰值性能的关键技术之一。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

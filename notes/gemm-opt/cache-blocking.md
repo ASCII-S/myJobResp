@@ -217,3 +217,11 @@ __m256d c_vec = _mm256_fmadd_pd(a_vec, b_vec, c_vec);
 5. **综合优化：** 与其他技术（预取、向量化等）结合使用
 
 在实际应用中，最优的块大小往往需要通过实验来确定，因为它依赖于具体的硬件平台、编译器优化和应用场景。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [packing_microkernel](notes/gemm-opt/packing_microkernel.md) - 相似度: 31% | 标签: gemm-opt, gemm-opt/packing_microkernel.md
+

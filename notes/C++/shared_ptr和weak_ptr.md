@@ -1086,3 +1086,12 @@ public:
 
 **记住**：循环引用是 `shared_ptr` 最常见的陷阱，使用 `weak_ptr` 可以优雅地解决这个问题。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [unique_ptr、shared_ptr、weak_ptr的使用场景](notes/C++/unique_ptr、shared_ptr、weak_ptr的使用场景.md) - 相似度: 39% | 标签: C++, C++/unique_ptr、shared_ptr、weak_ptr的使用场景.md
+- [设计一个简单的shared_ptr](notes/C++/设计一个简单的shared_ptr.md) - 相似度: 31% | 标签: C++, C++/设计一个简单的shared_ptr.md
+

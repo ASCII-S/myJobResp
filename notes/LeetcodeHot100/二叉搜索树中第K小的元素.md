@@ -248,3 +248,12 @@ int kthSmallest(TreeNode* root, int k) {
 
 这样查询的时间复杂度降为 O(h)，但需要在插入/删除时维护 `leftCount`。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [验证二叉搜索树](notes/LeetcodeHot100/验证二叉搜索树.md) - 相似度: 36% | 标签: LeetcodeHot100, LeetcodeHot100/验证二叉搜索树.md
+- [二叉树的中序遍历](notes/LeetcodeHot100/二叉树的中序遍历.md) - 相似度: 31% | 标签: LeetcodeHot100, LeetcodeHot100/二叉树的中序遍历.md
+

@@ -624,3 +624,11 @@ class AWQQuantizer:
 
 AWQ是目前最流行的Weight-Only INT4量化方法，被广泛用于LLM的实际部署中。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [仅量化权重（Weight-Only Quantization）和同时量化激活有什么区别？](notes/熟悉大语言模型推理优化-技术层次/仅量化权重（Weight-Only Quantization）和同时量化激活有什么区别？.md) - 相似度: 31% | 标签: 熟悉大语言模型推理优化-技术层次, 熟悉大语言模型推理优化-技术层次/仅量化权重（Weight-Only Quantization）和同时量化激活有什么区别？.md
+

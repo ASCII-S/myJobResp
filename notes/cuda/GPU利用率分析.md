@@ -310,3 +310,13 @@ float efficiency = achieved_gflops / theoretical_gflops * 100;
 4. 实现GPU资源的最大化利用
 
 掌握这些分析方法是CUDA性能优化的基础，也是高性能计算开发者必备的技能。
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [计算瓶颈识别](notes/cuda/计算瓶颈识别.md) - 相似度: 36% | 标签: cuda, cuda/计算瓶颈识别.md
+- [内存瓶颈识别](notes/cuda/内存瓶颈识别.md) - 相似度: 33% | 标签: cuda, cuda/内存瓶颈识别.md
+- [NVIDIA_Profiler工具](notes/cuda/NVIDIA_Profiler工具.md) - 相似度: 33% | 标签: cuda, cuda/NVIDIA_Profiler工具.md
+

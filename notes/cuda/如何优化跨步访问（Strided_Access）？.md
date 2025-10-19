@@ -859,3 +859,11 @@ stride访问 (stride=32→1):
 **Q4: 如何判断是否应该优化跨步访问？**
 - A: 使用Profiler查看带宽利用率。如果Global Load Throughput远低于理论峰值（<30%），且Bytes per Sector较低（<50%），说明存在严重的跨步访问问题，值得优化。
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+- [内存带宽优化](notes/cuda/内存带宽优化.md) - 相似度: 31% | 标签: cuda, cuda/内存带宽优化.md
+

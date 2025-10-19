@@ -509,3 +509,11 @@ print(prof.key_averages())
 
 **"自定义算子三步走，kernel函数autograd封装编译加载用；forward保存backward取，save_for_backward记心头；JIT编译快迭代，setup安装生产优；gradcheck验证梯度对，性能profiling不能丢"**
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

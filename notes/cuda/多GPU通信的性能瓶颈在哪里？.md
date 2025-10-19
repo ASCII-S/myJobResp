@@ -557,3 +557,11 @@ export NCCL_MIN_NCHANNELS=4        # 增加通道数
 
 **"硬件互联是根本，NVLink胜过PCIe门；算法选择要聪明，Ring Tree各有所长处；通信计算要重叠，Bucket机制立大功；跨节点看网络快，GPUDirect RDMA不能少；诊断工具要会用，nccl-tests和nsys帮大忙"**
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

@@ -620,3 +620,11 @@ if __name__ == '__main__':
 
 **"初始化communicator第一步，准备数据GPU内存驻；调用AllReduce指定参，异步执行效率足；同步等待确保完，验证结果心里数；PyTorch更简单，DDP自动全搞定；调试开启NCCL_DEBUG，性能优化看profiler录"**
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+

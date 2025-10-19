@@ -480,3 +480,11 @@ RMSNorm 的成功说明，在深度学习中，**简化不一定意味着性能�
 - LLaMA 源码中的 RMSNorm 实现
 - [深入理解 Layer Normalization](https://arxiv.org/abs/1607.06450) - 原始 LayerNorm 论文
 
+
+---
+
+## 相关笔记
+<!-- 自动生成 -->
+
+暂无相关笔记
+
