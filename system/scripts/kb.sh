@@ -57,6 +57,7 @@ show_help() {
   fix-meta                 修复不完整的元数据
   
   new <name>               从模板创建新笔记
+  seed                     创建种子笔记（碎片知识）🌱
   
   update-all               运行所有更新（清单+图谱+索引+报表）
 
@@ -205,6 +206,11 @@ case "${1:-}" in
             error "模板文件不存在: templates/note_template.md"
             exit 1
         fi
+        ;;
+    
+    seed)
+        info "🌱 创建种子笔记..."
+        bash scripts/new_seed.sh
         ;;
     
     update-all)
