@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - Transformer/Bahdanau注意力vsLuong注意力的区别.md
 related_outlines: []
 ---
-
 # Bahdanau注意力 vs Luong注意力的区别
 
 ## 面试标准答案

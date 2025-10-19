@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - 熟悉大语言模型推理优化-技术层次/专家容量（Expert_Capacity）如何影响MoE的性能？.md
 related_outlines: []
 ---
-
 # 专家容量（Expert Capacity）如何影响MoE的性能？
 
 ## 面试标准答案

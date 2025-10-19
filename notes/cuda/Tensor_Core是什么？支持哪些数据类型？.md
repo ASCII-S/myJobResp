@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - cuda/Tensor_Core是什么？支持哪些数据类型？.md
 related_outlines: []
 ---
-
 # Tensor Core是什么？支持哪些数据类型？
 
 ## 面试标准答案

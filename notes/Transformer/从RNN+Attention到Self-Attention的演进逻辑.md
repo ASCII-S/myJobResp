@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - Transformer/从RNN+Attention到Self-Attention的演进逻辑.md
 related_outlines: []
 ---
-
 # 从RNN+Attention到Self-Attention的演进逻辑
 
 ## 面试标准答案

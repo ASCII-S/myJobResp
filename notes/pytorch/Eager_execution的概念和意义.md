@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - pytorch/Eager_execution的概念和意义.md
 related_outlines: []
 ---
-
 # Eager execution的概念和意义
 
 ## 1. 核心概念

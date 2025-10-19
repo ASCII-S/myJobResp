@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - cuda/批量矩阵乘法（Batched_GEMM）的优化策略？.md
 related_outlines: []
 ---
-
 # 批量矩阵乘法（Batched GEMM）的优化策略？
 
 ## 面试标准答案

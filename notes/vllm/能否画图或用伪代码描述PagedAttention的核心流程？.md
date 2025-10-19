@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - vllm/能否画图或用伪代码描述PagedAttention的核心流程？.md
 related_outlines: []
 ---
-
 # 能否画图或用伪代码描述PagedAttention的核心流程？
 
 ## 标准精简答案 (可背诵版本)

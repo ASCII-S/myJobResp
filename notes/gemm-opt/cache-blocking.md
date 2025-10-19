@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - gemm-opt/cache-blocking.md
 related_outlines: []
 ---
-
 # 缓存块技术 (Cache Blocking/Tiling)
 
 ## 基本概念

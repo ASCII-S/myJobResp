@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - cuda/GEMM性能如何接近理论峰值（cuBLAS水平）？.md
 related_outlines: []
 ---
-
 # GEMM性能如何接近理论峰值（cuBLAS水平）？
 
 ## 面试标准答案

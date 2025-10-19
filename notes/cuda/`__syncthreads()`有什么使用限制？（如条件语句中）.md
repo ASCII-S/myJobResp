@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - cuda/`__syncthreads()`有什么使用限制？（如条件语句中）.md
 related_outlines: []
 ---
-
 # `__syncthreads()`有什么使用限制？（如条件语句中）
 
 ## 面试标准答案

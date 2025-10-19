@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - 深度学习/网络宽度vs深度的权衡.md
 related_outlines: []
 ---
-
 # 网络宽度vs深度的权衡
 
 增加深度：可以通过逐层组合学习更复杂的层级特征，表达能力呈指数增长，用较少参数也能表示复杂函数。但太深会带来梯度消失/爆炸等训练困难。

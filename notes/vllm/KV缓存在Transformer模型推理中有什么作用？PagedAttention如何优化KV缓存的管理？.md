@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - vllm/KV缓存在Transformer模型推理中有什么作用？PagedAttention如何优化KV缓存的管理？.md
 related_outlines: []
 ---
-
 # KV缓存在Transformer模型推理中有什么作用？PagedAttention如何优化KV缓存的管理？
 
 ## 标准精简答案 (可背诵版本)

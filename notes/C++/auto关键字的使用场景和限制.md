@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,8 +10,6 @@ tags:
 - C++/auto关键字的使用场景和限制.md
 related_outlines: []
 ---
-
-
 ---
 
 在 C++ 中，`auto` 关键字用于在编译期进行类型推导，编译器会根据初始化表达式来确定变量的真实类型，因此使用 `auto` 时必须有初始化器。

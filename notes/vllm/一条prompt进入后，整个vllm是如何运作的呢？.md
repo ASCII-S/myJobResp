@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - vllm/一条prompt进入后，整个vllm是如何运作的呢？.md
 related_outlines: []
 ---
-
 # 一条prompt进入后，整个vLLM是如何运作的呢？
 
 ## 🎯 面试标准答案（可背诵版）

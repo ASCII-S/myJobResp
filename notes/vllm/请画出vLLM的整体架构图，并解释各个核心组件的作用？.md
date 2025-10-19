@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - vllm/请画出vLLM的整体架构图，并解释各个核心组件的作用？.md
 related_outlines: []
 ---
-
 # 请画出vLLM的整体架构图，并解释各个核心组件的作用？
 
 ## 面试标准答案（背诵版本）

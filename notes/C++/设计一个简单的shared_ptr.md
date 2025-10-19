@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - C++/设计一个简单的shared_ptr.md
 related_outlines: []
 ---
-
 # 设计一个简单的 shared_ptr
 
 ## 面试标准答案（可背诵）

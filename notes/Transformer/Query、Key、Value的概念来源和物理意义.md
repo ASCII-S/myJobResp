@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - Transformer/Query、Key、Value的概念来源和物理意义.md
 related_outlines: []
 ---
-
 # Query、Key、Value的概念来源和物理意义
 
 ## 面试标准答案

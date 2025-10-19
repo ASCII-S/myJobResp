@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - C++/C++程序从源代码到可执行文件的完整过程.md
 related_outlines: []
 ---
-
 C++ 程序从源代码到可执行文件，大体要经历 预处理、编译、汇编、链接 这几个阶段。
 
 首先是 预处理（Preprocessing）。编译器会处理以 # 开头的预处理指令，比如 #include 展开头文件，#define 做宏替换，还会去掉注释，处理条件编译。最终结果是一个纯净的、展开后的源文件。

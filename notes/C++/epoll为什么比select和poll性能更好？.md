@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - C++/epoll为什么比select和poll性能更好？.md
 related_outlines: []
 ---
-
 # epoll为什么比select和poll性能更好？
 
 ## 标准答案（面试简答）

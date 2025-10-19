@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - 熟悉大语言模型推理优化-技术层次/QAT中的fake_quantization是如何工作的？.md
 related_outlines: []
 ---
-
 # QAT中的fake quantization是如何工作的？
 
 ## 面试标准答案

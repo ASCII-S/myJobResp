@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - 分布式通信/GPU间通信的优化.md
 related_outlines: []
 ---
-
 # GPU间通信的优化
 
 ## NVLink技术优势

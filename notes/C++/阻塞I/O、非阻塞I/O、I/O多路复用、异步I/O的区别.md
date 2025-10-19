@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - C++/阻塞I
 related_outlines: []
 ---
-
 # 阻塞I/O、非阻塞I/O、I/O多路复用、异步I/O的区别
 
 ## 标准答案（面试简答）

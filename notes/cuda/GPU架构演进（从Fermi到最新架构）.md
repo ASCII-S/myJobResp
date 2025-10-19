@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - cuda/GPU架构演进（从Fermi到最新架构）.md
 related_outlines: []
 ---
-
 # GPU架构演进（从Fermi到最新架构）
 
 ## 面试标准答案

@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - Transformer/简单说说transformer从输入到输出的过程.md
 related_outlines: []
 ---
-
 好，给你一条从“文本 → 输出表示”的**Self-Attention全流程**（含形状、掩码、数值稳定与多头融合）。我用最常见的张量维度符号：
 
 * 批大小 $B$，序列长度 $n$，模型维度 $d_{\text{model}}$，头数 $h$，单头维度 $d_k=d_v=\frac{d_{\text{model}}}{h}$。

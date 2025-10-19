@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - cuda/如何优化跨步访问（Strided_Access）？.md
 related_outlines: []
 ---
-
 # 如何优化跨步访问（Strided Access）？
 
 ## 面试标准答案（可背诵）

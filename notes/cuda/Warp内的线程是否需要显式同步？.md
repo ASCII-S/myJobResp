@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - cuda/Warp内的线程是否需要显式同步？.md
 related_outlines: []
 ---
-
 # Warp内的线程是否需要显式同步？
 
 ## 面试标准答案

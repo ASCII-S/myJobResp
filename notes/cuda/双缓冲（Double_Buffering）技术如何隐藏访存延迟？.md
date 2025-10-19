@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - cuda/双缓冲（Double_Buffering）技术如何隐藏访存延迟？.md
 related_outlines: []
 ---
-
 # 双缓冲（Double Buffering）技术如何隐藏访存延迟？
 
 ## 面试标准答案

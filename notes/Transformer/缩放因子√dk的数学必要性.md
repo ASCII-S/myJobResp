@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - Transformer/缩放因子√dk的数学必要性.md
 related_outlines: []
 ---
-
 # 缩放因子√dk的数学必要性 - 面试回答
 
 ## 问题：为什么在计算注意力权重时需要除以√dk？

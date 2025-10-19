@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - C++/Socket的创建、绑定、监听、连接流程.md
 related_outlines: []
 ---
-
 # Socket的创建、绑定、监听、连接流程
 
 ## 1. Socket基本概念

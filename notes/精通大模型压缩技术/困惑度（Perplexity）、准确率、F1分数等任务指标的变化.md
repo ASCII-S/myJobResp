@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - 精通大模型压缩技术/困惑度（Perplexity）、准确率、F1分数等任务指标的变化.md
 related_outlines: []
 ---
-
 # 困惑度（Perplexity）、准确率、F1分数等任务指标的变化
 
 ## 面试标准答案

@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - C++/shared_ptr和weak_ptr.md
 related_outlines: []
 ---
-
 # std::shared_ptr 和 std::weak_ptr
 
 ## 面试标准答案（可背诵）

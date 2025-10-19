@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,9 +10,6 @@ tags:
 - C++/decltype的推导规则.md
 related_outlines: []
 ---
-
-
-
 在 C++11 中，`decltype` 是一个用于类型推导的关键字。它和 `auto` 不同，`decltype` 不会丢掉 const、不会丢掉引用，而是会**完整地按照表达式的类型来推导**。
 
 核心规则：

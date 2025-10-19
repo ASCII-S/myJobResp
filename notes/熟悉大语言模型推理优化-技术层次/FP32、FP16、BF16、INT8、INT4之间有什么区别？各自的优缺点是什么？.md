@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - 熟悉大语言模型推理优化-技术层次/FP32、FP16、BF16、INT8、INT4之间有什么区别？各自的优缺点是什么？.md
 related_outlines: []
 ---
-
 # FP32、FP16、BF16、INT8、INT4之间有什么区别？各自的优缺点是什么？
 
 ## 面试标准答案

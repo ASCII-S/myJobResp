@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - vllm/什么是I_O感知算法？FlashAttention_v1如何通过减少HBM访问来提升性能？.md
 related_outlines: []
 ---
-
 # 什么是I/O感知算法？FlashAttention v1如何通过减少HBM访问来提升性能？
 
 ## 面试标准答案（背诵版本）

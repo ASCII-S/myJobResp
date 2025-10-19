@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - 熟悉大语言模型推理优化-技术层次/MoE模型的显存占用如何？如何进行显存优化？.md
 related_outlines: []
 ---
-
 # MoE模型的显存占用如何？如何进行显存优化？
 
 ## 面试标准答案

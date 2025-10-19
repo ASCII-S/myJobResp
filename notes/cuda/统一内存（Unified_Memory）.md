@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - cuda/统一内存（Unified_Memory）.md
 related_outlines: []
 ---
-
 理想答案应该是：
 统一内存是 CUDA 提供的一种编程模型，通过 cudaMallocManaged 分配，得到的内存可以同时被 CPU 和 GPU 访问。开发者只需要维护一个指针，CUDA 运行时会根据需要自动在 Host 和 Device 之间迁移数据。
 

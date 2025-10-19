@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - vllm/请详细解释PagedAttention算法的工作原理，它是如何借鉴操作系统虚拟内存技术的？.md
 related_outlines: []
 ---
-
 # 请详细解释PagedAttention算法的工作原理，它是如何借鉴操作系统虚拟内存技术的？
 
 ## 标准精简答案 (可背诵版本)

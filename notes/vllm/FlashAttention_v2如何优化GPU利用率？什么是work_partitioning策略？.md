@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - vllm/FlashAttention_v2如何优化GPU利用率？什么是work_partitioning策略？.md
 related_outlines: []
 ---
-
 # FlashAttention v2如何优化GPU利用率？什么是work_partitioning策略？
 
 ## 面试标准答案（可背诵）

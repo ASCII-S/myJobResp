@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - 熟悉大语言模型推理优化-技术层次/MinMax、KL散度、百分位数等校准方法的区别是什么？.md
 related_outlines: []
 ---
-
 # MinMax、KL散度、百分位数等校准方法的区别是什么？
 
 ## 面试标准答案

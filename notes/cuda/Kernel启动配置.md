@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,8 +10,6 @@ tags:
 - cuda/Kernel启动配置.md
 related_outlines: []
 ---
-
-
 CUDA kernel 的启动配置用 <<<gridDim, blockDim, sharedMem, stream>>> 语法，其中：
 
 gridDim：定义网格规模，即有多少个线程块。可以是一维、二维或三维（dim3 类型）。

@@ -1,6 +1,6 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
+last_reviewed: null
 next_review: '2025-10-19'
 review_count: 0
 difficulty: medium
@@ -10,8 +10,6 @@ tags:
 - C++/join()和detach()的区别和使用场景.md
 related_outlines: []
 ---
-
-
 ### join
 
 * **作用**：阻塞当前调用线程，等待子线程执行完毕，并收回它的系统资源（线程句柄）。
