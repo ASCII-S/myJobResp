@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- cuda
+- cuda/CUDA_Occupancy_Calculator使用.md
+related_outlines: []
+---
+
 # CUDA Occupancy Calculator使用
 
 ## 面试标准答案（可背诵）

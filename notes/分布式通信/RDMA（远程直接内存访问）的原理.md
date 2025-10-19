@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- 分布式通信
+- 分布式通信/RDMA（远程直接内存访问）的原理.md
+related_outlines: []
+---
+
 # RDMA（远程直接内存访问）的原理
 
 ## RDMA基础概念

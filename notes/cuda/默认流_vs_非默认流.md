@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- cuda
+- cuda/默认流_vs_非默认流.md
+related_outlines: []
+---
+
 # 默认流 vs 非默认流
 
 ## 面试标准答案

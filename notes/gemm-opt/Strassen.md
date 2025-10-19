@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- gemm-opt
+- gemm-opt/Strassen.md
+related_outlines: []
+---
+
 首先给你一个标准、口语化的Strassen算法介绍，帮你快速理解核心逻辑和关键问题：
 
 简单说，Strassen算法是一种“用更少乘法换时间”的矩阵乘法优化算法，核心思路是“分而治之”，专门解决朴素算法O(n³)复杂度太高的问题。

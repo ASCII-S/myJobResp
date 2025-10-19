@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- Transformer
+- Transformer/Self-Attention的置换不变性.md
+related_outlines: []
+---
+
 # Self-Attention的置换不变性
 
 ## 标准面试答案（可背诵）

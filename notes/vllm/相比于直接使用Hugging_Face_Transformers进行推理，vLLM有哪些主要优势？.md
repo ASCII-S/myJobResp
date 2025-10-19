@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- vllm
+- vllm/相比于直接使用Hugging_Face_Transformers进行推理，vLLM有哪些主要优势？.md
+related_outlines: []
+---
+
 # 相比于直接使用Hugging Face Transformers进行推理，vLLM有哪些主要优势？
 
 ## 面试标准答案（背诵版本）

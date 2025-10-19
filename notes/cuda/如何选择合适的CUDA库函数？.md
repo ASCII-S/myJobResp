@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- cuda
+- cuda/如何选择合适的CUDA库函数？.md
+related_outlines: []
+---
+
 # 如何选择合适的CUDA库函数？
 
 ## 面试标准答案

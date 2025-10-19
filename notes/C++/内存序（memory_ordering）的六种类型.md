@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- C++
+- C++/内存序（memory_ordering）的六种类型.md
+related_outlines: []
+---
+
 # 内存序（memory_ordering）的六种类型
 
 ### 面试标准表述（精炼版）

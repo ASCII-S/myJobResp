@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- 熟悉大语言模型推理优化-技术层次
+- 熟悉大语言模型推理优化-技术层次/QAT的训练成本相比普通训练高多少？.md
+related_outlines: []
+---
+
 # QAT的训练成本相比普通训练高多少？
 
 ## 面试标准答案

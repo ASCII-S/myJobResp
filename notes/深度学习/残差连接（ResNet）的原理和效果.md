@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- 深度学习
+- 深度学习/残差连接（ResNet）的原理和效果.md
+related_outlines: []
+---
+
 # 残差连接（ResNet）的原理和效果
 
 ## 概述

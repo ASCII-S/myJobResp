@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- 深度学习
+- 深度学习/批归一化（Batch_Normalization）的机制.md
+related_outlines: []
+---
+
 # 批归一化（Batch Normalization）的机制
 
 ## 面试达标口语版

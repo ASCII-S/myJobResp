@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- C++
+- C++/TCP和UDP的区别和适用场景.md
+related_outlines: []
+---
+
 # TCP和UDP的区别和适用场景
 
 ## 标准答案（面试简答）

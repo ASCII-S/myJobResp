@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- 熟悉大语言模型推理优化-技术层次
+- 熟悉大语言模型推理优化-技术层次/逐层量化、逐通道量化、分组量化（Group_Quantization）的优缺点是什么？.md
+related_outlines: []
+---
+
 # 逐层量化、逐通道量化、分组量化（Group Quantization）的优缺点是什么？
 
 ## 面试标准答案

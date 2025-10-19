@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- C++
+- C++/explicit关键字.md
+related_outlines: []
+---
+
 ## 标准答案（可背诵）
 
 `explicit`关键字用于修饰单参数构造函数或转换运算符，防止编译器进行隐式类型转换。它的作用是：

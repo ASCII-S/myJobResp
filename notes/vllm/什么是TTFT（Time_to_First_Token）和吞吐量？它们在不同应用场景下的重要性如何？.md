@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- vllm
+- vllm/什么是TTFT（Time_to_First_Token）和吞吐量？它们在不同应用场景下的重要性如何？.md
+related_outlines: []
+---
+
 # 什么是TTFT（Time to First Token）和吞吐量？它们在不同应用场景下的重要性如何？
 
 ## 面试标准答案（精简版）

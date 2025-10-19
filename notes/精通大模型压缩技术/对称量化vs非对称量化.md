@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- 精通大模型压缩技术
+- 精通大模型压缩技术/对称量化vs非对称量化.md
+related_outlines: []
+---
+
 # 对称量化 vs 非对称量化
 
 ## 面试标准答案（精简版）

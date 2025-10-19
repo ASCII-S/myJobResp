@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- cuda
+- cuda/Shared_Memory.md
+related_outlines: []
+---
+
 # 共享内存（Shared Memory）
 
 Shared Memory 位于 SM 内，延迟几十个 cycles，容量 48–100KB，一个 block 内线程共享，速度比全局内存快一个数量级。

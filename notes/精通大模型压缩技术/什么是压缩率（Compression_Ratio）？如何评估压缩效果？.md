@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- 精通大模型压缩技术
+- 精通大模型压缩技术/什么是压缩率（Compression_Ratio）？如何评估压缩效果？.md
+related_outlines: []
+---
+
 # 什么是压缩率（Compression Ratio）？如何评估压缩效果？
 
 ## 面试标准答案

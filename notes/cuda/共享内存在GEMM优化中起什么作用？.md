@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- cuda
+- cuda/共享内存在GEMM优化中起什么作用？.md
+related_outlines: []
+---
+
 # 共享内存在GEMM优化中起什么作用？
 
 ## 面试标准答案

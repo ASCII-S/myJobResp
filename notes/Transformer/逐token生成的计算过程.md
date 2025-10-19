@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- Transformer
+- Transformer/逐token生成的计算过程.md
+related_outlines: []
+---
+
 # 逐token生成的计算过程
 
 ## 面试标准答案（精简版）

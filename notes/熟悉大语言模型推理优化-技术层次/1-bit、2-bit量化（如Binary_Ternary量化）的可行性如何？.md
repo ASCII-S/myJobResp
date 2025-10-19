@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- 熟悉大语言模型推理优化-技术层次
+- 熟悉大语言模型推理优化-技术层次/1-bit、2-bit量化（如Binary_Ternary量化）的可行性如何？.md
+related_outlines: []
+---
+
 # 1-bit、2-bit量化（如Binary/Ternary量化）的可行性如何？
 
 ## 面试标准答案

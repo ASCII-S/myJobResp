@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- gemm-opt
+- gemm-opt/packing_microkernel.md
+related_outlines: []
+---
+
 # GEMM 打包和微内核优化实现
 
 ## 概述

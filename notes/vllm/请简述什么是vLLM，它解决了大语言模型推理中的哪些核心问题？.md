@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- vllm
+- vllm/请简述什么是vLLM，它解决了大语言模型推理中的哪些核心问题？.md
+related_outlines: []
+---
+
 # 请简述什么是vLLM，它解决了大语言模型推理中的哪些核心问题？
 
 ## 面试标准答案（背诵版本）

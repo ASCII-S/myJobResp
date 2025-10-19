@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- vllm
+- vllm/FlashAttention_v2相比v1有哪些关键改进？请重点解释工作分区和并行化优化。.md
+related_outlines: []
+---
+
 # FlashAttention v2相比v1的关键改进
 
 ## 面试标准答案（可背诵）

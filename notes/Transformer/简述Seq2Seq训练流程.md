@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- Transformer
+- Transformer/简述Seq2Seq训练流程.md
+related_outlines: []
+---
+
 很好，你的问题实际上在追问 **Seq2Seq 输入是什么、token 和 embedding 的关系、训练到底在优化谁**。我来把这几个环节捋清楚：
 
 ---

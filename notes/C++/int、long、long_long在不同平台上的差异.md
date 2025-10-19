@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- C++
+- C++/int、long、long_long在不同平台上的差异.md
+related_outlines: []
+---
+
 # int、long、long_long在不同平台上的差异
 
  **C/C++ 标准并没有强制规定 `int/long/long long` 的确切字节数**，只规定了它们的相对大小关系：

@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- 熟悉大语言模型推理优化-技术层次
+- 熟悉大语言模型推理优化-技术层次/仅量化权重（Weight-Only Quantization）和同时量化激活有什么区别？.md
+related_outlines: []
+---
+
 # 仅量化权重（Weight-Only Quantization）和同时量化激活有什么区别？
 
 ## 面试标准答案

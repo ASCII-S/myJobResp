@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- C++
+- C++/constexpr与const的区别.md
+related_outlines: []
+---
+
 ## 标准答案（可背诵）
 
 `const`和`constexpr`都表示"不可修改"，但作用时机和用途不同：

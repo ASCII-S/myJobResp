@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- cuda
+- cuda/如何避免Bank_Conflict？举例说明.md
+related_outlines: []
+---
+
 # 如何避免Bank Conflict？举例说明
 
 ## 面试标准答案（可背诵）

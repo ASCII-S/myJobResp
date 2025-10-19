@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- pytorch
+- pytorch/PyTorchvsTensorFlow的设计哲学差异.md
+related_outlines: []
+---
+
 # PyTorch vs TensorFlow的设计哲学差异
 
 ## 面试常见问题与回答

@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- cuda
+- cuda/向量化访存（vectorized_load_store）如何提升GEMM性能？.md
+related_outlines: []
+---
+
 # 向量化访存（vectorized load/store）如何提升GEMM性能？
 
 ## 面试标准答案

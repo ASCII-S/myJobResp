@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- vllm
+- vllm/传统的注意力机制在内存使用上有什么问题？PagedAttention是如何解决的？.md
+related_outlines: []
+---
+
 # 传统的注意力机制在内存使用上有什么问题？PagedAttention是如何解决的？
 
 ## 标准精简答案 (可背诵版本)

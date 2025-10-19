@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- cuda
+- cuda/Warp执行模型.md
+related_outlines: []
+---
+
 在一个 SM 中，warp 是最小调度单元。warp 内 32 个线程要么一起执行指令，要么一起等待。
 Warp 调度器只负责在每个 cycle 挑选一个就绪 warp，发射它的指令到执行单元。
 如果某个 warp 在等待 global memory，它会挂起，调度器就去调度别的 warp 执行计算。这样通过 warp 切换来掩盖访存延迟，而真正的计算和等待动作是 warp 内线程完成的，不是调度器本身。

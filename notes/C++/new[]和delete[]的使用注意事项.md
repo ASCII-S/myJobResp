@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- C++
+- C++/new[]和delete[]的使用注意事项.md
+related_outlines: []
+---
+
 # new[]和delete[]的使用注意事项
 
 ### 面试标准回答

@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- vllm
+- vllm/请重点解释v2如何降低wrap通信开销？.md
+related_outlines: []
+---
+
 # vLLM v2如何降低wrap通信开销？
 
 ## 面试标准答案（可背诵）

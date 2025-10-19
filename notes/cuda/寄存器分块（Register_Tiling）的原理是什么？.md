@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- cuda
+- cuda/寄存器分块（Register_Tiling）的原理是什么？.md
+related_outlines: []
+---
+
 # 寄存器分块（Register Tiling）的原理是什么？
 
 ## 面试标准答案

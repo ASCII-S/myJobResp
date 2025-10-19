@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- LeetcodeHot100
+- LeetcodeHot100/二叉搜索树中第K小的元素.md
+related_outlines: []
+---
+
 # 二叉搜索树中第 K 小的元素
 
 ## 题目描述

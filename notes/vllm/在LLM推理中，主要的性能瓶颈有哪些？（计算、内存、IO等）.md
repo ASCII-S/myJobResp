@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- vllm
+- vllm/在LLM推理中，主要的性能瓶颈有哪些？（计算、内存、IO等）.md
+related_outlines: []
+---
+
 # 在LLM推理中，主要的性能瓶颈有哪些？（计算、内存、IO等）
 
 ## 面试标准答案（精简版）

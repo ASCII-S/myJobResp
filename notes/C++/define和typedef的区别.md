@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- C++
+- C++/define和typedef的区别.md
+related_outlines: []
+---
+
 # define和typedef的区别
 
 ### 面试标准回答

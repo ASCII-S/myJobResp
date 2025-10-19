@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- 熟悉大语言模型推理优化-技术层次
+- 熟悉大语言模型推理优化-技术层次/如何优化MoE的专家调度和数据传输？.md
+related_outlines: []
+---
+
 # 如何优化MoE的专家调度和数据传输？
 
 ## 面试标准答案

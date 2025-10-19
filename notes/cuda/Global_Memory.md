@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- cuda
+- cuda/Global_Memory.md
+related_outlines: []
+---
+
 # 全局内存（Global Memory）
 
 ## 基本特性

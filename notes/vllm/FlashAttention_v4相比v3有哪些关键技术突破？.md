@@ -1,3 +1,16 @@
+---
+created: '2025-10-19'
+last_reviewed: '2025-10-19'
+next_review: '2025-10-19'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- vllm
+- vllm/FlashAttention_v4相比v3有哪些关键技术突破？.md
+related_outlines: []
+---
+
 # FlashAttention v4相比v3有哪些关键技术突破？
 
 ## 面试标准答案（可背诵）
