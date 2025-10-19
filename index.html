@@ -56,6 +56,20 @@
       align-items: center;
     }
     
+    /* 任务列表复选框样式 */
+    .markdown-section input[type="checkbox"] {
+      margin-right: 0.5em;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+    .markdown-section .task-list-item {
+      list-style-type: none;
+      margin-left: -1.5em;
+    }
+    .markdown-section ul.task-list {
+      padding-left: 2em;
+    }
+    
     /* 回到顶部按钮样式 */
     #back-to-top {
       position: fixed;
@@ -289,11 +303,23 @@
             return content;
           });
           
-          // 在 HTML 生成后，恢复数学公式
+          // 在 HTML 生成后，恢复数学公式并处理任务列表
           hook.afterEach(function(html, next) {
             // 恢复所有数学公式
             html = html.replace(/<!--(MATH_(?:BLOCK|INLINE)_\d+)-->/g, function(match, id) {
               return mathStore[id] || match;
+            });
+            
+            // 处理任务列表（将 markdown 的 [ ] 和 [x] 转换为 HTML checkbox）
+            // 匹配 <li>- [ ] 或 <li>- [x] 格式
+            html = html.replace(/<li>-?\s*\[([ xX])\]\s*(.*?)<\/li>/g, function(match, check, text) {
+              var checked = (check.toLowerCase() === 'x') ? ' checked disabled' : ' disabled';
+              return '<li class="task-list-item"><input type="checkbox"' + checked + '> ' + text + '</li>';
+            });
+            
+            // 为包含任务列表项的 <ul> 添加 task-list 类
+            html = html.replace(/<ul>([\s\S]*?task-list-item[\s\S]*?)<\/ul>/g, function(match) {
+              return match.replace('<ul>', '<ul class="task-list">');
             });
             
             next(html);
