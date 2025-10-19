@@ -36,6 +36,21 @@ review_intervals:
 # 难度默认值
 default_difficulty: "medium"
 
+# 每日复习数量限制
+daily_review:
+  # 每个分类的最大显示数量（0表示不限制）
+  max_overdue: 10       # 已过期最多显示10个
+  max_today: 20         # 今日复习最多显示20个
+  max_this_week: 30     # 本周计划最多显示30个
+  
+  # 排序权重（越大越优先）
+  # 将容易复习的放在前面，避免心态失衡
+  sort_weights:
+    created_new: 1.0       # 创建时间新的（天数越少越优先）
+    review_count: 2.0      # 复习次数多的（次数越多越优先）
+    difficulty_easy: 3.0   # 难度小的（easy > medium > hard）
+    tags_count: 0.5        # tags数量多的（数量越多越优先）
+
 # 自动链接配置
 auto_linking:
   # 相似度阈值（0-1）

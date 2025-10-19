@@ -116,8 +116,64 @@ def scan_notes(notes_dir: Path) -> List[Dict]:
     return notes
 
 
+def calculate_review_priority(note: Dict, today: datetime.date, config: Dict) -> float:
+    """
+    计算笔记的复习优先级分数（越高越优先）
+    
+    排序策略：将容易复习的放在前面，避免心态失衡
+    - 创建时间新的（容易记住）
+    - 复习次数多的（说明重要且熟悉）
+    - 难度小的（easy优先）
+    - tags数多的（关联性强，容易回忆）
+    """
+    weights = config.get('daily_review', {}).get('sort_weights', {
+        'created_new': 1.0,
+        'review_count': 2.0,
+        'difficulty_easy': 3.0,
+        'tags_count': 0.5
+    })
+    
+    score = 0.0
+    
+    # 1. 创建时间新的（天数越少分数越高）
+    created = note.get('created')
+    if created:
+        if isinstance(created, str):
+            created_date = datetime.strptime(created, '%Y-%m-%d').date()
+        elif isinstance(created, datetime):
+            created_date = created.date()
+        else:
+            created_date = created
+        
+        days_since_created = (today - created_date).days
+        # 归一化：30天内的笔记得分递减
+        created_score = max(0, (30 - days_since_created) / 30)
+        score += created_score * weights['created_new']
+    
+    # 2. 复习次数多的（次数越多分数越高）
+    review_count = note.get('review_count', 0)
+    # 归一化：10次以内线性增长，超过10次固定为1
+    count_score = min(review_count / 10, 1.0)
+    score += count_score * weights['review_count']
+    
+    # 3. 难度小的（easy > medium > hard）
+    difficulty = note.get('difficulty', 'medium')
+    difficulty_map = {'easy': 1.0, 'medium': 0.5, 'hard': 0.0}
+    difficulty_score = difficulty_map.get(difficulty, 0.5)
+    score += difficulty_score * weights['difficulty_easy']
+    
+    # 4. tags数量多的（关联性强）
+    tags = note.get('tags', [])
+    tags_count = len(tags) if isinstance(tags, list) else 0
+    # 归一化：5个tags以内线性增长
+    tags_score = min(tags_count / 5, 1.0)
+    score += tags_score * weights['tags_count']
+    
+    return score
+
+
 def generate_review_list(notes: List[Dict], config: Dict) -> Dict[str, List[Dict]]:
-    """生成复习清单，按优先级分类"""
+    """生成复习清单，按优先级分类并排序"""
     today = datetime.now().date()
     
     review_list = {
@@ -137,6 +193,7 @@ def generate_review_list(notes: List[Dict], config: Dict) -> Dict[str, List[Dict
         
         diff_days = (next_review - today).days
         
+        # 分类：只有next_review <= today的才会出现在今日/过期中
         if diff_days < 0:
             review_list['overdue'].append(note)
         elif diff_days == 0:
@@ -146,15 +203,50 @@ def generate_review_list(notes: List[Dict], config: Dict) -> Dict[str, List[Dict
         else:
             review_list['upcoming'].append(note)
     
-    # 按优先级排序：过期时间最长的优先
-    review_list['overdue'].sort(key=lambda x: x.get('next_review', ''))
+    # 智能排序：将容易复习的放在前面
+    # 使用优先级分数排序（分数越高越靠前）
+    for category in ['overdue', 'today', 'this_week']:
+        review_list[category].sort(
+            key=lambda x: calculate_review_priority(x, today, config),
+            reverse=True  # 分数高的在前
+        )
+    
+    # TopK限制：避免一次复习过多
+    daily_config = config.get('daily_review', {})
+    max_overdue = daily_config.get('max_overdue', 0)
+    max_today = daily_config.get('max_today', 0)
+    max_this_week = daily_config.get('max_this_week', 0)
+    
+    # 记录原始总数
+    review_list['total_overdue'] = len(review_list['overdue'])
+    review_list['total_today'] = len(review_list['today'])
+    review_list['total_this_week'] = len(review_list['this_week'])
+    
+    # 应用TopK限制
+    if max_overdue > 0 and len(review_list['overdue']) > max_overdue:
+        review_list['overdue'] = review_list['overdue'][:max_overdue]
+    if max_today > 0 and len(review_list['today']) > max_today:
+        review_list['today'] = review_list['today'][:max_today]
+    if max_this_week > 0 and len(review_list['this_week']) > max_this_week:
+        review_list['this_week'] = review_list['this_week'][:max_this_week]
     
     return review_list
 
 
-def generate_review_markdown(review_list: Dict[str, List[Dict]]) -> str:
+def generate_review_markdown(review_list: Dict[str, List[Dict]], config: Dict) -> str:
     """生成复习清单的Markdown文档"""
     today = datetime.now().strftime('%Y-%m-%d')
+    
+    # 获取总数（在TopK之前）
+    total_overdue = review_list.get('total_overdue', len(review_list['overdue']))
+    total_today = review_list.get('total_today', len(review_list['today']))
+    total_this_week = review_list.get('total_this_week', len(review_list['this_week']))
+    
+    # 获取TopK配置
+    daily_config = config.get('daily_review', {})
+    max_overdue = daily_config.get('max_overdue', 0)
+    max_today = daily_config.get('max_today', 0)
+    max_this_week = daily_config.get('max_this_week', 0)
     
     md = f"""# 📅 复习清单
 
@@ -162,10 +254,28 @@ def generate_review_markdown(review_list: Dict[str, List[Dict]]) -> str:
 
 ## 统计概览
 
-- 🔴 **已过期**: {len(review_list['overdue'])} 篇
-- ⭐ **今日复习**: {len(review_list['today'])} 篇
-- 📅 **本周计划**: {len(review_list['this_week'])} 篇
-- 📆 **未来安排**: {len(review_list['upcoming'])} 篇
+- 🔴 **已过期**: {len(review_list['overdue'])} 篇"""
+    
+    if max_overdue > 0 and total_overdue > len(review_list['overdue']):
+        md += f" (共{total_overdue}篇，显示前{max_overdue}篇)"
+    
+    md += f"\n- ⭐ **今日复习**: {len(review_list['today'])} 篇"
+    
+    if max_today > 0 and total_today > len(review_list['today']):
+        md += f" (共{total_today}篇，显示前{max_today}篇)"
+    
+    md += f"\n- 📅 **本周计划**: {len(review_list['this_week'])} 篇"
+    
+    if max_this_week > 0 and total_this_week > len(review_list['this_week']):
+        md += f" (共{total_this_week}篇，显示前{max_this_week}篇)"
+    
+    md += f"\n- 📆 **未来安排**: {len(review_list['upcoming'])} 篇\n\n"
+    
+    md += """💡 **排序策略**: 按优先级智能排序（容易复习的在前）
+- ✅ 创建时间新的（容易记住）
+- ✅ 复习次数多的（重要且熟悉）
+- ✅ 难度小的（easy优先）
+- ✅ 标签多的（关联性强）
 
 ---
 
@@ -174,36 +284,50 @@ def generate_review_markdown(review_list: Dict[str, List[Dict]]) -> str:
     # 已过期
     if review_list['overdue']:
         md += "## 🔴 已过期（优先复习）\n\n"
-        for note in review_list['overdue']:
+        md += "_按智能排序，从易到难，建议从上往下复习_\n\n"
+        
+        for i, note in enumerate(review_list['overdue'], 1):
             next_review = note.get('next_review', 'N/A')
             review_count = note.get('review_count', 0)
             difficulty = note.get('difficulty', 'medium')
             mastery = note.get('mastery_level', 0.0)
+            tags_count = len(note.get('tags', []))
             
+            # 显示序号
+            md += f"**{i}.** "
             md += f"- [ ] [{note['title']}]({note['relative_path']})\n"
-            md += f"  - 应于: {next_review} | 已复习: {review_count}次 | 难度: {difficulty} | 掌握度: {mastery:.0%}\n"
+            md += f"  - 应于: {next_review} | 已复习: {review_count}次 | 难度: {difficulty} | 掌握度: {mastery:.0%} | 标签: {tags_count}个\n"
         md += "\n"
     
     # 今日复习
     if review_list['today']:
         md += "## ⭐ 今日复习\n\n"
-        for note in review_list['today']:
+        md += "_按智能排序，从易到难_\n\n"
+        
+        for i, note in enumerate(review_list['today'], 1):
             review_count = note.get('review_count', 0)
             difficulty = note.get('difficulty', 'medium')
             mastery = note.get('mastery_level', 0.0)
+            tags_count = len(note.get('tags', []))
             
+            md += f"**{i}.** "
             md += f"- [ ] [{note['title']}]({note['relative_path']})\n"
-            md += f"  - 已复习: {review_count}次 | 难度: {difficulty} | 掌握度: {mastery:.0%}\n"
+            md += f"  - 已复习: {review_count}次 | 难度: {difficulty} | 掌握度: {mastery:.0%} | 标签: {tags_count}个\n"
         md += "\n"
     
     # 本周计划
     if review_list['this_week']:
         md += "## 📅 本周计划\n\n"
-        for note in review_list['this_week']:
+        md += "_按智能排序_\n\n"
+        
+        for i, note in enumerate(review_list['this_week'], 1):
             next_review = note.get('next_review', 'N/A')
             review_count = note.get('review_count', 0)
+            difficulty = note.get('difficulty', 'medium')
             
+            md += f"**{i}.** "
             md += f"- [ ] [{note['title']}]({note['relative_path']}) - {next_review}\n"
+            md += f"  - 已复习: {review_count}次 | 难度: {difficulty}\n"
         md += "\n"
     
     # 使用说明
@@ -307,7 +431,7 @@ def set_difficulty(filepath: Path, difficulty: str) -> None:
 
 def sync_from_review_list(config: Dict) -> None:
     """从今日复习清单同步已完成的笔记"""
-    review_file = ROOT_DIR / "📅今日复习.md"
+    review_file = ROOT_DIR / "今日复习.md"
     
     if not review_file.exists():
         print("❌ 复习清单不存在，请先运行: python scripts/review_manager.py today")
@@ -393,7 +517,7 @@ def main():
     
     if args.command == 'today':
         # 归档旧的复习清单
-        output_file = ROOT_DIR / "📅今日复习.md"
+        output_file = ROOT_DIR / "今日复习.md"
         if output_file.exists():
             # 读取旧文件的创建日期
             with open(output_file, 'r', encoding='utf-8') as f:
@@ -421,7 +545,7 @@ def main():
         print("📋 生成复习清单...")
         review_list = generate_review_list(notes, config)
         
-        md_content = generate_review_markdown(review_list)
+        md_content = generate_review_markdown(review_list, config)
         
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write(md_content)

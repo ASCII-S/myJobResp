@@ -23,7 +23,7 @@ echo
 
 echo
 echo -e "${GREEN}✅ 今日复习清单已生成！${NC}"
-echo -e "${YELLOW}📖 请打开 📅今日复习.md 开始复习${NC}"
+echo -e "${YELLOW}📖 请打开 今日复习.md 开始复习${NC}"
 echo
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 

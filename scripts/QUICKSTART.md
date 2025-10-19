@@ -21,13 +21,13 @@ pip install -r requirements.txt
 ./scripts/kb.sh today
 ```
 
-查看生成的 `📅今日复习.md`
+查看生成的 `今日复习.md`
 
 ## 第四步：开始复习！
 
 ### 💡 推荐方式（批量打勾）
 
-1. 在 `📅今日复习.md` 中，将复习完的笔记打勾：
+1. 在 `今日复习.md` 中，将复习完的笔记打勾：
    ```markdown
    - [x] [Bank冲突的概念](notes/cuda/Bank冲突.md)  ✓ 已复习
    ```
@@ -54,7 +54,7 @@ pip install -r requirements.txt
 ### 接下来每天只需：
 
 1. 早上运行：`./scripts/kb.sh today`
-2. 打开 `📅今日复习.md`，边复习边打勾
+2. 打开 `今日复习.md`，边复习边打勾
 3. 复习完成后：`./scripts/kb.sh sync`
 
 **就这么简单！** ✨

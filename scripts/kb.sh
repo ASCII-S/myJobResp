@@ -74,7 +74,7 @@ show_help() {
 
 💡 推荐工作流:
   1. 运行 today 生成复习清单
-  2. 在 📅今日复习.md 中打勾标记已复习的笔记 (- [x])
+  2. 在 今日复习.md 中打勾标记已复习的笔记 (- [x])
   3. 运行 sync 批量更新所有打勾的笔记
 
 EOF
@@ -85,7 +85,7 @@ case "${1:-}" in
     today)
         info "生成今日复习清单..."
         python scripts/review_manager.py today
-        success "复习清单已生成: 📅今日复习.md"
+        success "复习清单已生成: 今日复习.md"
         info "💡 提示: 复习完后在清单中打勾，然后运行 './scripts/kb.sh sync'"
         ;;
     
@@ -233,7 +233,7 @@ case "${1:-}" in
         
         success "全部更新完成！"
         info "生成的文件:"
-        info "  - 📅今日复习.md"
+        info "  - 今日复习.md"
         info "  - 面试大纲/_知识图谱.md"
         info "  - 面试大纲/_知识点索引.md"
         info "  - 面试大纲/_统计报表.md"

@@ -4,11 +4,23 @@
 
 本知识库提供了一套完整的自动化管理系统，帮助你：
 
-- ✅ 自动生成每日复习清单
+- ✅ 自动生成每日复习清单（**智能排序，从易到难**）
 - ✅ 追踪学习进度和掌握程度
 - ✅ 发现知识点之间的关联
 - ✅ 可视化知识图谱
 - ✅ 生成学习统计报表
+
+### ✨ 新功能：智能复习排序
+
+复习清单现在会自动按优先级排序，将**容易复习的放在前面**，避免心态失衡：
+
+- 🏆 **难度优先**：easy > medium > hard（难度小的优先）
+- 📈 **复习次数**：复习次数多的优先（说明重要且熟悉）
+- 🆕 **创建时间**：创建时间新的优先（记忆更清晰）
+- 🏷️ **标签数量**：标签多的优先（关联性强）
+- 🎯 **TopK限制**：默认显示前20篇，避免压力过大
+
+📖 **详细说明**: 查看根目录 [`SMART_REVIEW_SORT.md`](../SMART_REVIEW_SORT.md)
 
 ---
 
@@ -40,7 +52,7 @@ pip install pyyaml jieba
 python scripts/review_manager.py today
 ```
 
-输出：`📅今日复习.md`
+输出：`今日复习.md`
 
 #### 同步复习清单（推荐方式 ⭐）
 
@@ -51,7 +63,7 @@ python scripts/review_manager.py sync
 
 **工作流**：
 1. 生成复习清单：`python scripts/review_manager.py today`
-2. 在 `📅今日复习.md` 中，将复习完的笔记打勾（`- [x]`）
+2. 在 `今日复习.md` 中，将复习完的笔记打勾（`- [x]`）
 3. 运行同步命令：`python scripts/review_manager.py sync`
 
 这会自动更新所有打勾笔记的元数据：
@@ -175,7 +187,7 @@ python scripts/stats_generator.py
 python scripts/review_manager.py today
 
 # 2. 打开清单
-open "📅今日复习.md"
+open "今日复习.md"
 ```
 
 ### 复习完笔记后
