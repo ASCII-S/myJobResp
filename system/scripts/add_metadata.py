@@ -16,9 +16,13 @@ from typing import Dict
 import argparse
 
 # 项目根目录
-ROOT_DIR = Path(__file__).parent.parent
+ROOT_DIR = Path(__file__).parent.parent.parent  # 脚本在 system/scripts/ 中
 NOTES_DIR = ROOT_DIR / "notes"
-CONFIG_FILE = ROOT_DIR / "config" / "kb_config.yaml"
+
+# 配置文件（优先用户配置，后备模板配置）
+USER_CONFIG = ROOT_DIR / "config" / "kb_config.yaml"
+TEMPLATE_CONFIG = ROOT_DIR / "system" / "config" / "kb_config.yaml"
+CONFIG_FILE = USER_CONFIG if USER_CONFIG.exists() else TEMPLATE_CONFIG
 
 
 def load_config() -> Dict:

@@ -16,11 +16,15 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 import argparse
 
-# 项目根目录
-ROOT_DIR = Path(__file__).parent.parent
+# 项目根目录（脚本在 system/scripts/ 中）
+ROOT_DIR = Path(__file__).parent.parent.parent
 NOTES_DIR = ROOT_DIR / "notes"
 OUTLINES_DIR = ROOT_DIR / "面试大纲"
-CONFIG_FILE = ROOT_DIR / "config" / "kb_config.yaml"
+
+# 配置文件（优先使用用户配置，后备使用模板配置）
+USER_CONFIG = ROOT_DIR / "config" / "kb_config.yaml"
+TEMPLATE_CONFIG = ROOT_DIR / "system" / "config" / "kb_config.yaml"
+CONFIG_FILE = USER_CONFIG if USER_CONFIG.exists() else TEMPLATE_CONFIG
 
 
 def load_config() -> Dict:

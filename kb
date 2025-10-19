@@ -1,5 +1,5 @@
 #!/bin/bash
-# 启动脚本（调用system中的实际脚本）
+# 知识库管理快捷命令
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
-./system/start.sh "$@"
+./system/scripts/kb.sh "$@"
