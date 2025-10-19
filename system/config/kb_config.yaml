@@ -82,6 +82,15 @@ knowledge_graph:
 git_auto_commit:
   enabled: true
   commit_message_template: "chore: 更新复习记录 - {date}"
+  
+  # 自动提交时包含的目录和文件（只提交笔记相关内容）
+  include_paths:
+    - "notes/"              # 笔记目录
+    - "面试大纲/"            # 大纲目录
+    - "outlines/"           # 大纲目录（英文名）
+    - "今日复习.md"         # 今日复习清单
+    - "今日复习归档/"       # 复习归档
+    - "config/kb_config.yaml"  # 用户配置文件
 
 # 备份配置
 backup:
