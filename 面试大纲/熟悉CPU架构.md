@@ -364,7 +364,7 @@
 #### 4.1.1 NUMA架构原理
 
 **NUMA概念**
-- 什么是NUMA（Non-Uniform Memory Access）？
+- [什么是NUMA（Non-Uniform Memory Access）？](../notes/熟悉CPU架构/什么是NUMA（Non-Uniform_Memory_Access）？.md)
 - NUMA相比UMA（SMP）有什么优势？
 - 为什么大规模多核系统需要NUMA？
 - NUMA如何解决内存带宽瓶颈？
