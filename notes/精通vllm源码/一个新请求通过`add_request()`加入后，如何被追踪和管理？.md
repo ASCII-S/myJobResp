@@ -1,3 +1,16 @@
+---
+created: '2025-10-25'
+last_reviewed: '2025-10-25'
+next_review: '2025-10-25'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- 精通vllm源码
+- 精通vllm源码/一个新请求通过`add_request()`加入后，如何被追踪和管理？.md
+related_outlines: []
+---
+
 # 一个新请求通过`add_request()`加入后，如何被追踪和管理？
 
 ## 面试标准答案（精简版）

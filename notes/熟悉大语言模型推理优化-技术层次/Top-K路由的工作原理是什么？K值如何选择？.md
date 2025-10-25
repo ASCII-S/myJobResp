@@ -1,10 +1,10 @@
 ---
 created: '2025-10-19'
-last_reviewed: null
-next_review: '2025-10-19'
-review_count: 0
+last_reviewed: '2025-10-25'
+next_review: '2025-10-27'
+review_count: 1
 difficulty: medium
-mastery_level: 0.0
+mastery_level: 0.23
 tags:
 - 熟悉大语言模型推理优化-技术层次
 - 熟悉大语言模型推理优化-技术层次/Top-K路由的工作原理是什么？K值如何选择？.md

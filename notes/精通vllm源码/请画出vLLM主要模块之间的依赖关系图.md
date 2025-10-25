@@ -1,3 +1,16 @@
+---
+created: '2025-10-25'
+last_reviewed: '2025-10-25'
+next_review: '2025-10-25'
+review_count: 0
+difficulty: medium
+mastery_level: 0.0
+tags:
+- 精通vllm源码
+- 精通vllm源码/请画出vLLM主要模块之间的依赖关系图.md
+related_outlines: []
+---
+
 # 请画出vLLM主要模块之间的依赖关系图
 
 ## 面试标准答案（可背诵）

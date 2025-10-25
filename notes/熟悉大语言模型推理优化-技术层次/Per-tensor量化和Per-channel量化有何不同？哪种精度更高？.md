@@ -1,10 +1,10 @@
 ---
 created: '2025-10-19'
-last_reviewed: null
-next_review: '2025-10-19'
-review_count: 0
+last_reviewed: '2025-10-25'
+next_review: '2025-10-30'
+review_count: 2
 difficulty: medium
-mastery_level: 0.0
+mastery_level: 0.43
 tags:
 - 熟悉大语言模型推理优化-技术层次
 - 熟悉大语言模型推理优化-技术层次/Per-tensor量化和Per-channel量化有何不同？哪种精度更高？.md
