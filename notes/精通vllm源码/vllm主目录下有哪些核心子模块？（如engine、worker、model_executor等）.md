@@ -1,16 +1,15 @@
 ---
 created: '2025-10-25'
-last_reviewed: '2025-10-25'
-next_review: '2025-10-25'
-review_count: 0
+last_reviewed: '2025-10-27'
+next_review: '2025-10-29'
+review_count: 1
 difficulty: medium
-mastery_level: 0.0
+mastery_level: 0.23
 tags:
 - 精通vllm源码
 - 精通vllm源码/vllm主目录下有哪些核心子模块？（如engine、worker、model_executor等）.md
 related_outlines: []
 ---
-
 # vllm主目录下有哪些核心子模块？（如engine、worker、model_executor等）
 
 ## 面试标准答案（精简版）

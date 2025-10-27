@@ -1,10 +1,10 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-19'
-next_review: '2025-10-21'
-review_count: 1
+last_reviewed: '2025-10-26'
+next_review: '2025-10-31'
+review_count: 2
 difficulty: medium
-mastery_level: 0.11
+mastery_level: 0.43
 tags:
 - 熟悉大语言模型推理优化-技术层次
 - 熟悉大语言模型推理优化-技术层次/MoE模型的基本组成部分有哪些？路由器（Router）的作用是什么？.md
