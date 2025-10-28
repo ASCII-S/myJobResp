@@ -96,3 +96,43 @@ backup:
   frequency_days: 7
   keep_backups: 10
 
+# 游戏化系统配置
+gamification:
+  enable: true
+  
+  # 数据存储路径
+  data_dir: "config/gamification"
+  
+  # 经验值获取规则
+  xp_rules:
+    review_easy: 5
+    review_medium: 10
+    review_hard: 20
+    first_mastery: 50  # 首次达到掌握度0.8
+  
+  # 主题等级定义（可在各主题数据中覆盖）
+  default_levels:
+    - name: "入门"
+      required_xp: 0
+      icon: "🌱"
+    - name: "初级"
+      required_xp: 100
+      icon: "📖"
+    - name: "中级"
+      required_xp: 300
+      icon: "📚"
+    - name: "高级"
+      required_xp: 600
+      icon: "🎓"
+    - name: "精通"
+      required_xp: 1000
+      icon: "👑"
+  
+  # 掌握度阈值
+  mastery_threshold: 0.8
+  
+  # 连击系统
+  streak:
+    enable: true
+    show_icon: true
+

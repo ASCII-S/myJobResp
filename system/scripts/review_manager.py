@@ -15,6 +15,10 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Tuple
 import argparse
+import sys
+
+# 确保可以导入gamification模块
+sys.path.insert(0, str(Path(__file__).parent))
 
 # 项目根目录（脚本在 system/scripts/ 中）
 ROOT_DIR = Path(__file__).parent.parent.parent
@@ -292,7 +296,9 @@ def generate_review_markdown(review_list: Dict[str, List[Dict]], config: Dict) -
 
 **生成时间**: {today}
 
-## 统计概览
+"""
+    
+    md += f"""## 统计概览
 
 - 🔴 **已过期**: {len(review_list['overdue'])} 篇"""
     
@@ -311,15 +317,15 @@ def generate_review_markdown(review_list: Dict[str, List[Dict]], config: Dict) -
     
     md += f"\n- 📆 **未来安排**: {len(review_list['upcoming'])} 篇\n\n"
     
-    md += """💡 **排序策略**: 按优先级智能排序（容易复习的在前）
-- ✅ 创建时间新的（容易记住）
-- ✅ 复习次数多的（重要且熟悉）
-- ✅ 难度小的（easy优先）
-- ✅ 标签多的（关联性强）
+#     md += """💡 **排序策略**: 按优先级智能排序（容易复习的在前）
+# - ✅ 创建时间新的（容易记住）
+# - ✅ 复习次数多的（重要且熟悉）
+# - ✅ 难度小的（easy优先）
+# - ✅ 标签多的（关联性强）
 
----
+# ---
 
-"""
+# """
     
     # 已过期
     if review_list['overdue']:
@@ -371,6 +377,15 @@ def generate_review_markdown(review_list: Dict[str, List[Dict]], config: Dict) -
             md += f"- [ ] [{note['title']}]({note['relative_path']}) - {next_review}\n"
             md += f"  - 已复习: {review_count}次 | 难度: {difficulty}\n"
         md += "\n"
+    
+    # 添加游戏化信息
+    if config.get('gamification', {}).get('enable', False):
+        try:
+            import gamification
+            gami_section = gamification.format_gamification_section(config)
+            md += gami_section + "\n---\n\n"
+        except Exception as e:
+            print(f"⚠️  游戏化展示失败: {e}")
     
     # 使用说明
     md += """---
@@ -458,6 +473,40 @@ def mark_as_reviewed(filepath: Path, config: Dict) -> None:
     print(f"   复习次数: {review_count} → {new_review_count}")
     print(f"   下次复习: {next_review}")
     print(f"   掌握程度: {mastery_level:.0%}")
+    
+    # 新增：游戏化逻辑
+    if config.get('gamification', {}).get('enable', False):
+        try:
+            import gamification
+            
+            # 提取主题
+            topic = gamification.extract_topic_from_note(filepath, NOTES_DIR)
+            
+            # 计算XP增益
+            xp_rules = config['gamification']['xp_rules']
+            old_mastery = frontmatter.get('mastery_level', 0.0)
+            
+            # 基础XP
+            xp_map = {
+                'easy': xp_rules['review_easy'],
+                'medium': xp_rules['review_medium'],
+                'hard': xp_rules['review_hard']
+            }
+            xp_gain = xp_map.get(difficulty, xp_rules['review_medium'])
+            
+            # 首次掌握奖励
+            mastery_threshold = config['gamification']['mastery_threshold']
+            if old_mastery < mastery_threshold and mastery_level >= mastery_threshold:
+                xp_gain += xp_rules['first_mastery']
+                print(f"🎉 首次掌握！额外获得 {xp_rules['first_mastery']} XP")
+            
+            # 更新主题XP
+            today = datetime.now().strftime('%Y-%m-%d')
+            gamification.update_topic_xp(topic, xp_gain, today, config)
+            print(f"💎 {topic} +{xp_gain} XP")
+            
+        except Exception as e:
+            print(f"⚠️  游戏化更新失败: {e}")
 
 
 def set_difficulty(filepath: Path, difficulty: str) -> None:
@@ -724,6 +773,16 @@ def sync_from_review_list(config: Dict) -> None:
     print(f"✅ 成功更新: {updated} 个笔记")
     if failed > 0:
         print(f"❌ 失败: {failed} 个笔记")
+    
+    # 新增：更新连击
+    if config.get('gamification', {}).get('enable', False) and updated > 0:
+        try:
+            import gamification
+            today = datetime.now().strftime('%Y-%m-%d')
+            streak_days = gamification.update_streak(today, config)
+            print(f"🔥 连续学习：{streak_days}天")
+        except Exception as e:
+            print(f"⚠️  连击更新失败: {e}")
     
     # 清空已完成的checkbox（改为普通文本）
     if updated > 0:
