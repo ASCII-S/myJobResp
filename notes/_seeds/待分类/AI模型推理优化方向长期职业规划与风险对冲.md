@@ -1,6 +1,6 @@
 ---
 created: '2025-10-29'
-last_reviewed: '2025-10-29'
+last_reviewed: null
 next_review: '2025-10-29'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - _seeds/待分类
 related_outlines: []
 ---
-
 # AI模型推理优化方向长期职业规划与风险对冲策略
 
 ## 面试标准答案（精简版）
