@@ -78,11 +78,12 @@ test:
   xp_history: {}
 熟悉大语言模型推理优化-技术层次:
   display_name: 熟悉大语言模型推理优化-技术层次
-  current_xp: 0
+  current_xp: 20
   current_level: 0
   total_notes: 94
   mastered_notes: 0
-  xp_history: {}
+  xp_history:
+    '2025-10-28': 20
 精通vllm源码:
   display_name: 精通vllm源码
   current_xp: 20

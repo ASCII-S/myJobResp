@@ -1,6 +1,6 @@
 ---
 created: '2025-10-30'
-last_reviewed: '2025-10-30'
+last_reviewed: null
 next_review: '2025-10-30'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - _seeds/待分类
 related_outlines: []
 ---
-
 # 为什么国产化芯片要重视RISC-V？
 
 ## 面试标准答案
@@ -120,7 +119,7 @@ RISC-V的设计哲学是"精简"和"模块化"：
 RISC-V为中国芯片产业提供了一条自主创新的道路。通过持续投入研发、建设完善生态、培养专业人才，中国有望在RISC-V时代实现从"跟随者"到"引领者"的转变。随着5G、物联网、人工智能等新兴产业的发展，RISC-V的应用场景将不断扩大，成为国产化芯片的重要技术基石。
 
 ## 参考文献
-
+z
 1. RISC-V国际基金会官网：[https://riscv.org/](https://riscv.org/)
 2. 《RISC-V架构及其在中国的发展机遇》，中国科学院院刊，2020
 3. 中国RISC-V产业联盟官网：[http://www.crvic.org.cn/](http://www.crvic.org.cn/)
