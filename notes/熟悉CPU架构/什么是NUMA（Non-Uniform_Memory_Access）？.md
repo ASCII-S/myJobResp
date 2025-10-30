@@ -1,10 +1,10 @@
 ---
 created: '2025-10-25'
-last_reviewed: '2025-10-26'
-next_review: '2025-10-28'
-review_count: 1
+last_reviewed: '2025-10-30'
+next_review: '2025-11-04'
+review_count: 2
 difficulty: medium
-mastery_level: 0.23
+mastery_level: 0.43
 tags:
 - 熟悉CPU架构
 - 熟悉CPU架构/什么是NUMA（Non-Uniform_Memory_Access）？.md
