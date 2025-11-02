@@ -1,12 +1,13 @@
 精通大模型压缩技术:
   display_name: 精通大模型压缩技术
-  current_xp: 60
+  current_xp: 90
   current_level: 0
   total_notes: 14
   mastered_notes: 0
   xp_history:
     '2025-10-27': 30
     '2025-10-30': 30
+    '2025-11-02': 30
 C++:
   display_name: C++
   current_xp: 0
@@ -116,3 +117,11 @@ LeetcodeHot100:
   total_notes: 50
   mastered_notes: 0
   xp_history: {}
+_seeds:
+  display_name: _seeds
+  current_xp: 10
+  current_level: 0
+  total_notes: 8
+  mastered_notes: 0
+  xp_history:
+    '2025-11-02': 10
