@@ -1,6 +1,6 @@
 ---
 created: '2025-11-02'
-last_reviewed: '2025-11-02'
+last_reviewed: null
 next_review: '2025-11-02'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - _seeds/待分类
 related_outlines: []
 ---
-
 # 应届生第一份职业：应该选择模型推理优化还是高性能算子开发？
 
 ## 精简答案（面试版）

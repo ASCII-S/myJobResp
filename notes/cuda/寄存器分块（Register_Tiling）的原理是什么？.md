@@ -1,10 +1,10 @@
 ---
 created: '2025-10-19'
-last_reviewed: null
-next_review: '2025-10-19'
-review_count: 0
+last_reviewed: '2025-11-03'
+next_review: '2025-11-05'
+review_count: 1
 difficulty: medium
-mastery_level: 0.0
+mastery_level: 0.15
 tags:
 - cuda
 - cuda/寄存器分块（Register_Tiling）的原理是什么？.md
@@ -22,7 +22,7 @@ related_outlines: []
 
 ### 1. 寄存器分块的动机
 
-#### 1.1 共享内存分块的局限
+#### 1.1 共享内存分块的局限 
 
 **回顾共享内存Tiling**：
 ```cuda
