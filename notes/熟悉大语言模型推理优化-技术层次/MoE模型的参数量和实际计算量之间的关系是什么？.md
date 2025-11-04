@@ -1,10 +1,10 @@
 ---
 created: '2025-10-19'
-last_reviewed: '2025-10-28'
-next_review: '2025-11-02'
-review_count: 2
+last_reviewed: '2025-11-04'
+next_review: '2025-11-14'
+review_count: 3
 difficulty: medium
-mastery_level: 0.43
+mastery_level: 0.55
 tags:
 - 熟悉大语言模型推理优化-技术层次
 - 熟悉大语言模型推理优化-技术层次/MoE模型的参数量和实际计算量之间的关系是什么？.md

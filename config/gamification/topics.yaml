@@ -24,12 +24,13 @@ DS:
   xp_history: {}
 熟悉CPU架构:
   display_name: 熟悉CPU架构
-  current_xp: 10
+  current_xp: 20
   current_level: 0
   total_notes: 1
   mastered_notes: 0
   xp_history:
     '2025-10-30': 10
+    '2025-11-04': 10
 gemm-opt:
   display_name: gemm-opt
   current_xp: 0
@@ -81,13 +82,14 @@ test:
   xp_history: {}
 熟悉大语言模型推理优化-技术层次:
   display_name: 熟悉大语言模型推理优化-技术层次
-  current_xp: 50
-  current_level: 0
+  current_xp: 120
+  current_level: 1
   total_notes: 94
   mastered_notes: 0
   xp_history:
     '2025-10-28': 20
     '2025-10-30': 30
+    '2025-11-04': 70
 精通vllm源码:
   display_name: 精通vllm源码
   current_xp: 20
@@ -119,9 +121,10 @@ LeetcodeHot100:
   xp_history: {}
 _seeds:
   display_name: _seeds
-  current_xp: 10
+  current_xp: 30
   current_level: 0
   total_notes: 8
   mastered_notes: 0
   xp_history:
     '2025-11-02': 10
+    '2025-11-04': 20

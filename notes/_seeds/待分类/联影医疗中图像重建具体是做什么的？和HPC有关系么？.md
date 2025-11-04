@@ -1,16 +1,15 @@
 ---
 created: '2025-11-03'
-last_reviewed: '2025-11-03'
-next_review: '2025-11-03'
-review_count: 0
+last_reviewed: '2025-11-04'
+next_review: '2025-11-06'
+review_count: 1
 difficulty: medium
-mastery_level: 0.0
+mastery_level: 0.23
 tags:
 - _seeds
 - _seeds/待分类
 related_outlines: []
 ---
-
 # 联影医疗中图像重建具体是做什么的？和HPC有关系么？
 
 ## 面试精简答案
