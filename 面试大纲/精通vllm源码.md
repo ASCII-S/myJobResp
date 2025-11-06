@@ -167,7 +167,7 @@
 1. 连续批处理（Continuous Batching）在Scheduler中如何体现？
 2. 当一个序列完成时，如何立即填充新序列？代码中如何处理？
 3. `_append_slot()`和`_allocate_and_set_running()`方法的作用是什么？
-4. 如何处理不同长度序列的批处理？Padding如何避免？
+4. [如何处理不同长度序列的批处理？Padding如何避免？](../notes/vllm/连续批处理中的序列长度不同，如何处理的？.md)
 
 #### 调度策略配置
 1. `SchedulerConfig`有哪些可配置参数？分别控制什么？
