@@ -1,6 +1,6 @@
 ---
 created: '2025-11-13'
-last_reviewed: '2025-11-13'
+last_reviewed: null
 next_review: '2025-11-13'
 review_count: 0
 difficulty: medium
@@ -10,8 +10,6 @@ tags:
 - 熟悉git/Git中哪些操作可能产生冲突？.md
 related_outlines: []
 ---
-
-
 # Git中哪些操作可能产生冲突？
 
 ## 面试标准答案（精简版）

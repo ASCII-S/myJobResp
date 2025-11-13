@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>面试大纲 - Interview Preparation</title>
+  <title>outlines - Interview Preparation</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="面试大纲文档">
+  <meta name="description" content="outlines文档">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <!-- 页面TOC插件样式 -->
@@ -68,6 +68,42 @@
     }
     .markdown-section ul.task-list {
       padding-left: 2em;
+    }
+    .doc-meta {
+      background-color: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: #555;
+    }
+    .doc-meta .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 6px;
+    }
+    .doc-meta .meta-label {
+      font-weight: 600;
+      margin-right: 4px;
+      color: #333;
+    }
+    .doc-meta .meta-value {
+      margin-right: 12px;
+    }
+    .doc-meta .meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .doc-meta .meta-tag {
+      background-color: rgba(66, 185, 131, 0.12);
+      color: #37936c;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
     }
     
     /* 回到顶部按钮样式 */
@@ -216,17 +252,18 @@
       }
     };
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
   
   <script>
     window.$docsify = {
-      name: '面试大纲',
+      name: 'outlines',
       repo: '',
       loadSidebar: true,
       subMaxLevel: 2,
-      homepage: 'README.md',
+      homepage: 'gitpages/homepage.md',
       relativePath: false,
       alias: {
-        '/.*/_sidebar.md': '/_sidebar.md'
+        '/.*/_sidebar.md': '/gitpages/_sidebar.md'
       },
       search: {
         maxAge: 86400000,
@@ -256,77 +293,220 @@
         function(hook, vm) {
           var mathStore = {};
           var mathId = 0;
-          
-          // 在 markdown 渲染之前，先保护数学公式
+          var metadataStore = {};
+
+          function getRouteKey() {
+            if (!vm.route) {
+              return '#/';
+            }
+            return vm.route.file || vm.route.path || '#/';
+          }
+
+          function escapeHtml(value) {
+            return String(value)
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+              .replace(/"/g, '&quot;')
+              .replace(/'/g, '&#39;');
+          }
+
+          function extractFrontmatter(rawContent, routeKey) {
+            var frontmatterRegex = /^---\n([\s\S]*?)\n---\n?/;
+            var match = rawContent.match(frontmatterRegex);
+
+            if (!match) {
+              metadataStore[routeKey] = null;
+              if (window.__DOC_METADATA && routeKey) {
+                delete window.__DOC_METADATA[routeKey];
+              }
+              return rawContent;
+            }
+
+            var metadata = {};
+            if (window.jsyaml && typeof window.jsyaml.load === 'function') {
+              try {
+                metadata = window.jsyaml.load(match[1]) || {};
+              } catch (error) {
+                console.warn('⚠️ frontmatter 解析失败:', routeKey, error);
+                metadata = {};
+              }
+            } else {
+              console.warn('⚠️ js-yaml 未加载，无法解析 frontmatter:', routeKey);
+              metadata = {};
+            }
+
+            if (typeof metadata !== 'object' || metadata === null) {
+              metadata = {};
+            }
+
+            metadataStore[routeKey] = metadata;
+            window.__DOC_METADATA = window.__DOC_METADATA || {};
+            window.__DOC_METADATA[routeKey] = metadata;
+
+            var body = rawContent.slice(match[0].length);
+            body = body.replace(/^\s+/, '');
+            return body;
+          }
+
+          function buildMetaHtml(metadata) {
+            if (!metadata || Object.keys(metadata).length === 0) {
+              return '';
+            }
+
+            var labels = {
+              difficulty: '难度',
+              mastery_level: '掌握度',
+              review_count: '复盘次数',
+              created: '创建日期',
+              last_reviewed: '最近复盘',
+              next_review: '下次复盘',
+              tags: '标签'
+            };
+
+            var order = [
+              'difficulty',
+              'mastery_level',
+              'review_count',
+              'created',
+              'last_reviewed',
+              'next_review'
+            ];
+
+            var rows = [];
+            var inlineItems = [];
+
+            order.forEach(function(key) {
+              var value = metadata[key];
+              if (value === undefined || value === null || value === '') {
+                return;
+              }
+              inlineItems.push(
+                '<span class="meta-label">' + escapeHtml(labels[key]) + '</span>' +
+                '<span class="meta-value">' + escapeHtml(value) + '</span>'
+              );
+            });
+
+            if (inlineItems.length > 0) {
+              rows.push('<div class="meta-row">' + inlineItems.join('') + '</div>');
+            }
+
+            if (Array.isArray(metadata.tags) && metadata.tags.length > 0) {
+              var tagsHtml = metadata.tags.map(function(tag) {
+                return '<span class="meta-tag">' + escapeHtml(tag) + '</span>';
+              }).join('');
+              rows.push('<div class="meta-tags" aria-label="标签">' + tagsHtml + '</div>');
+            }
+
+            Object.keys(metadata).forEach(function(key) {
+              if (order.indexOf(key) !== -1 || key === 'tags') {
+                return;
+              }
+              var value = metadata[key];
+              if (value === undefined || value === null || value === '') {
+                return;
+              }
+              var label = labels[key] || key;
+              rows.push(
+                '<div class="meta-row">' +
+                  '<span class="meta-label">' + escapeHtml(label) + '</span>' +
+                  '<span class="meta-value">' + escapeHtml(value) + '</span>' +
+                '</div>'
+              );
+            });
+
+            if (!rows.length) {
+              return '';
+            }
+
+            return '<section class="doc-meta" aria-label="文档元数据">' + rows.join('') + '</section>';
+          }
+
+          // 在 markdown 渲染之前处理 frontmatter 并保护数学公式
           hook.beforeEach(function(content) {
             // 注释掉自动滚动到顶部，改用滚动位置管理系统
             // window.scrollTo(0, 0);
-            
+            var routeKey = getRouteKey();
+
             // 重置
             mathStore = {};
             mathId = 0;
-            
+
+            // 解析 frontmatter
+            content = extractFrontmatter(content, routeKey);
+
             // 修正相对路径
             content = content.replace(/\(\.\.\/(notes\/[^\)]+)\)/g, function(match, path) {
               var encodedPath = path.replace(/::/g, '%3A%3A');
               return '(/' + encodedPath + ')';
             });
-            
+
             // 1. 先保护块级公式 $$...$$ (必须在 $ 之前处理)
             content = content.replace(/\$\$([\s\S]*?)\$\$/g, function(match) {
               var id = 'MATH_BLOCK_' + (mathId++);
               mathStore[id] = match;
               return '<!--' + id + '-->';
             });
-            
+
             // 2. 保护块级公式 \[...\]
             content = content.replace(/\\\[([\s\S]*?)\\\]/g, function(match) {
               var id = 'MATH_BLOCK_' + (mathId++);
               mathStore[id] = match;
               return '<!--' + id + '-->';
             });
-            
+
             // 3. 保护行内公式 $...$
             content = content.replace(/\$([^\$\n]+?)\$/g, function(match) {
               var id = 'MATH_INLINE_' + (mathId++);
               mathStore[id] = match;
               return '<!--' + id + '-->';
             });
-            
+
             // 4. 保护行内公式 \(...\)
             content = content.replace(/\\\(([^\)]*?)\\\)/g, function(match) {
               var id = 'MATH_INLINE_' + (mathId++);
               mathStore[id] = match;
               return '<!--' + id + '-->';
             });
-            
+
             return content;
           });
-          
-          // 在 HTML 生成后，恢复数学公式并处理任务列表
+
+          // 在 HTML 生成后，恢复数学公式、注入元数据并处理任务列表
           hook.afterEach(function(html, next) {
             // 恢复所有数学公式
             html = html.replace(/<!--(MATH_(?:BLOCK|INLINE)_\d+)-->/g, function(match, id) {
               return mathStore[id] || match;
             });
-            
+
             // 处理任务列表（将 markdown 的 [ ] 和 [x] 转换为 HTML checkbox）
             // 匹配 <li>- [ ] 或 <li>- [x] 格式
             html = html.replace(/<li>-?\s*\[([ xX])\]\s*(.*?)<\/li>/g, function(match, check, text) {
               var checked = (check.toLowerCase() === 'x') ? ' checked disabled' : ' disabled';
               return '<li class="task-list-item"><input type="checkbox"' + checked + '> ' + text + '</li>';
             });
-            
+
             // 为包含任务列表项的 <ul> 添加 task-list 类
             html = html.replace(/<ul>([\s\S]*?task-list-item[\s\S]*?)<\/ul>/g, function(match) {
               return match.replace('<ul>', '<ul class="task-list">');
             });
-            
+
+            var routeKey = getRouteKey();
+            var metadata = metadataStore[routeKey];
+            var metadataHtml = buildMetaHtml(metadata);
+            if (metadataHtml) {
+              html = metadataHtml + html;
+            }
+
             next(html);
           });
-          
-          // 在每次页面渲染完成后，触发 MathJax 渲染
+
+          // 在每次页面渲染完成后，触发 MathJax 渲染，并暴露当前文档元数据
           hook.doneEach(function() {
+            var routeKey = getRouteKey();
+            var metadata = metadataStore[routeKey] || null;
+            window.__CURRENT_DOC_METADATA = metadata;
+
             if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
               MathJax.typesetClear();
               MathJax.typesetPromise().then(function() {

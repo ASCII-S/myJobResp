@@ -41,7 +41,7 @@ show_help() {
 
 📋 常用命令:
 
-  today                    生成今日复习清单
+  today                    生成reviewsToday清单
   sync                     同步复习清单中已勾选的笔记（推荐！）
   done <file>              标记单个笔记为已复习
   fix [--auto] [--dry-run] 检查并修复元数据不一致
@@ -79,7 +79,7 @@ show_help() {
 
 💡 推荐工作流:
   1. 运行 today 生成复习清单
-  2. 在 今日复习.md 中打勾标记已复习的笔记 (- [x])
+  2. 在 reviewsToday.md 中打勾标记已复习的笔记 (- [x])
   3. 运行 sync 批量更新所有打勾的笔记
   
 💡 手动复习后同步元数据:
@@ -91,9 +91,9 @@ EOF
 # 主命令处理
 case "${1:-}" in
     today)
-        info "生成今日复习清单..."
+        info "生成reviewsToday清单..."
         python scripts/review_manager.py today
-        success "复习清单已生成: 今日复习.md"
+        success "复习清单已生成: reviewsToday.md"
         info "💡 提示: 复习完后在清单中打勾，然后运行 './scripts/kb.sh sync'"
         ;;
     
@@ -266,7 +266,7 @@ case "${1:-}" in
         
         success "全部更新完成！"
         info "生成的文件:"
-        info "  - 今日复习.md"
+        info "  - reviewsToday.md"
         info "  - 面试大纲/_知识图谱.md"
         info "  - 面试大纲/_知识点索引.md"
         info "  - 面试大纲/_统计报表.md"

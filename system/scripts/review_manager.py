@@ -2,7 +2,7 @@
 """
 知识库复习管理器
 功能：
-1. 生成今日复习清单
+1. 生成reviewsToday清单
 2. 标记文档为已复习
 3. 自动更新元数据（复习次数、下次复习时间等）
 4. 统计复习进度
@@ -305,7 +305,7 @@ def generate_review_markdown(review_list: Dict[str, List[Dict]], config: Dict) -
     if max_overdue > 0 and total_overdue > len(review_list['overdue']):
         md += f" (共{total_overdue}篇，显示前{max_overdue}篇)"
     
-    md += f"\n- ⭐ **今日复习**: {len(review_list['today'])} 篇"
+    md += f"\n- ⭐ **reviewsToday**: {len(review_list['today'])} 篇"
     
     if max_today > 0 and total_today > len(review_list['today']):
         md += f" (共{total_today}篇，显示前{max_today}篇)"
@@ -346,9 +346,9 @@ def generate_review_markdown(review_list: Dict[str, List[Dict]], config: Dict) -
             md += f"  - 已复习: {review_count}次 | 难度: {difficulty} \n"
         md += "\n"
     
-    # 今日复习
+    # reviewsToday
     if review_list['today']:
-        md += "## ⭐ 今日复习\n\n"
+        md += "## ⭐ reviewsToday\n\n"
         md += "_按智能排序，从易到难_\n\n"
         
         for i, note in enumerate(review_list['today'], 1):
@@ -730,8 +730,8 @@ def scan_and_fix_metadata(config: Dict, auto_fix: bool = False, dry_run: bool = 
 
 
 def sync_from_review_list(config: Dict) -> None:
-    """从今日复习清单同步已完成的笔记"""
-    review_file = ROOT_DIR / "今日复习.md"
+    """从reviewsToday清单同步已完成的笔记"""
+    review_file = ROOT_DIR / "reviewsToday.md"
     
     if not review_file.exists():
         print("❌ 复习清单不存在，请先运行: python scripts/review_manager.py today")
@@ -804,7 +804,7 @@ def main():
     subparsers = parser.add_subparsers(dest='command', help='命令')
     
     # today 命令
-    parser_today = subparsers.add_parser('today', help='生成今日复习清单')
+    parser_today = subparsers.add_parser('today', help='生成reviewsToday清单')
     
     # mark-done 命令
     parser_mark = subparsers.add_parser('mark-done', help='标记为已复习')
@@ -832,7 +832,7 @@ def main():
     
     if args.command == 'today':
         # 归档旧的复习清单
-        output_file = ROOT_DIR / "今日复习.md"
+        output_file = ROOT_DIR / "reviewsToday.md"
         if output_file.exists():
             # 读取旧文件的创建日期
             with open(output_file, 'r', encoding='utf-8') as f:
@@ -845,13 +845,13 @@ def main():
                 year, month, day = old_date.split('-')
                 
                 # 创建归档目录
-                archive_dir = ROOT_DIR / "今日复习归档" / year / month
+                archive_dir = ROOT_DIR / "reviewsArchived" / year / month
                 archive_dir.mkdir(parents=True, exist_ok=True)
                 
                 # 归档文件
                 archive_file = archive_dir / f"{old_date}.md"
                 output_file.rename(archive_file)
-                print(f"📦 已归档旧复习清单: 今日复习归档/{year}/{month}/{old_date}.md")
+                print(f"📦 已归档旧复习清单: reviewsArchived/{year}/{month}/{old_date}.md")
         
         print("🔍 扫描笔记文件...")
         notes = scan_notes(NOTES_DIR)

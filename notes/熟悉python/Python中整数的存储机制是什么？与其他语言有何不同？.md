@@ -1,6 +1,6 @@
 ---
 created: '2025-11-13'
-last_reviewed: '2025-11-13'
+last_reviewed: null
 next_review: '2025-11-13'
 review_count: 0
 difficulty: medium
@@ -10,8 +10,6 @@ tags:
 - 熟悉python/Python中整数的存储机制是什么？与其他语言有何不同？.md
 related_outlines: []
 ---
-
-
 # Python中整数的存储机制是什么？与其他语言有何不同？
 
 ## 面试标准答案（可背诵）

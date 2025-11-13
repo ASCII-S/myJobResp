@@ -16,6 +16,9 @@ ENV/
 *.swo
 *~
 .DS_Store
+.windsurf/
+.cursor/
+.obsidian/
 
 # 临时文件
 *.tmp
@@ -24,10 +27,10 @@ ENV/
 .cache/
 
 # 自动生成的复习清单（每日更新）
-# 今日复习.md
+reviewsToday.md
 
 # 复习清单归档（自动生成）
-今日复习归档/
+reviewsArchived/
 
 # 知识图谱
 docs/
@@ -42,3 +45,4 @@ Thumbs.db
 
 # 其他
 简历/
+

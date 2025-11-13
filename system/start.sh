@@ -18,11 +18,11 @@ echo -e "${GREEN}📅 每日开始 - 生成复习清单${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo
 
-# 生成今日复习清单
+# 生成reviewsToday清单
 python system/scripts/review_manager.py today
 
 echo
-echo -e "${GREEN}✅ 今日复习清单已生成！${NC}"
-echo -e "${YELLOW}📖 请打开 今日复习.md 开始复习${NC}"
+echo -e "${GREEN}✅ reviewsToday清单已生成！${NC}"
+echo -e "${YELLOW}📖 请打开 reviewsToday.md 开始复习${NC}"
 echo
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"

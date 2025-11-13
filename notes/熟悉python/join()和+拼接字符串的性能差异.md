@@ -1,6 +1,6 @@
 ---
 created: '2025-11-13'
-last_reviewed: '2025-11-13'
+last_reviewed: null
 next_review: '2025-11-13'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - 熟悉python/join()和+拼接字符串的性能差异.md
 related_outlines: []
 ---
-
 # join()和+拼接字符串的性能差异
 
 ## 面试标准答案（可背诵）

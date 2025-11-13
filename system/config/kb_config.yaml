@@ -40,7 +40,7 @@ default_difficulty: "medium"
 daily_review:
   # 每个分类的最大显示数量（0表示不限制）
   max_overdue: 10       # 已过期最多显示10个
-  max_today: 20         # 今日复习最多显示20个
+  max_today: 20         # reviewsToday最多显示20个
   max_this_week: 30     # 本周计划最多显示30个
   
   # 排序权重（越大越优先）
@@ -89,7 +89,7 @@ git_auto_commit:
     - "面试大纲/"            # 大纲目录
     - "outlines/"           # 大纲目录（英文名）
     - "config/"             # 配置目录
-    - "今日复习.md"         # 今日复习清单
+    - "reviewsToday.md"         # reviewsToday清单
 
 # 备份配置
 backup:

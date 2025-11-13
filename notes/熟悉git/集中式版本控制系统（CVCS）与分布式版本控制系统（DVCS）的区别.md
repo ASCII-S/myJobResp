@@ -1,6 +1,6 @@
 ---
 created: '2025-11-13'
-last_reviewed: '2025-11-13'
+last_reviewed: null
 next_review: '2025-11-13'
 review_count: 0
 difficulty: medium
@@ -10,8 +10,6 @@ tags:
 - 熟悉git/集中式版本控制系统（CVCS）与分布式版本控制系统（DVCS）的区别.md
 related_outlines: []
 ---
-
-
 # 集中式版本控制系统（CVCS）与分布式版本控制系统（DVCS）的区别
 
 ## 面试标准答案（精简版）
