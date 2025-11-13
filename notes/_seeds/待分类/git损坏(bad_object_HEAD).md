@@ -1,6 +1,6 @@
 ---
 created: '2025-11-06'
-last_reviewed: '2025-11-06'
+last_reviewed: null
 next_review: '2025-11-06'
 review_count: 0
 difficulty: medium
@@ -10,7 +10,6 @@ tags:
 - _seeds/待分类
 related_outlines: []
 ---
-
 # Git仓库损坏（bad object HEAD）的原因与修复
 
 ## 面试标准答案

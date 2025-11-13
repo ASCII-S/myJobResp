@@ -32,7 +32,7 @@
 1. [请画出vLLM主要模块之间的依赖关系图](../notes/精通vllm源码/请画出vLLM主要模块之间的依赖关系图.md)
 2. `LLMEngine`、`Worker`、`ModelRunner`三者的调用关系是什么？
 3. 前端API层（如OpenAI API）如何与底层Engine交互？
-4. 分布式推理时，进程间通信的代码在哪个模块？
+4. [分布式推理时，进程间通信的代码在哪个模块？](../notes/精通vllm源码/分布式推理时，进程间通信的代码在哪个模块？.md)
 
 #### 构建与配置
 1. vLLM的构建系统使用什么工具？（setup.py、CMake等）
@@ -167,7 +167,7 @@
 1. 连续批处理（Continuous Batching）在Scheduler中如何体现？
 2. 当一个序列完成时，如何立即填充新序列？代码中如何处理？
 3. `_append_slot()`和`_allocate_and_set_running()`方法的作用是什么？
-4. [如何处理不同长度序列的批处理？Padding如何避免？](../notes/vllm/连续批处理中的序列长度不同，如何处理的？.md)
+4. [如何处理不同长度序列的批处理？Padding如何避免？](../notes/精通vllm源码/连续批处理中的序列长度不同，如何处理的？.md)
 
 #### 调度策略配置
 1. `SchedulerConfig`有哪些可配置参数？分别控制什么？
